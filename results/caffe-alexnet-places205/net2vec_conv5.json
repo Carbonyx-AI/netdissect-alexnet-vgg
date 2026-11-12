@@ -1,0 +1,24 @@
+{
+ "n_concepts": 61,
+ "mean_direction_iou": 0.07610045241199061,
+ "mean_best_unit_iou": 0.055934740345115176,
+ "frac_direction_better": 0.8688524590163934,
+ "wilcoxon_p": 3.356729217676689e-10,
+ "concepts_without_unit_but_direction_iou_gt_0.04": [
+  "train",
+  "stairway",
+  "lamp",
+  "book",
+  "floor",
+  "shelf",
+  "blue-c",
+  "table",
+  "torso",
+  "green-c",
+  "pink-c",
+  "wood",
+  "orange-c",
+  "glass",
+  "white-c"
+ ]
+}

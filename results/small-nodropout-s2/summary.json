@@ -1,0 +1,47 @@
+{
+ "args": {
+  "model": "small-nodropout@work/trained/nodropout-s2/iter4440.pt",
+  "layers": "conv5",
+  "name": "small-nodropout-s2",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 32.82637810707092,
+  "iou": 137.2811930179596
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 17,
+   "unique_per_cat": {
+    "object": 5,
+    "part": 0,
+    "scene": 2,
+    "material": 0,
+    "texture": 9,
+    "color": 1
+   },
+   "detector_units": 51,
+   "detector_units_per_cat": {
+    "object": 13,
+    "part": 0,
+    "scene": 2,
+    "material": 0,
+    "texture": 32,
+    "color": 4
+   }
+  }
+ }
+}

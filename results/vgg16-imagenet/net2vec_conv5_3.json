@@ -1,0 +1,19 @@
+{
+ "n_concepts": 71,
+ "mean_direction_iou": 0.12304727941680352,
+ "mean_best_unit_iou": 0.07967328808471319,
+ "frac_direction_better": 0.9154929577464789,
+ "wilcoxon_p": 1.4200960763802816e-12,
+ "concepts_without_unit_but_direction_iou_gt_0.04": [
+  "book",
+  "signboard",
+  "glass",
+  "seat",
+  "wood",
+  "table",
+  "door",
+  "floor",
+  "blue-c",
+  "fabric"
+ ]
+}

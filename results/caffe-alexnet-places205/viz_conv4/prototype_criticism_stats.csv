@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+268,zigzagged,texture,0.1397,0.15,0.15
+213,grid,texture,0.1355,0.06,0.06
+224,grid,texture,0.114,0.07,0.07
+22,chequered,texture,0.1122,0.05,0.05
+115,road,object,0.1111,0.88,0.8041869455478353
+135,grid,texture,0.1031,0.17,0.17
+74,grid,texture,0.1021,0.05,0.05
+319,perforated,texture,0.0977,0.02,0.02
+258,grid,texture,0.0936,0.08,0.08
+229,banded,texture,0.0936,0.03,0.03
+163,cobwebbed,texture,0.0935,0.22,0.22
+194,grid,texture,0.0931,0.06,0.06

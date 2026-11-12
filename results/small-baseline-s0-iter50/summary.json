@@ -1,0 +1,47 @@
+{
+ "args": {
+  "model": "small-baseline@work/trained/baseline-s0/iter50.pt",
+  "layers": "conv5",
+  "name": "small-baseline-s0-iter50",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 38.6918044090271,
+  "iou": 133.10199761390686
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 6,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 5,
+    "color": 0
+   },
+   "detector_units": 56,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 55,
+    "color": 0
+   }
+  }
+ }
+}

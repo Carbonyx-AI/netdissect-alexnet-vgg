@@ -1,0 +1,16 @@
+=== Thu Nov 12 17:04:16 2026 {'model': 'caffe-vgg16-places365', 'layers': 'conv5_3', 'name': 'cascade-conv5_1-caffe-vgg16-places365', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': 'conv5_1', 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+randomized classifier + layers ['conv5_1', 'conv5_2', 'conv5_3']
+Broden: N=63305, labels=1197 valid, shards=50
+[quantile] conv5_3: n=12407780/unit, n_top=62039, tie units=1, candidate memory 0.38 GB
+[iou] batch 0 (0s)
+[iou] batch 200 (20s)
+[iou] batch 400 (40s)
+[iou] batch 600 (60s)
+[iou] batch 800 (79s)
+[iou] batch 1000 (92s)
+[iou] batch 1200 (112s)
+[iou] batch 1400 (133s)
+[iou] batch 1600 (153s)
+[iou] batch 1800 (171s)
+conv5_3: unique=5 {'object': 0, 'part': 0, 'scene': 1, 'material': 0, 'texture': 4, 'color': 0} detector_units=93/512
+=== done in 330s

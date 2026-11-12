@@ -68,3 +68,24 @@
 - Cascade (paper model): none 63, fc 63, +conv5 10, +conv4 8, +conv3 2, +conv2 6, +conv1 2 -> sanity check passed.
 - Small models trained (val. acc, 3 seeds): baseline 82.0-82.9, nodropout 77.8-78.9, batchnorm 86.2-86.3,
   gap256/768/1024/2048 82.3-83.3. baseline-s0 82.9 vs 82.6 in session 1 (GPU training is not bit-deterministic).
+- Small models, unique detectors (s0,s1,s2): baseline 21,18,18; nodropout 19,16,17; batchnorm 28,21,22.
+- Width control: gap256 (GAP head, no widening) 11,11,9 unique with 99-113 detector units vs baseline ~19 unique,
+  ~60 units -> the GAP head itself changes the picture; session 1's "more detector units" for the wide model was
+  (at least partly) the GAP head, not the width. Width must be judged within the GAP family (256->768->1024->2048).
+- small-gap2048-s0 dissection: CUDA OOM at our own 10 GB cap (2048 units x batch 32 masks). Re-run with batch 8
+  (results do not depend on batch size: exact IoU sums and exact quantile).
+- Width (GAP family), unique / detector units: gap256 11,11,9 / 99-113; gap768 14,11,12 / 296-366;
+  gap1024 13,14,13 / 401-459.
+- Phase 3 bugs found and fixed: run_fidelity did not pass the weights dir (Caffe model not found); discrimination saved
+  only at the end and crashed on the not-yet-dissected gap2048 models (now skips them and saves after every model).
+- Action40 (linear SVM, mean per-class acc.; chance 2.5%): random 6.6-7.8%, AlexNets 30-35%, VGG16s 46-60%,
+  Imagenette-trained 12-18%. Within AlexNet the Places models have more object detectors but lower Action40 accuracy
+  than the ImageNet models (paper reports a similar mismatch for ResNet).
+- Net2Vec, paper model conv5: directions beat the best unit for 87% of 61 concepts (mean IoU 0.076 vs 0.056).
+- Rotation Caffe AlexNet-ImageNet s0: 43 -> 13 at alpha=1 (70% drop).
+- Rotation Caffe AlexNet-ImageNet, 3 seeds: 43 -> 13, 12, 16 (68% drop). So ImageNet models drop less (58-68%) than
+  Places models (69-84%), for both model families.
+- gap2048 (batch 8 re-run): s0 17, s1 13 unique.
+- Fidelity, Caffe AlexNet-ImageNet: pre-specified dog test NOT significant: 13 dog units, 1000-way drop 11.8 points vs
+  10,000 random 13-unit groups mean 4.6, sd 7.2, max 49.6 -> p=0.12, z=1.0 (torchvision AlexNet: 24.3 points, p=1e-4).
+  -> group fidelity of labels is model-dependent; the conclusion of session 1 is weakened.

@@ -1,289 +1,242 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[margin=1.8cm]{geometry}
+\usepackage[margin=1.7cm]{geometry}
 \usepackage{graphicx,booktabs,tabularx,amsmath,xcolor,hyperref,caption,subcaption,enumitem}
-\captionsetup{font=small,labelfont=bf,skip=3pt}
+\captionsetup{font=small,labelfont=bf,skip=2pt}
 \setlist{nosep,leftmargin=*}
 \setlength{\parskip}{2pt}
+\setlength{\textfloatsep}{8pt}
 \hypersetup{colorlinks,linkcolor=black,citecolor=black,urlcolor=blue!50!black}
 \newcommand{\fig}[1]{../results/figures/#1}
 \newcommand{\viz}[1]{../results/#1}
 \newcommand{\fillin}[1]{\colorbox{yellow!40}{\textbf{[#1]}}}
-\title{\vspace{-1.2cm}\textbf{Network Dissection of AlexNet and VGG16:\\ a PyTorch re-implementation and an evaluation of the method}}
+\newcommand{\ok}{\textcolor{green!45!black}{\textbf{reproduced}}}
+\newcommand{\partly}{\textcolor{orange!80!black}{\textbf{partly}}}
+\newcommand{\no}{\textcolor{red!70!black}{\textbf{not reproduced}}}
+\title{\vspace{-1.3cm}\textbf{Network Dissection of AlexNet and VGG16: an honest reproduction in PyTorch}}
 \author{Interpretable Machine Learning --- Group Project \\ \fillin{Group members (names, roll numbers)}}
-\date{\fillin{Submission date} \quad Code: \fillin{GitHub link / zip name}}
+\date{\fillin{Submission date} \quad Code: \url{https://github.com/Carbonyx-AI/netdissect-alexnet-vgg}}
 \begin{document}
 \maketitle
-\vspace{-0.6cm}
+\vspace{-0.7cm}
 \begin{abstract}\noindent
-Network Dissection \cite{bau2017} measures how interpretable the hidden units of a CNN are by scoring every
-unit as a segmenter of human-labelled concepts. We re-implemented the full method in PyTorch, dissected
-AlexNet (ImageNet, Places365, random) and VGG16 (with and without batch normalisation) on the Broden dataset,
-and repeated every experiment of the paper (Sec.~3.1--3.7), the training experiments at reduced scale. Most
-findings are reproduced: concepts move from colours/textures in early layers to objects in conv5, VGG16 is
-more interpretable than AlexNet, a random rotation of conv5 destroys about 69\% of the unique detectors without
-changing accuracy, and interpretability correlates with transfer accuracy. Some claims are \emph{not}
-reproduced: batch normalisation does not reduce interpretability in our models, removing dropout has no clear
-effect, and the Places365 $>$ ImageNet ordering is small and flips with the IoU threshold. Using the evaluation criteria of Molnar's book
-\cite{molnar} we further show that unit labels have low single-unit fidelity but meaningful group fidelity,
-are moderately stable, pass a randomisation sanity check, and that learned concept directions beat single units.
+We re-implemented Network Dissection \cite{bau2017} from scratch in PyTorch and repeated the paper's experiments for
+AlexNet and VGG16, using the paper's own Caffe models (AlexNet-Places205, -Hybrid, -Places365, BVLC AlexNet,
+VGG16-Places365/Hybrid1365, loaded with our own converter) next to torchvision models. \textbf{Reproduced:}
+interpretability is tied to the basis --- a random rotation of conv5 of the paper's AlexNet-Places205 removes 84\% of
+the unique detectors (paper: 80\%) while the output is unchanged; detectors move from colour/texture to objects with
+depth; VGG16 $>$ AlexNet; Places $>$ ImageNet for the original models; random seeds converge; detectors emerge during
+training. \textbf{Not reproduced:} batch normalisation does not lower interpretability, removing dropout has no effect,
+and widening conv5 helps only a little --- all three in small-scale training on Imagenette, so these are weak tests.
+Absolute counts are higher than the paper's, and the size of the rotation effect depends on the model (58--84\%).
+Evaluated with Molnar's criteria \cite{molnar}, single-unit labels have almost no causal importance, while groups of units
+with the same label do; concepts are captured better by directions than by single units.
 \end{abstract}
 
 \section{Introduction}
-In Molnar's taxonomy \cite{molnar} Network Dissection is a \emph{post-hoc, model-specific, global} method from
-the chapter on learned features: it answers ``what concept does this unit detect?'' for every unit of a trained
-CNN. The paper tests whether interpretable units are an accident of the coordinate system (H1: any direction is
-as interpretable as a unit) or whether training finds a special, \emph{axis-aligned} basis (H2), and how
-interpretability depends on layer, architecture, training data and training tricks. Our contributions:
-(i) a from-scratch PyTorch implementation with exact quantiles and receptive-field-anchored upsampling, tested
-against a brute-force IoU; (ii) a reproduction of each experiment of the paper for AlexNet and VGG16;
-(iii) an evaluation of the method itself with the book's criteria (fidelity, stability, sanity checks,
-comparison with other methods).
+Network Dissection is a \emph{post-hoc, model-specific, global} method (Molnar, \emph{Learned Features}): every unit of a
+CNN is scored as a segmenter of every concept of a densely labelled dataset, and the number of distinct concepts that some
+unit detects measures how interpretable a layer is. The paper asks whether interpretable units are an accident of the
+coordinate system (H1) or a special, axis-aligned basis found by training (H2), and how interpretability depends on
+layer, architecture, training data and training regime. We implemented the method, checked it against a brute-force IoU,
+and repeated Sec.~3.1--3.7 for AlexNet and VGG16, the two architectures of our topic. Expectations were written down
+before running the second round of experiments (\texttt{report/EXPECTATIONS.md}).
 
-\section{Datasets and why we used them}
-\textbf{Broden} (\texttt{broden1\_224}) is the dataset the method is defined on. It merges ADE20K, Pascal-Context,
-Pascal-Part, OpenSurfaces and DTD plus generated colour labels: 63{,}305 images (224\,px) with labels at
-112\,px for 1{,}197 concepts in six categories --- 584 objects, 234 parts, 468 scenes, 32 materials, 47 textures,
-11 colours (exactly the paper's Table~1). Objects, parts, materials and colours are labelled per pixel,
-scenes and textures per image. Pixel-level labels are what dissection needs (a unit's activation map is
-scored as a segmentation), and using the paper's own data makes our numbers comparable. The official server
-was offline, so we used the Internet Archive copy and verified it byte-for-byte (SHA-1 of the archived
-original). \textbf{Imagenette} (10 ImageNet classes, 9{,}469 train / 3{,}925 val images) was used where class labels
-of the network's own task are needed: the accuracy check of the rotation experiment, the fidelity test, and
-training small AlexNets for the paper's training-condition experiments. \fillin{Mention instructor approval of Imagenette if obtained}
+\section{Datasets and models}
+\textbf{Broden} (\texttt{broden1\_224}, 63{,}305 images, labels at 112\,px, 1{,}197 concepts: 584 objects, 234 parts,
+468 scenes, 32 materials, 47 textures, 11 colours, exactly the paper's Table~1) is the dataset the method is defined on;
+dissection needs pixel-level concept labels. The official server was offline, so we used the Internet Archive copy and
+verified it byte-for-byte (SHA-1). \textbf{Imagenette} (10 ImageNet classes) is used for accuracy checks, the fidelity test
+and the small training runs; \textbf{Stanford Action40} (9{,}532 images, official 4{,}000/5{,}532 split, also verified by
+SHA-1) is the transfer task of the paper's Sec.~3.6. \fillin{note instructor approval of Imagenette / Action40}
 
-\section{Libraries}
-\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
-PyTorch 2.7 & tensors, GPU computation, autograd (training, feature visualisation, Net2Vec) \\
-torchvision 0.22 & AlexNet/VGG16/VGG16-BN definitions and ImageNet weights; Imagenette loading and transforms \\
-NumPy, pandas & memory-mapped Broden arrays; reading Broden's CSV files; result tables \\
-Pillow & decoding JPEGs and the RG-encoded label PNGs; writing image panels \\
-SciPy & real Schur decomposition (fractional rotations); statistical tests (Mann--Whitney, Wilcoxon, Spearman) \\
-Matplotlib & figures \\\bottomrule
+\textbf{Models.} The paper used Caffe models, so we wrote a reader for \texttt{.caffemodel}/\texttt{.prototxt} files
+(own protobuf decoder; grouped convolutions, LRN, ceil pooling, BGR mean subtraction). Every converted model was checked
+before use: BVLC AlexNet reaches 76.7\% 1000-way top-1 on Imagenette (torchvision AlexNet 72.0\% under the same
+protocol); on Broden scene images AlexNet-Places205 reaches 62.0\% top-1 (205 classes), AlexNet-Places365 46.6\%,
+VGG16-Places365 51.5\%. AlexNet-Hybrid is weaker than expected on scenes (38.9\% on its 205 scene outputs) and is used with
+that caveat. Not available: VGG16-Places205 (link dead) and the self-supervised AlexNets (server offline).
+
+\textbf{Libraries.} PyTorch (computation, autograd), torchvision (AlexNet/VGG16 definitions and ImageNet weights),
+NumPy/pandas (data handling), Pillow (images, label PNGs), SciPy (Schur decomposition, statistical tests), Matplotlib
+(figures). Dissection, the Caffe reader, rotations, permutation importance, probes and the human check are our code.
+
+\section{Method}
+For each unit $k$: $T_k$ is the exact top quantile with $P(a_k>T_k)=0.005$ over all positions of all images;
+$A_k(x)$ is upsampled bilinearly to $112\times112$ with each activation at its receptive-field centre and thresholded,
+$M_k=S_k>T_k$; then $\mathrm{IoU}_{k,c}=\sum_x|M_k\cap L_c|/\sum_x|M_k\cup L_c|$ over the images that have a label of
+$c$'s category; unit $k$ detects its best concept if IoU $>0.04$, and a layer's \emph{unique detectors} are the distinct
+concepts detected. Intersections for all concepts are accumulated per batch with a GPU \texttt{index\_add} (exact counts),
+all sums are kept for 50 random image shards (bootstrap), and the quantile is computed exactly with bounded memory (VGG
+conv1\_2 has $3.2\cdot10^9$ activations per unit). A random rotation $Q\in SO(K)$ comes from a QR decomposition; $Q^\alpha$
+from the real Schur form. Re-running a first-round dissection after the code was refactored gave bit-identical results.
+
+\section{Reproduction of the paper}
+\begin{figure}[t]\centering
+\includegraphics[width=0.97\linewidth]{\fig{fig_last_layer.png}}
+\caption{Last conv layer of all 12 models (paper Fig.~7/8). tv = torchvision, PT = PyTorch release, Caffe = original model.}\label{fig:last}
+\end{figure}
+\textbf{3.4 Architecture and training data} (Fig.~\ref{fig:last}). VGG16 has 89--148 unique detectors, AlexNet 43--68:
+\ok. With the original Caffe models Places beats ImageNet clearly (AlexNet: Places205 63, Places365 68, Hybrid 65 vs
+ImageNet 43; VGG16: Places365 148 vs ImageNet 89) and the AlexNet order Places365 $>$ Hybrid $>$ Places205 $>$ ImageNet is the
+paper's (Fig.~8): \ok. Two caveats: the torchvision ImageNet AlexNet (53) and the PyTorch Places365 release (55) are almost
+equal, and the PyTorch release has hundreds of units that are zero on $>$99.5\% of positions (the Caffe Places365 model has
+almost none) --- so ``Places $>$ ImageNet'' holds for the original models, not for every re-implementation. Random networks
+have 4--6: \ok. Our counts are higher than the paper's (its Fig.~4/5 axes end at 40, we find 63 for the same AlexNet-Places205);
+we use 224\,px instead of 227\,px input and cannot otherwise explain the difference.
+
+\begin{figure}[t]\centering
+\begin{subfigure}{0.99\linewidth}\centering\includegraphics[width=0.86\linewidth]{\fig{fig_layers_alexnet.png}}\caption{AlexNet, original Caffe models: Places205 (paper's model), ImageNet (BVLC), and a random AlexNet (paper Fig.~5).}\end{subfigure}
+\begin{subfigure}{0.99\linewidth}\centering\includegraphics[width=0.99\linewidth]{\fig{fig_layers_vgg.png}}\caption{VGG16, last conv layer of each block.}\end{subfigure}
+\caption{Unique detectors per layer.}\label{fig:layers}
+\end{figure}
+\begin{figure}[t]\centering
+\begin{subfigure}{0.5\linewidth}\includegraphics[width=\linewidth]{\fig{fig_rotation.png}}\caption{All rotated models (3 seeds each).}\label{fig:rot}\end{subfigure}\hfill
+\begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{\fig{fig_rotation_places205.png}}\caption{Paper's AlexNet-Places205 (paper Fig.~4).}\end{subfigure}
+\caption{Random rotations $Q^\alpha$ of the last conv layer.}
+\end{figure}
+\textbf{3.3 Concepts by layer} (Fig.~\ref{fig:layers}). AlexNet-Places205 rises 7, 20, 34, 37, 63 from conv1 to conv5, colour
+dominates conv1, textures conv2--conv3, objects conv5 (33 object detectors): \ok. ImageNet and Hybrid AlexNets dip at conv4 (Caffe ImageNet: 35
+$\to$ 29, although conv3 and conv4 both have 384 units), so the rise is not monotone for every model. VGG16 stays low up
+to conv3\_3 (6--13) and jumps at conv4\_3/conv5\_3, the same pattern for all trained VGGs.
+
+\textbf{3.2 Axis-aligned interpretability} (Fig.~\ref{fig:rot}). For the paper's own model, rotating conv5 by a random
+$Q\in SO(256)$ reduces unique detectors from 63 to $10.0\pm0.8$ (3 rotations), an \textbf{84\% drop} (paper: 80\%), with the
+collapse between $\alpha=0.6$ and $0.8$ as in the paper. VGG16-Places365 conv5\_3: $148\to30.3\pm1.2$ (80\%). The drop is
+smaller for other models: torchvision AlexNet-ImageNet 58\%, Caffe AlexNet-ImageNet 68\%, PyTorch AlexNet-Places365 69\% (3 seeds each):
+ImageNet models drop less than Places models in both model families. We also measured the paper's premise: passing $Q^\top Qf(x)$ through the rest of the network
+leaves the output unchanged (max.\ logit difference $1.5\cdot10^{-5}$), while $Qf(x)$ alone gives chance accuracy.
+Conclusion: interpretability is a property of the basis, not of the information (H2): \ok.
+
+\textbf{3.5 Training conditions and 3.7 width} (Fig.~\ref{fig:train}). The paper trained AlexNet on Places205; we can only
+train on Imagenette (9.5k images, 60 epochs, 3 seeds per variant), so these are weak, small-scale tests.
+\emph{Seeds}: $19.0\pm1.7$ unique detectors at equal accuracy (82.5\%): \ok. \emph{Iterations}: 4 at initialisation,
+4--6 up to iteration 400, 12 at 800, 19 at the end (mean of 3 seeds); object detectors appear after $\sim$800
+iterations: \ok\ (in shape). \emph{No dropout}: $17.3\pm1.5$ (objects 5.0 vs 5.3, textures 9.7 vs 11.3; Welch $p=0.28$) --- the
+paper's ``more textures, fewer objects'' is \no. \emph{Batch norm}: $23.7\pm3.8$, higher than baseline (not significant,
+$p=0.15$) and accuracy 86.3\%; pretrained VGG16-BN has fewer detectors than VGG16 in conv3\_3/conv4\_3 but more in conv5\_3
+(96 vs 89) --- the paper's ``BN decreases interpretability'' is \no. \emph{Width}: replacing the FC layers by global average
+pooling (GAP) alone already changes the result (256 units: $10.3$ unique, 106 detector units, vs 19 / 60 for the baseline),
+so width must be compared inside the GAP family: 256 $\to$ 768 $\to$ 1024 $\to$ 2048 units give $10.3, 12.3, 13.3, 15.0$
+unique detectors and 106, 327, 426, 884 detector units (3 seeds each). More units give many more detector units but only a
+few more concepts, and unlike the paper there is no plateau after 768: \partly.
+
+\begin{figure}[t]\centering
+\begin{subfigure}{0.52\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_variants.png}}\caption{Variants, 3 seeds each.}\label{fig:train}\end{subfigure}\hfill
+\begin{subfigure}{0.46\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_dynamics.png}}\caption{During training (3 seeds).}\end{subfigure}
+\caption{Small-scale training on Imagenette (paper Fig.~10, 11, 13).}
+\end{figure}
+
+\textbf{3.6 Discrimination vs interpretability} (Fig.~\ref{fig:disc}). As in the paper, a linear SVM ($C=0.001$) is trained on
+pooled last-conv features for Stanford Action40 and its mean per-class accuracy is compared with the number of unique object
+detectors. Over the 12 pretrained and random models Spearman $\rho=0.74$ ($p=0.006$), the paper's positive relation.
+Random models are at 7\%, AlexNets at 30--35\%, VGG16s at 46--60\%. But inside each architecture the sign reverses (trained
+AlexNets $\rho=-0.64$, VGG16s $-0.60$, not significant): the Places models have more object detectors but transfer
+\emph{worse} to actions (AlexNet 32\% vs 35\%). The correlation is driven by architecture and training vs no training: \partly.
+
+\textbf{3.1 Human evaluation} (Fig.~\ref{fig:human}). Paper: raters judged whether the label describes a unit's top images;
+71\% of conv5 labels of AlexNet-Places205 were accepted. We showed 50 units (8 per layer of AlexNet-Places205, 10 of
+VGG16-Places365 conv5\_3; 10 top images each), half with the true label and half with a decoy of the same category, to
+\fillin{n} rater(s). True labels accepted: \fillin{x\%}; decoys accepted: \fillin{x\%}; agreement with the method
+(Cohen's $\kappa$): \fillin{x}. With 2--5 true labels per layer, per-layer numbers are noisy.
+
+\begin{table}[t]\centering\small
+\begin{tabularx}{\linewidth}{@{}Xlp{5.3cm}@{}}\toprule
+Claim of the paper & Verdict & Our evidence \\\midrule
+Interpretability is axis-aligned; rotation keeps outputs (3.2) & \ok & $-84\%$ for the paper model (paper $-80\%$); 58--84\% across models \\
+Colour/texture early, objects late (3.3) & \ok & all trained models; ImageNet AlexNets dip at conv4 \\
+VGG $>$ AlexNet; trained $\gg$ random (3.4) & \ok & 89--148 vs 43--68; random 4--6 \\
+Places $>$ ImageNet (3.4) & \ok & original models 63--68 vs 43, VGG 148 vs 89; not for torchvision/PyTorch releases \\
+Hybrid between Places and ImageNet (3.4) & \ok & AlexNet 65, VGG 147 \\
+Self-supervised $<$ supervised (3.4) & not tested & models unavailable \\
+Seeds converge (3.5) & \ok & $19.0\pm1.7$ \\
+Detectors emerge during training (3.5) & \ok & 4 $\to$ 19, objects after $\sim$800 it. \\
+No dropout: more texture, fewer objects (3.5) & \no & no difference ($p=0.28$), small scale \\
+Batch norm lowers interpretability (3.5) & \no & higher in small models, mixed in VGG16 \\
+Discrimination correlates with interpretability (3.6) & \partly & $\rho=0.74$ across models, negative within each architecture \\
+Wider layer, more detectors (3.7) & \partly & more detector units, few more concepts \\
+Orderings stable across IoU thresholds (2.2) & \partly & 8 of 66 model pairs flip, Kendall $\tau=0.80$ \\
+Human agreement 71\% at conv5 (3.1) & \fillin{} & \fillin{} \\\bottomrule
 \end{tabularx}
-No implementation of Network Dissection, Net2Vec, feature visualisation or TCAV was imported; these are written
-in the repository ($\approx$1{,}850 lines including tests).
+\caption{Summary. Of the 12 claims we could test (human evaluation pending), 7 are reproduced, 3 partly and 2 not.}\label{tab:sum}
+\end{table}
 
-\section{Method and implementation}
-For a layer with $K$ units and Broden images $x$:
-(1)~$T_k$ is the top quantile with $P(a_k>T_k)=0.005$ over all spatial positions of all images;
-(2)~the activation map $A_k(x)$ is bilinearly upsampled to $112\times112$ with each activation placed at the centre of
-its receptive field, giving $S_k(x)$, and binarised $M_k(x)=S_k(x)>T_k$;
-(3)~for every concept $c$ with label mask $L_c(x)$,
-$\mathrm{IoU}_{k,c}=\sum_x|M_k(x)\cap L_c(x)|\,/\,\sum_x|M_k(x)\cup L_c(x)|$, where the sums run only over images
-that have a label of $c$'s category; (4)~unit $k$ is a \emph{detector} of its best concept if the IoU $>0.04$, and
-the interpretability of a layer is its number of \textbf{unique detectors} (distinct concepts).
+\section{Evaluating the method (Molnar's criteria)}
+\textbf{Fidelity.} Using permutation feature importance with units as features (Imagenette, AlexNet-ImageNet conv5),
+labelled units are \emph{not} more important than unlabelled ones (Mann--Whitney $p=0.80$; VGG16 $p=0.63$) and IoU does not
+correlate with importance (Spearman $-0.01$); no single unit changes accuracy by more than 0.2\%. Shuffling all units labelled
+``dog'' together (the one test fixed in advance) costs 24.3 points of 1000-way accuracy on the dog class (13 units; 10{,}000
+random groups: mean 3.4, $p=10^{-4}$; VGG16: 29.3 points, $p=0.002$) but under 1 point in 10-way accuracy: the units carry
+\emph{which breed}, not \emph{dog or not}. For the original Caffe AlexNet-ImageNet the same test is \emph{not} significant
+(11.8 points vs random mean 4.6, $p=0.12$; single units: $p=0.32$): group fidelity of labels depends on the model.
+\textbf{Sanity check} (cascading randomisation). Re-initialising only the classifier changes nothing (labels identical in all
+three models tested), re-initialising the top conv layer drops the last layer to 5--14 unique detectors (Fig.~\ref{fig:casc}):
+the method passes, but it describes what a layer represents, not how the network uses it.
+\textbf{Stability.} 89--94\% of last-layer labels of trained models survive bootstrap resampling of images (random models 72--83\%); with the 1\% quantile 75--88\% of labels
+stay, with 0.1\% only 47--63\%; Gaussian pixel noise ($\sigma=0.1$) keeps 65--73\%.
+\textbf{Negative activations.} The bottom 0.5\% of pre-ReLU activations gives only 10--16 unique concepts (vs 53--148), mostly
+grid, dotted and chequered textures: the negative tail is not concept-specific.
+\textbf{Units vs directions.} Linear concept directions learned on Broden train images and dissected like units beat the best
+single unit for 76--100\% of concepts in five models and capture 10--15 concepts that no unit detects (Net2Vec \cite{net2vec}).
+Together with the rotation result: random directions are worse than units, learned directions better --- concepts are partly
+distributed.
+\textbf{Prototypes and criticisms} (Fig.~\ref{fig:units}). The paper model's ``car'' unit is clean (96\% of its top-100
+images contain cars), but most texture units are not: only 3--47\% (median 18\%) of their top-100 images carry the label,
+because textures are labelled only on the 5{,}640 DTD images and IoU is computed only over those images.
 
-\textbf{Implementation.} Intersections for all 1{,}197 concepts are accumulated per batch with a GPU
-\texttt{index\_add} into a concept$\times$unit table (exact in float32 because per-batch counts are $<2^{24}$);
-scene/texture labels act as full-image masks, so their intersection is the mask area; the union is
-$|M|+|L|-|M\cap L|$ with $|M|$ restricted per category. The quantile is \emph{exact}: a subsample proposes cut
-levels, one streaming pass counts values above/equal to each level, a second pass keeps only values above the
-chosen level and takes the order statistic; ties (units that are 0 on $>$99.5\% of positions) give $T_k=0$.
-All sums are stored per image shard (50 random shards), so bootstrap intervals need no recomputation.
-Receptive-field centres are computed from the conv/pool geometry (AlexNet conv1: start 3, stride 4).
-A random rotation $Q\in SO(256)$ is drawn by QR of a Gaussian matrix; $Q^\alpha$ is computed from the real Schur
-form by multiplying every rotation angle by $\alpha$. One AlexNet (5 layers) is dissected in $\approx$9 minutes.
-
-\section{Reproduction of the paper's experiments}
-\textbf{Differences from the paper} (to read the numbers correctly): torchvision AlexNet (64 conv1 filters, no
-LRN, 224\,px) instead of Caffe AlexNet (96 filters, LRN, 227\,px); the CSAIL PyTorch \emph{Places365} AlexNet instead
-of Places205; training experiments on Imagenette instead of Places205; transfer task Broden scenes instead of
-Action40. GoogLeNet, ResNet and self-supervised models are outside our topic (AlexNet/VGG).
-
-\subsection{Human evaluation (paper Sec.~3.1, Table~3)}
-Protocol: 30 randomly chosen detector units of AlexNet-Places365 conv5; each shown as its 15 most activating
-Broden images with the unit mask highlighted (as in the paper), together with a phrase. Unlike the paper we show
-the true label for a random half of the units and a decoy label of the same category for the other half, so that
-raters' tendency to say ``yes'' can be measured. Raters work independently.
-\begin{center}\small\begin{tabular}{lccc}\toprule
-& true label judged descriptive & decoy judged descriptive & Fleiss' $\kappa$ \\\midrule
-Paper, conv5 (AlexNet-Places205) & 71\% & -- & -- \\
-Ours (\fillin{n} raters, 30 units) & \fillin{\%} & \fillin{\%} & \fillin{value} \\\bottomrule
-\end{tabular}\end{center}
-\noindent\fillin{Run the study (visualize.py, ~20 min) and fill this table; otherwise remove this subsection.}
-
-\subsection{Is interpretability axis-aligned? (Sec.~3.2, Fig.~4)}
 \begin{figure}[t]\centering
-\begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{\fig{fig_rot-alexnet-places365.png}}\caption{Rotation $Q^\alpha$ of AlexNet-Places365 conv5 (3 seeds).}\label{fig:rot}\end{subfigure}\hfill
-\begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{\fig{fig_architectures.png}}\caption{Last conv layer, bootstrap 95\% intervals.}\label{fig:arch}\end{subfigure}
-\caption{Left: interpretability drops as the basis is rotated away from the learned one (paper Fig.~4). Right: architecture, training data and batch norm (paper Fig.~7).}
+\begin{subfigure}{0.45\linewidth}\includegraphics[width=\linewidth]{\fig{fig_discrimination_action40.png}}\caption{Action40 vs object detectors (paper Fig.~12).}\label{fig:disc}\end{subfigure}\hfill
+\begin{subfigure}{0.27\linewidth}\IfFileExists{\fig{fig_human_check.png}}{\includegraphics[width=\linewidth]{\fig{fig_human_check.png}}}{\fillin{human check figure}}\caption{Human check (Table 3).}\label{fig:human}\end{subfigure}\hfill
+\begin{subfigure}{0.27\linewidth}\includegraphics[width=\linewidth]{\fig{fig_cascade.png}}\caption{Cascade.}\label{fig:casc}\end{subfigure}
+\caption{Discrimination, human evaluation and the randomisation sanity check.}
 \end{figure}
-Fig.~\ref{fig:rot}: rotating conv5 of AlexNet-Places365 reduces unique detectors from 55 to $17.3\pm1.7$ at
-$\alpha=1$ (three random rotations), a \textbf{69\% drop}; for AlexNet-ImageNet 53$\to$23 (57\%, one seed). The paper
-reports 80\%. As in the paper the decrease is gradual and strongest between $\alpha=0.6$ and $0.8$. The paper's premise
-that a rotation keeps discriminative power was \emph{measured}: feeding $Q^\top Q f(x)$ to the rest of the network gives
-identical Imagenette accuracy (98.4\%, max logit difference $1.5\cdot10^{-5}$), while $Qf(x)$ without the inverse
-gives 9.6\% (chance). Interpretability is therefore a property of the basis, not of the information: \textbf{H2 is supported}.
 
-\subsection{Concepts by layer (Sec.~3.3, Fig.~5)}
-\begin{figure}[h]\centering\includegraphics[width=0.86\linewidth]{\fig{fig_layers_alexnet.png}}
-\caption{Unique detectors per layer of AlexNet (paper Fig.~5).}\label{fig:layers}\end{figure}
-Fig.~\ref{fig:layers}: colour and texture detectors dominate conv1--conv2 and object/part detectors appear mainly in
-conv5 (AlexNet-ImageNet: 6, 20, 33, 28, 53 unique detectors; objects 0$\to$17). The count is not monotone
-(conv3 $>$ conv4), but conv3 has 384 units and conv4 256; per 100 units they are equal (8.6 vs 10.9).
-Places365 has \emph{fewer} detectors than ImageNet in conv2--conv3 (21 vs 33 at conv3): in this checkpoint 237 of
-384 conv3 units are zero on more than 99.5\% of positions (we verified the checkpoint's scene predictions on Broden
-are sensible, e.g.\ corridor$\to$corridor, so this is a property of the model, not a loading error).
-
-\subsection{Architectures and training data (Sec.~3.4, Fig.~7)}
-\begin{figure}[t]\centering
-\begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_variants.png}}\caption{AlexNets trained on Imagenette (variant, val.\ accuracy).}\label{fig:train}\end{subfigure}\hfill
-\begin{subfigure}{0.46\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_dynamics.png}}\caption{Baseline during training.}\label{fig:dyn}\end{subfigure}
-\caption{Training conditions at reduced scale (paper Fig.~10, 11, 13).}
-\end{figure}
-Fig.~\ref{fig:arch}: \textbf{VGG16 $>$ AlexNet} (89 vs 53 unique detectors, 37 vs 17 objects), as in the paper. A random
-AlexNet has only 6 (paper: few), mostly the texture ``chequered'' that random filters pick up. \textbf{Places365 vs ImageNet}:
-55 vs 53 with overlapping intervals ([52, 60] vs [49, 57]); Places365 has more object (20 vs 17) and scene (5 vs 1)
-detectors, the direction the paper reports, but the difference is not significant and it reverses for IoU thresholds
-$\geq0.06$ (Sec.~\ref{sec:stab}), contradicting the paper's statement that relative orderings are threshold-stable.
-
-\subsection{Training conditions (Sec.~3.5, Fig.~10--11) and width (Sec.~3.7, Fig.~13)}
-We trained six AlexNets from scratch on Imagenette with one recipe (60 epochs, SGD, one-cycle LR) and dissected conv5
-(Fig.~\ref{fig:train}). \emph{Random initialisation:} three seeds give 17, 20, 17 unique detectors at the same accuracy
-($\approx$83\%) --- reproduced. \emph{Training iterations:} 6 detectors at initialisation, 6--8 up to iteration 400,
-15 at 800--1600 and 17 at the end; object detectors appear only after $\approx$800 iterations --- reproduced in shape (the paper sees objects after $\approx$10{,}000 iterations on a 250$\times$ larger dataset).
-\emph{Dropout:} the paper finds more textures and fewer objects without dropout; we see 16 vs 17 unique and
-objects 5 vs 6 --- \textbf{not reproduced} (no clear effect). \emph{Batch norm:} the paper finds a strong decrease; our BN model
-has \textbf{more} detectors (26, interval [23, 29], vs 17, [15, 21]) and higher accuracy (85.9 vs 82.6\%) --- \textbf{not reproduced}.
-For pretrained VGG16, BN gives fewer detectors in conv3\_3 (2 vs 9) and conv4\_3 (26 vs 46) but slightly more in
-conv5\_3 (96 vs 89); these two checkpoints were trained separately, so this comparison is confounded.
-\emph{Width:} widening conv5 to 768 units with global average pooling gives many more detector units (300 vs 56)
-but not more unique concepts (14 vs 17) --- the paper reports both increasing, so only half is reproduced.
-
-\subsection{Discrimination vs interpretability (Sec.~3.6, Fig.~12)}
-\begin{figure}[t]\centering
-\begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{\fig{fig_discrimination.png}}\caption{Transfer accuracy vs unique object detectors.}\label{fig:disc}\end{subfigure}\hfill
-\begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{\fig{fig_cascade.png}}\caption{Cascading randomisation sanity check.}\label{fig:casc}\end{subfigure}
-\caption{Left: paper Fig.~12 (our transfer task: 30 Broden scenes). Right: re-initialising layers from the top.}
-\end{figure}
-A linear classifier on pooled last-conv features (30 most frequent Broden scenes, 6{,}844 train / 2{,}789 val images)
-against the number of unique object detectors (Fig.~\ref{fig:disc}) gives Spearman $\rho=0.79$ ($p=0.004$, 11 models),
-the positive relation of the paper. Most of it comes from the gap between pretrained and small models: within the five
-pretrained/random models the order is perfect ($\rho=1$), within our six small models there is none ($\rho=-0.38$, $p=0.45$).
-
-\begin{table}[h]\centering\small
-\begin{tabularx}{\linewidth}{@{}Xll@{}}\toprule
-Claim of the paper & Our result & Verdict \\\midrule
-Interpretability is axis-aligned; rotation keeps accuracy (3.2) & $-69\%$ unique detectors, accuracy identical & reproduced (smaller drop) \\
-Low layers colour/texture, high layers objects/parts (3.3) & yes, objects 0$\to$17 from conv1 to conv5 & reproduced \\
-VGG $>$ AlexNet; trained $\gg$ random (3.4) & 89 vs 53; 6 for random & reproduced \\
-Places $>$ ImageNet (3.4) & 55 vs 53, intervals overlap, flips with threshold & weak / not significant \\
-Similar interpretability across seeds (3.5) & 17, 20, 17 & reproduced \\
-Detectors emerge with training (3.5) & 6 $\to$ 17, objects after $\sim$800 it. & reproduced \\
-No dropout: more textures, fewer objects (3.5) & no clear difference & not reproduced \\
-Batch norm decreases interpretability (3.5) & more detectors (small models); mixed (VGG) & not reproduced \\
-More discriminative $\Rightarrow$ more detectors (3.6) & $\rho=0.79$ overall, driven by model groups & reproduced (weakly) \\
-Wider layer $\Rightarrow$ more detectors (3.7) & more detector units, not more unique concepts & partly \\
-Orderings stable across IoU thresholds (2.2) & Places/ImageNet order flips at $\geq0.06$ & not reproduced \\\bottomrule
-\end{tabularx}
-\caption{Summary of the reproduction.}\label{tab:summary}\end{table}
-
-\section{Evaluating Network Dissection with the book's criteria}
-\textbf{Fidelity (permutation importance).} Using Molnar's permutation feature importance with units as features,
-we shuffled one conv5 unit at a time across Imagenette images (5 repeats). Units with a concept label are \emph{not} more
-important than unlabelled ones (mean loss ratio 1.014 vs 1.015, Mann--Whitney $p=0.80$; VGG16 $p=0.63$) and IoU does not
-correlate with importance (Spearman $-0.01$); the largest single-unit accuracy drop is 0.2\%. Because many units carry the
-same concept, single-unit importance underestimates it (the book's warning about correlated features), so we also shuffled
-all units with the same label together. Our one test fixed in advance --- the ``dog'' units for the dog class (English springer)
---- gives a 1000-way accuracy drop of \textbf{24.3 points} for AlexNet (13 units; 10{,}000 random 13-unit groups: mean 3.4, max 22.3,
-$p=0.0001$, $z=7.2$) and \textbf{29.3 points} for VGG16 (35 units, $p=0.0017$, $z=5.7$). The 10-way drop is below 1 point: the dog units
-carry \emph{which breed}, not \emph{dog vs.\ not dog}. So labels are faithful for groups of units, not for single units.
-
-\textbf{Sanity check.} Adebayo et al.'s cascading randomisation (book, saliency chapter) applied to dissection
-(Fig.~\ref{fig:casc}): re-initialising conv5 and above drops conv5 from 53 to 14 unique detectors, re-initialising
-everything to 3. Re-initialising only the classifier changes \emph{nothing} (53, identical labels): dissection
-describes what a layer represents, not how the network uses it --- which is why the fidelity test is needed.
-
-\textbf{Stability.}\label{sec:stab} Bootstrapping the 50 image shards, 89--94\% of conv5 detector labels survive resampling
-(bootstrap intervals are approximate: unique counts are biased upward under resampling, and for Places365 conv4 the observed
-value lies just below its interval). Changing the activation quantile from 0.5\% to 1\% keeps 80--88\% of labels, 0.1\% only
-57--61\% (unique counts 22--27 instead of 53--55); Gaussian pixel noise ($\sigma=0.05$/$0.1$) keeps 84--96\% / 70--73\%.
-\begin{figure}[t]\centering
-\begin{subfigure}{0.40\linewidth}\includegraphics[width=\linewidth]{\fig{fig_iou_threshold.png}}\caption{IoU threshold sweep.}\label{fig:thr}\end{subfigure}\hfill
-\begin{subfigure}{0.52\linewidth}\includegraphics[width=\linewidth]{\fig{fig_negative.png}}\caption{Top vs bottom 0.5\% of activations.}\label{fig:neg}\end{subfigure}
-\caption{Left: the number of unique detectors and the Places/ImageNet order depend on the 0.04 threshold. Right: negative activations.}
-\end{figure}
-The detector threshold matters a lot (Fig.~\ref{fig:thr}): 81 unique detectors at 0.02, 53 at 0.04, 22 at 0.08, and the
-Places/ImageNet order flips. The 0.04 threshold is also weak: 22\% of the units of a \emph{random} AlexNet pass it.
-
-\textbf{Negative activations.} The book notes that dissection ignores negative activations and suggests the lower quantile.
-Dissecting the bottom 0.5\% of pre-ReLU activations (Fig.~\ref{fig:neg}) gives only 12 (AlexNet-ImageNet), 11 (Places365) and 16
-(VGG16) unique concepts, almost all repetitive high-contrast textures (dotted, grid, chequered), and no unit has the same concept
-for both tails. The negative tail is mostly not concept-specific.
-
-\textbf{Units vs.\ directions} (book: concept chapter). We learned a linear direction in conv5 for 48--49 Broden concepts (Broden
-train split, pixel-wise BCE; Net2Vec \cite{net2vec}) and dissected each direction exactly like a unit on the val split. Directions
-beat the best single unit for 47/48 (ImageNet) and 49/49 (Places365) concepts (mean IoU 0.093 vs 0.063; Wilcoxon $p<10^{-12}$),
-and capture 12--13 concepts that have no detector unit (building, floor, torso, \dots). With the rotation result this gives the
-full picture: \emph{random} directions are less interpretable than units, \emph{learned} ones more --- concepts are partly
-distributed over units.
-
-\textbf{Prototypes and criticisms} (book: example-based explanations). Fig.~\ref{fig:units} shows each unit's most activating images
-(prototypes), the top-100 images where its label fits least (criticisms) and an activation-maximisation image. The ``wheel'' unit
-(IoU 0.18) also fires on plates and spirals, the ``dog'' unit on cats and sheep --- a concrete case of the ``illusion of
-interpretability''. For texture labels only 3--47\% (median 18\%) of a unit's top-100 images carry the label (object/part labels: 30--97\%), because texture labels exist only
-on the 5{,}640 DTD images and the IoU is computed only over those images; many ``texture detectors'' are partly a dataset artefact.
-\begin{figure}[t]\centering\setlength{\tabcolsep}{1pt}\small
-\begin{tabular}{lccc}
-& prototypes (8 most activating images) & criticisms & feature vis. \\
-\rotatebox{90}{\scriptsize wheel 0.18} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0248_prototypes.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0248_criticisms.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/featviz/unit0248.png}} \\
-\rotatebox{90}{\scriptsize dog 0.13} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0176_prototypes.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0176_criticisms.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/featviz/unit0176.png}} \\
-\rotatebox{90}{\scriptsize cat 0.17} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0130_prototypes.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0130_criticisms.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/featviz/unit0130.png}} \\
-\rotatebox{90}{\scriptsize grass 0.13} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0095_prototypes.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/viz_conv5/unit0095_criticisms.jpg}} & \includegraphics[height=1.15cm]{\viz{alexnet-imagenet/featviz/unit0095.png}} \\
+\begin{figure}[t]\centering\setlength{\tabcolsep}{1pt}\scriptsize
+\begin{tabular}{lcc}
+& 8 most activating Broden images (unit mask highlighted) & criticisms \\
+\rotatebox{90}{conv1 red} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv1/unit0071_prototypes.jpg}} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv1/unit0071_criticisms.jpg}} \\
+\rotatebox{90}{conv2 band.} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv2/unit0081_prototypes.jpg}} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv2/unit0081_criticisms.jpg}} \\
+\rotatebox{90}{conv3 grass} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv3/unit0127_prototypes.jpg}} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv3/unit0127_criticisms.jpg}} \\
+\rotatebox{90}{conv5 car} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv5/unit0086_prototypes.jpg}} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv5/unit0086_criticisms.jpg}} \\
+\rotatebox{90}{conv5 skyscr.} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv5/unit0093_prototypes.jpg}} & \includegraphics[height=0.95cm]{\viz{caffe-alexnet-places205/viz_conv5/unit0093_criticisms.jpg}} \\
 \end{tabular}
-\caption{AlexNet-ImageNet conv5 units (label, IoU). Yellow borders: unit mask $M_k$. Criticisms of the dog unit are cats and sheep.}\label{fig:units}
+\caption{Units of the paper's AlexNet-Places205 (paper Fig.~5 style). Criticisms: top-100 images where the label fits least.}\label{fig:units}
 \end{figure}
-
-\textbf{Consistency.} The sets of concepts found in conv5 overlap with Jaccard 0.61 (AlexNet ImageNet vs Places365) and 0.46
-(AlexNet vs VGG16, both ImageNet); random AlexNet shares almost nothing (0.02--0.09). Different models trained on similar data
-use similar, but far from identical, concepts (the Rashomon effect of the book).
-
-\begin{table}[h]\centering\small
-\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
-Property \cite{molnar} & Network Dissection \\\midrule
-Expressive power & one concept word per unit, from a fixed vocabulary (Broden) \\
-Translucency / portability & high translucency (reads activations); only CNNs and only concepts that Broden labels \\
-Algorithmic complexity & one forward pass + IoU table; $\approx$2 min per AlexNet layer on one GPU \\
-Fidelity & low for single units, high for groups of units with the same label \\
-Stability & 89--94\% of conv5 labels under resampling; sensitive to the quantile and IoU thresholds \\
-Comprehensibility & \fillin{from the human study} \\
-Degree of importance & not provided by IoU --- needs a separate test (permutation importance) \\\bottomrule
-\end{tabularx}
-\caption{Network Dissection judged by the properties of explanation methods in the book.}\end{table}
 
 \section{Challenges and how we solved them}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.3cm}X@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.6cm}X@{}}\toprule
 Challenge & Solution \\\midrule
-Broden server offline; candidate mirrors on Hugging Face were other data & Internet Archive copy, downloaded in parallel byte ranges; the archive index reported the compressed size, which first gave a truncated file --- detected with the SHA-1 digest, missing part fetched, file verified byte-identical \\
-RG-encoded label PNGs, up to 5 overlapping label maps per pixel, image-level scene/texture labels & decoder merging all maps into $\leq$5 layers without counting a label twice per pixel; scene/texture as full-image masks. Our per-label image counts equal Broden's \texttt{label.csv} for every single-category material, scene and texture label \\
-IoU only over images having the concept's category; labels in several categories & primary category per label; category-presence matrix per image; unit test against a brute-force IoU \\
-$\approx10^{15}$ operations for a naive IoU & per-batch GPU \texttt{index\_add} into a concept$\times$unit table (exact counts) --- 2 min per layer \\
-Exact quantile over up to $2\cdot10^8$ values per unit; our first version used $>$200\,GB RAM on Places365, where hundreds of units are zero on $>$99.5\% of positions (tie at 0) & redesigned: count values above/equal to candidate levels, detect ties explicitly ($T_k=0$), keep only values above a bounded level ($\leq$6\,GB); strict $S>T$ masks; unit test for ties \\
-In-place ReLU overwrote tensors captured by hooks (breaks pre-ReLU / negative dissection) & ReLUs set to non-in-place, captured tensors cloned; unit test shows the problem \\
-Anchoring upsampling at receptive-field centres & receptive-field start/stride computed from the layer geometry, sampled with \texttt{grid\_sample} \\
-Fractional rotation $Q^\alpha$ & real Schur form, angles scaled by $\alpha$; orthogonality error $<10^{-14}$ \\
-Fidelity test saturated (10-way accuracy 98\%) & 1000-way accuracy, grouped permutation, 10{,}000 random groups for the one pre-specified test \\\bottomrule
+Broden and Action40 servers offline & Internet Archive copies, parallel ranged download; first Broden file was truncated (index reported the compressed size) --- caught by the SHA-1 check, fixed \\
+The paper's models exist only as Caffe files & own protobuf/prototxt reader; every model verified by classification before use; a 5-point accuracy gap traced to the resize protocol, not the converter \\
+RG-encoded label PNGs, up to 5 overlapping maps, image-level scene/texture labels & decoder that merges maps without double counting; scene/texture as full-image masks; label counts checked against Broden's \texttt{label.csv} \\
+Exact top quantile over up to $3.2\cdot10^9$ values per unit; first version used $>$200\,GB RAM on a model with many all-zero units (tie at 0) & level counting + candidate filtering with explicit tie handling, bounded memory; unit test for ties \\
+In-place ReLU overwrote tensors captured by hooks & non-in-place ReLU, cloned activations, unit test \\
+Upsampling anchored at receptive-field centres & receptive-field start/stride from the layer geometry, \texttt{grid\_sample} \\
+GAP head confounds the width experiment & added a 256-unit GAP control \\
+Single training runs cannot support conclusions & 3 seeds per variant, Welch tests \\
+Our own bugs (wrong weights path, results lost when one model failed) & found from logs, fixed, re-run; every claim checked against the raw files \\\bottomrule
 \end{tabularx}
 
-\section{Limitations and conclusion}
-Our AlexNet differs from the paper's Caffe model, the training experiments are at small scale (one run each for
-dropout/BN/width), the ImageNet rotation curve has one seed, bootstrap intervals are approximate, and the human study
-\fillin{was / was not} run. Network Dissection gives an objective, reproducible way to compare the interpretability of
-representations, and its central finding --- interpretability is axis-aligned and not implied by discriminative power ---
-holds in our implementation. But a label is a correlation, not an explanation of the model's decision: single labelled
-units have little causal effect, labels depend on two hand-set thresholds and on how the dataset is labelled, and concepts
-are better captured by directions than by units. It should therefore be used together with fidelity tests and other methods,
-as Molnar recommends for any interpretation method.
+\section{What did not work, bluntly}
+Batch norm, dropout and width could only be tested on a 9.5k-image dataset; the paper's effects may need the scale of
+Places205, so our ``not reproduced'' means ``not seen at our scale''. Absolute detector counts are at least 1.5$\times$ the
+paper's for the same model (its axes end at 40, we find 63), and we cannot fully explain why. ``Places $>$ ImageNet'' and the rotation effect size depend on
+which release of a model is used. Self-supervised models (Fig.~8--9) and VGG16-Places205 could not be obtained. The human
+check has \fillin{n} rater(s) and no second group for the paper's ``human consistency'' row.
+
+\section{Conclusion}
+The central result holds: interpretable units are a property of the learned basis, and the paper's own model loses 84\% of
+its detectors under a random rotation with identical outputs. The comparative results (layer, architecture, training data)
+also hold for the original models. The training-regime results do not reproduce at our scale. As an explanation method,
+Network Dissection gives reproducible labels for what units respond to, but single labels say little about what the network
+relies on --- they should be combined with tests of importance, as Molnar recommends.
 
 \noindent\textbf{Declaration.} \fillin{State the use of AI tools as required by the course policy.}
 
 \begin{thebibliography}{9}\small
-\bibitem{bau2017} D. Bau, B. Zhou, A. Khosla, A. Oliva, A. Torralba. Network Dissection: Quantifying Interpretability of Deep Visual Representations. CVPR 2017. doi:10.1109/CVPR.2017.354
+\bibitem{bau2017} D. Bau, B. Zhou, A. Khosla, A. Oliva, A. Torralba. Network Dissection: Quantifying Interpretability of Deep Visual Representations. CVPR 2017.
 \bibitem{molnar} C. Molnar. \emph{Interpretable Machine Learning}. \url{https://christophm.github.io/interpretable-ml-book}, accessed \fillin{date}.
 \bibitem{net2vec} R. Fong, A. Vedaldi. Net2Vec: Quantifying and Explaining how Concepts are Encoded by Filters in Deep Neural Networks. CVPR 2018.
-\bibitem{adebayo} J. Adebayo et al. Sanity Checks for Saliency Maps. NeurIPS 2018.
-\bibitem{fisher} A. Fisher, C. Rudin, F. Dominici. All Models are Wrong, but Many are Useful. JMLR 2019.
-\bibitem{places} B. Zhou et al. Places: A 10 Million Image Database for Scene Recognition. TPAMI 2018.
-\bibitem{imagenette} J. Howard. Imagenette. \url{https://github.com/fastai/imagenette}.
+\bibitem{places} B. Zhou, A. Lapedriza, J. Xiao, A. Torralba, A. Oliva. Learning Deep Features for Scene Recognition using Places Database. NeurIPS 2014.
+\bibitem{stanford40} B. Yao, X. Jiang, A. Khosla, A. L. Lin, L. Guibas, L. Fei-Fei. Human Action Recognition by Learning Bases of Action Attributes and Parts. ICCV 2011.
 \end{thebibliography}
 \end{document}

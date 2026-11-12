@@ -1,0 +1,47 @@
+{
+ "args": {
+  "model": "caffe-alexnet-places205",
+  "layers": "conv5",
+  "name": "cascade-conv4-caffe-alexnet-places205",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": "conv4",
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 55.539411306381226,
+  "iou": 108.00513362884521
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 8,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 7,
+    "color": 0
+   },
+   "detector_units": 27,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 26,
+    "color": 0
+   }
+  }
+ }
+}

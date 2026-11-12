@@ -1,0 +1,15 @@
+=== Thu Nov 12 18:39:57 2026 {'model': 'small-baseline@work/trained/baseline-s1/iter4440.pt', 'layers': 'conv5', 'name': 'small-baseline-s1-iter4440', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=2, candidate memory 0.16 GB
+[iou] batch 0 (0s)
+[iou] batch 200 (14s)
+[iou] batch 400 (28s)
+[iou] batch 600 (42s)
+[iou] batch 800 (56s)
+[iou] batch 1000 (66s)
+[iou] batch 1200 (76s)
+[iou] batch 1400 (86s)
+[iou] batch 1600 (97s)
+[iou] batch 1800 (106s)
+conv5: unique=18 {'object': 5, 'part': 1, 'scene': 0, 'material': 0, 'texture': 11, 'color': 1} detector_units=61/256
+=== done in 162s

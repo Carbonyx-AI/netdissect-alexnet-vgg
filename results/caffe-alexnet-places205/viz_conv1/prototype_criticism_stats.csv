@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+71,red-c,color,0.1089,0.92,0.554749955375001
+69,red-c,color,0.108,1.0,0.6950325928836969
+49,veined,texture,0.1071,0.04,0.04
+54,veined,texture,0.0904,0.01,0.01
+75,veined,texture,0.089,0.0,0.0
+55,orange-c,color,0.0726,0.9,0.4374587067243165
+78,red-c,color,0.0722,0.88,0.3421504319842339
+43,veined,texture,0.0704,0.0,0.0
+87,blue-c,color,0.0618,1.0,0.9254127921417878
+90,purple-c,color,0.0606,0.96,0.5077789390978817
+66,sky,object,0.0556,0.01,0.002535112359550562
+51,white-c,color,0.0474,0.97,0.5025683934772259

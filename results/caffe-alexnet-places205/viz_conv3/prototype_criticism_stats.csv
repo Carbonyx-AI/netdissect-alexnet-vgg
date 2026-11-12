@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+2,zigzagged,texture,0.2184,0.19,0.19
+254,banded,texture,0.1486,0.19,0.19
+34,skyscraper,object,0.1325,0.37,0.26688164501316114
+127,grass,object,0.1267,0.91,0.7777622844878409
+225,grass,object,0.1206,0.78,0.673725103799853
+165,banded,texture,0.1172,0.0,0.0
+299,zigzagged,texture,0.1127,0.06,0.06
+300,perforated,texture,0.1079,0.11,0.11
+340,grid,texture,0.1017,0.06,0.06
+213,chequered,texture,0.0999,0.03,0.03
+344,grid,texture,0.0947,0.04,0.04
+158,lacelike,texture,0.0936,0.04,0.04

@@ -38,6 +38,7 @@ vgg16-imagenet,iou_threshold,0.08,46,116,1.0
 vgg16-imagenet,quantile,0.01,96,389,0.7873015873015873
 vgg16-imagenet,quantile,0.001,66,182,0.6317460317460317
 vgg16-imagenet,noise,0.05,73,274,0.819047619047619
+vgg16-imagenet,noise,0.1,53,212,0.6507936507936508
 caffe-vgg16-places365,iou_threshold,0.02,209,484,1.0
 caffe-vgg16-places365,iou_threshold,0.03,176,394,1.0
 caffe-vgg16-places365,iou_threshold,0.04,148,295,1.0

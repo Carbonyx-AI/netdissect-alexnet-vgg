@@ -42,7 +42,7 @@ torch.set_grad_enabled(False)
 dev = ND.device(a.gpu_mem_gb)
 torch.manual_seed(0)
 rng = np.random.default_rng(0)
-model = load_model(a.model).to(dev)
+model = load_model(a.model, ND.WEIGHTS).to(dev)
 li = get_layer(model, arch_of(a.model), a.layer)
 rdir = os.path.join(a.results, a.model)
 

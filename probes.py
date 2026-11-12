@@ -156,6 +156,9 @@ def discrimination_action40():
     for spec in a.models.split(","):
         run, rest = spec.split("=")
         name, layer = rest.rsplit(":", 1)
+        if not os.path.exists(os.path.join(a.results, run, "summary.json")):
+            print("skipped (not dissected):", run, flush=True)
+            continue
         fx = FeatureExtractor(load_model(name, a.weights), arch_of(name), [layer]).to(dev)
         with torch.no_grad():
             X = torch.cat([fx(fx.normalize(torch.from_numpy(X_img[s:s + 128]).to(dev)))[layer].mean((2, 3)).cpu()
@@ -165,8 +168,8 @@ def discrimination_action40():
         rows.append({"run": run, "layer": layer, "action40_acc": acc,
                      "unique_object_detectors": summ["unique_per_cat"]["object"], "unique_total": summ["unique_total"]})
         print(rows[-1], flush=True)
-    json.dump({"task": f"Stanford40 actions, {int(tr.sum())} train / {int((~tr).sum())} test, linear SVM C=0.001 on GAP last-conv",
-               "rows": rows}, open(os.path.join(a.results, "discrimination_action40.json"), "w"), indent=1)
+        json.dump({"task": f"Stanford40 actions, {int(tr.sum())} train / {int((~tr).sum())} test, linear SVM C=0.001 on GAP last-conv",
+                   "rows": rows}, open(os.path.join(a.results, "discrimination_action40.json"), "w"), indent=1)   # saved after every model
 
 
 def discrimination():
@@ -183,6 +186,9 @@ def discrimination():
     for spec in a.models.split(","):
         run, rest = spec.split("=")
         name, layer = rest.rsplit(":", 1)
+        if not os.path.exists(os.path.join(a.results, run, "summary.json")):
+            print("skipped (not dissected):", run, flush=True)
+            continue
         fx = FeatureExtractor(load_model(name, a.weights), arch_of(name), [layer]).to(dev)
         with torch.no_grad():
             X = torch.cat([fx(fx.normalize(torch.from_numpy(np.stack([data.images[i] for i in idx[s:s + 128]])).to(dev)))
@@ -207,8 +213,8 @@ def discrimination():
         rows.append({"run": run, "layer": layer, "scene_probe_acc": acc,
                      "unique_object_detectors": summ["unique_per_cat"]["object"], "unique_total": summ["unique_total"]})
         print(rows[-1], flush=True)
-    json.dump({"task": f"Broden top-{a.n_scenes} scenes, n_train={int(tr.sum())}, n_val={int((~tr).sum())}",
-               "rows": rows}, open(os.path.join(a.results, "discrimination.json"), "w"), indent=1)
+        json.dump({"task": f"Broden top-{a.n_scenes} scenes, n_train={int(tr.sum())}, n_val={int((~tr).sum())}",
+                   "rows": rows}, open(os.path.join(a.results, "discrimination.json"), "w"), indent=1)
 
 
 if a.mode == "net2vec":

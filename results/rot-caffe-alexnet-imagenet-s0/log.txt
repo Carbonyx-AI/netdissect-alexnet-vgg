@@ -1,0 +1,31 @@
+=== Thu Nov 12 18:54:39 2026 {'model': 'caffe-alexnet-imagenet', 'layers': 'conv5', 'name': 'rot-caffe-alexnet-imagenet-s0', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': '0,0.2,0.4,0.6,0.8,1', 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+rotation alpha=0.0: orthogonality error 0.0e+00, det 1.000000
+rotation alpha=0.2: orthogonality error 8.7e-15, det 1.000000
+rotation alpha=0.4: orthogonality error 8.4e-15, det 1.000000
+rotation alpha=0.6: orthogonality error 7.5e-15, det 1.000000
+rotation alpha=0.8: orthogonality error 7.1e-15, det 1.000000
+rotation alpha=1.0: orthogonality error 1.2e-15, det 1.000000
+[quantile] conv5@rot0: n=10698545/unit, n_top=53493, tie units=1, candidate memory 0.16 GB
+[quantile] conv5@rot0.2: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.17 GB
+[quantile] conv5@rot0.4: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.17 GB
+[quantile] conv5@rot0.6: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.16 GB
+[quantile] conv5@rot0.8: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.16 GB
+[quantile] conv5@rot1: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.16 GB
+[iou] batch 0 (0s)
+[iou] batch 200 (60s)
+[iou] batch 400 (118s)
+[iou] batch 600 (186s)
+[iou] batch 800 (252s)
+[iou] batch 1000 (331s)
+[iou] batch 1200 (405s)
+[iou] batch 1400 (462s)
+[iou] batch 1600 (524s)
+[iou] batch 1800 (591s)
+conv5@rot0: unique=43 {'object': 15, 'part': 8, 'scene': 0, 'material': 1, 'texture': 18, 'color': 1} detector_units=89/256
+conv5@rot0.2: unique=41 {'object': 14, 'part': 8, 'scene': 0, 'material': 1, 'texture': 17, 'color': 1} detector_units=86/256
+conv5@rot0.4: unique=43 {'object': 16, 'part': 8, 'scene': 0, 'material': 1, 'texture': 17, 'color': 1} detector_units=90/256
+conv5@rot0.6: unique=34 {'object': 14, 'part': 6, 'scene': 0, 'material': 1, 'texture': 12, 'color': 1} detector_units=75/256
+conv5@rot0.8: unique=15 {'object': 1, 'part': 5, 'scene': 0, 'material': 0, 'texture': 9, 'color': 0} detector_units=59/256
+conv5@rot1: unique=13 {'object': 1, 'part': 3, 'scene': 0, 'material': 0, 'texture': 9, 'color': 0} detector_units=48/256
+=== done in 833s

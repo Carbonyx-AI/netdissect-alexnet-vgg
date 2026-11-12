@@ -141,9 +141,10 @@ def layer_fig(runs, fname, title):
     for ax, r in zip(np.atleast_1d(axes), runs):
         d = L[L.run == r]
         stacked(ax, d.layer.tolist(), d.to_dict("records"), dict((m[0], m[1]) for m in MODELS)[r])
+        if "_" in d.layer.iloc[0]:
+            ax.tick_params(axis="x", labelrotation=35, labelsize=7)
     np.atleast_1d(axes)[0].set_ylim(0, L[L.run.isin(runs)].unique_total.max() * 1.15 + 1)
     np.atleast_1d(axes)[0].legend(fontsize=6.5, loc="upper left")
-    fig.suptitle(title, fontsize=10, x=0.01, ha="left")
     save(fig, fname)
 
 

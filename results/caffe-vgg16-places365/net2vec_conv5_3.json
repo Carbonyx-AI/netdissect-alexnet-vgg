@@ -1,0 +1,21 @@
+{
+ "n_concepts": 93,
+ "mean_direction_iou": 0.10328239401816583,
+ "mean_best_unit_iou": 0.0826986148580912,
+ "frac_direction_better": 0.7634408602150538,
+ "wilcoxon_p": 9.10320100143368e-11,
+ "concepts_without_unit_but_direction_iou_gt_0.04": [
+  "sea",
+  "torso",
+  "leg",
+  "bridge",
+  "plate",
+  "glass",
+  "wood",
+  "arm",
+  "hand",
+  "door",
+  "fabric",
+  "orange-c"
+ ]
+}

@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+348,wheel,part,0.2564,0.93,0.41951958779880216
+404,car,object,0.2301,1.0,0.5578503876046178
+168,skyscraper-s,scene,0.2156,0.45,0.45
+338,mountain,object,0.2086,0.91,0.5835189315099967
+459,dotted,texture,0.2078,0.15,0.15
+141,dog,object,0.2037,0.58,0.5049101317657914
+149,mountain_snowy-s,scene,0.1995,0.31,0.31
+184,road,object,0.1801,0.94,0.7311960121581953
+40,grass,object,0.1691,0.93,0.7647512400052769
+79,painting,object,0.1673,0.53,0.2799187251141218
+471,ball_pit-s,scene,0.1652,0.22,0.22
+143,water,object,0.159,0.58,0.45011084080347
