@@ -1,0 +1,127 @@
+{
+ "args": {
+  "model": "caffe-alexnet-places365",
+  "layers": "conv1,conv2,conv3,conv4,conv5",
+  "name": "caffe-alexnet-places365",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 169.485018491745,
+  "iou": 606.8680305480957
+ },
+ "variants": {
+  "conv1": {
+   "unique_total": 6,
+   "unique_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 2,
+    "color": 4
+   },
+   "detector_units": 16,
+   "detector_units_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 6,
+    "color": 10
+   }
+  },
+  "conv2": {
+   "unique_total": 21,
+   "unique_per_cat": {
+    "object": 2,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 12,
+    "color": 6
+   },
+   "detector_units": 66,
+   "detector_units_per_cat": {
+    "object": 10,
+    "part": 0,
+    "scene": 2,
+    "material": 0,
+    "texture": 43,
+    "color": 11
+   }
+  },
+  "conv3": {
+   "unique_total": 40,
+   "unique_per_cat": {
+    "object": 13,
+    "part": 4,
+    "scene": 2,
+    "material": 1,
+    "texture": 19,
+    "color": 1
+   },
+   "detector_units": 111,
+   "detector_units_per_cat": {
+    "object": 38,
+    "part": 6,
+    "scene": 2,
+    "material": 1,
+    "texture": 63,
+    "color": 1
+   }
+  },
+  "conv4": {
+   "unique_total": 40,
+   "unique_per_cat": {
+    "object": 13,
+    "part": 4,
+    "scene": 2,
+    "material": 1,
+    "texture": 19,
+    "color": 1
+   },
+   "detector_units": 96,
+   "detector_units_per_cat": {
+    "object": 30,
+    "part": 10,
+    "scene": 4,
+    "material": 2,
+    "texture": 49,
+    "color": 1
+   }
+  },
+  "conv5": {
+   "unique_total": 68,
+   "unique_per_cat": {
+    "object": 33,
+    "part": 4,
+    "scene": 5,
+    "material": 1,
+    "texture": 24,
+    "color": 1
+   },
+   "detector_units": 116,
+   "detector_units_per_cat": {
+    "object": 62,
+    "part": 7,
+    "scene": 8,
+    "material": 1,
+    "texture": 37,
+    "color": 1
+   }
+  }
+ }
+}

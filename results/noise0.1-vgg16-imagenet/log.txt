@@ -1,0 +1,6 @@
+=== Thu Nov 12 16:47:54 2026 {'model': 'vgg16-imagenet', 'layers': 'conv5_3', 'name': 'noise0.1-vgg16-imagenet', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.1, 'randomize_from': None, 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+[quantile] conv5_3: n=12407780/unit, n_top=62039, tie units=0, candidate memory 0.38 GB
+[iou] batch 0 (0s)
+[iou] batch 200 (18s)
+[iou] batch 400 (36s)

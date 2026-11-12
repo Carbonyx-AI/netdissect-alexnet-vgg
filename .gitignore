@@ -10,3 +10,4 @@ results/*/maxact_*.npy
 report/*.aux
 report/*.log
 report/*.out
+results/human_check/KEY_do_not_open.json

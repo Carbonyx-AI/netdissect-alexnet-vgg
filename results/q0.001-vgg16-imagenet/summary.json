@@ -1,0 +1,47 @@
+{
+ "args": {
+  "model": "vgg16-imagenet",
+  "layers": "conv5_3",
+  "name": "q0.001-vgg16-imagenet",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.001,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 136.70411205291748,
+  "iou": 152.11316418647766
+ },
+ "variants": {
+  "conv5_3": {
+   "unique_total": 66,
+   "unique_per_cat": {
+    "object": 26,
+    "part": 13,
+    "scene": 14,
+    "material": 1,
+    "texture": 12,
+    "color": 0
+   },
+   "detector_units": 182,
+   "detector_units_per_cat": {
+    "object": 97,
+    "part": 39,
+    "scene": 17,
+    "material": 2,
+    "texture": 27,
+    "color": 0
+   }
+  }
+ }
+}

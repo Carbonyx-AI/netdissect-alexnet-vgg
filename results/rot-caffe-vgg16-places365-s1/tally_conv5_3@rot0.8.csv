@@ -1,0 +1,513 @@
+unit,label,category,iou,is_detector
+348,wheel,part,0.1784,1
+19,bus,object,0.1380,1
+258,pool table,object,0.1214,1
+317,bed,object,0.1123,1
+179,ball_pit-s,scene,0.1107,1
+184,road,object,0.1047,1
+286,pool table,object,0.1011,1
+502,pool table,object,0.0993,1
+150,airplane,object,0.0956,1
+275,ball_pit-s,scene,0.0926,1
+190,bus,object,0.0926,1
+462,train,object,0.0922,1
+471,ball_pit-s,scene,0.0920,1
+193,ball_pit-s,scene,0.0898,1
+154,wheel,part,0.0863,1
+23,ball_pit-s,scene,0.0850,1
+453,grid,texture,0.0833,1
+78,ball_pit-s,scene,0.0832,1
+331,pool table,object,0.0820,1
+253,ball_pit-s,scene,0.0820,1
+16,ball_pit-s,scene,0.0810,1
+141,dog,object,0.0797,1
+418,ball_pit-s,scene,0.0792,1
+212,closet-s,scene,0.0790,1
+64,cockpit-s,scene,0.0789,1
+358,ball_pit-s,scene,0.0769,1
+87,washer,object,0.0762,1
+69,pool table,object,0.0752,1
+498,crosswalk,part,0.0740,1
+505,banded,texture,0.0734,1
+94,pool table,object,0.0733,1
+406,pool table,object,0.0717,1
+21,ball_pit-s,scene,0.0715,1
+112,pool table,object,0.0714,1
+501,airplane,object,0.0701,1
+219,ball_pit-s,scene,0.0700,1
+181,cockpit-s,scene,0.0692,1
+272,pool table,object,0.0691,1
+307,pool table,object,0.0688,1
+401,pool table,object,0.0684,1
+157,drawer,part,0.0677,1
+132,skyscraper,object,0.0676,1
+301,ball_pit-s,scene,0.0665,1
+343,ball_pit-s,scene,0.0662,1
+404,car,object,0.0662,1
+59,airplane,object,0.0656,1
+18,waffled,texture,0.0655,1
+290,ball_pit-s,scene,0.0654,1
+39,track,object,0.0650,1
+472,pillow,object,0.0650,1
+384,pool table,object,0.0618,1
+347,pool table,object,0.0615,1
+304,sink,object,0.0615,1
+8,washer,object,0.0614,1
+186,chequered,texture,0.0611,1
+459,dotted,texture,0.0600,1
+414,bus,object,0.0598,1
+149,sink,object,0.0591,1
+393,wheel,part,0.0586,1
+431,stairway,object,0.0584,1
+51,chequered,texture,0.0583,1
+135,wheel,part,0.0581,1
+463,ball_pit-s,scene,0.0580,1
+88,closet-s,scene,0.0576,1
+260,pool table,object,0.0568,1
+187,pool table,object,0.0565,1
+332,bus,object,0.0561,1
+434,pool table,object,0.0560,1
+437,horse,object,0.0558,1
+148,pool table,object,0.0557,1
+423,pool table,object,0.0556,1
+366,conference_room-s,scene,0.0555,1
+214,ball_pit-s,scene,0.0554,1
+175,pillow,object,0.0553,1
+403,pool table,object,0.0551,1
+162,screen,part,0.0544,1
+44,pool table,object,0.0544,1
+391,ball_pit-s,scene,0.0542,1
+67,pool table,object,0.0541,1
+143,water,object,0.0535,1
+267,seat,part,0.0532,1
+311,supermarket-s,scene,0.0531,1
+426,screen,part,0.0525,1
+12,track,object,0.0525,1
+168,skyscraper,object,0.0524,1
+390,wheel,part,0.0522,1
+257,skyscraper,object,0.0521,1
+508,pool table,object,0.0519,1
+375,seat,part,0.0518,1
+394,ball_pit-s,scene,0.0513,1
+435,screen,part,0.0510,1
+489,chandelier,object,0.0510,1
+192,bed,object,0.0509,1
+284,ball_pit-s,scene,0.0508,1
+117,bus,object,0.0508,1
+242,house,object,0.0507,1
+439,paisley,texture,0.0507,1
+318,pool table,object,0.0506,1
+7,chequered,texture,0.0505,1
+209,bus,object,0.0501,1
+20,track,object,0.0500,1
+336,closet-s,scene,0.0499,1
+427,laundromat-s,scene,0.0495,1
+4,ball_pit-s,scene,0.0494,1
+9,shoe_shop-s,scene,0.0492,1
+500,pool table,object,0.0492,1
+442,ball_pit-s,scene,0.0490,1
+297,pool table,object,0.0488,1
+131,pool table,object,0.0488,1
+373,pool table,object,0.0487,1
+374,ball_pit-s,scene,0.0486,1
+277,wheel,part,0.0484,1
+62,conference_room-s,scene,0.0482,1
+288,closet-s,scene,0.0480,1
+372,closet-s,scene,0.0479,1
+239,bed,object,0.0476,1
+256,body,part,0.0476,1
+287,motorbike,object,0.0475,1
+53,paisley,texture,0.0474,1
+211,pool table,object,0.0473,1
+476,ball_pit-s,scene,0.0471,1
+268,waterfall,object,0.0471,1
+478,pool table,object,0.0468,1
+340,conference_room-s,scene,0.0466,1
+176,dog,object,0.0466,1
+26,sink,object,0.0465,1
+42,ball_pit-s,scene,0.0465,1
+111,horse,object,0.0464,1
+405,pool table,object,0.0464,1
+173,monitor,part,0.0462,1
+273,work surface,object,0.0462,1
+378,shoe_shop-s,scene,0.0460,1
+226,ball_pit-s,scene,0.0459,1
+240,bed,object,0.0454,1
+493,airplane,object,0.0454,1
+309,keyboard,part,0.0453,1
+137,bus,object,0.0451,1
+266,pool table,object,0.0451,1
+166,water,object,0.0449,1
+195,food,material,0.0447,1
+153,pool table,object,0.0446,1
+35,chequered,texture,0.0445,1
+58,sink,object,0.0445,1
+344,pool table,object,0.0442,1
+163,ball_pit-s,scene,0.0442,1
+84,drawer,part,0.0441,1
+388,track,object,0.0438,1
+282,crosswalk,part,0.0438,1
+444,chequered,texture,0.0438,1
+75,office-s,scene,0.0431,1
+341,train,object,0.0428,1
+217,windowpane,object,0.0428,1
+81,cemetery-s,scene,0.0426,1
+114,boat,object,0.0425,1
+324,pool table,object,0.0425,1
+182,grid,texture,0.0423,1
+43,paisley,texture,0.0422,1
+109,closet-s,scene,0.0421,1
+119,ball_pit-s,scene,0.0418,1
+484,ball_pit-s,scene,0.0417,1
+495,washer,object,0.0416,1
+385,tent,object,0.0416,1
+412,table,object,0.0415,1
+10,screen,part,0.0414,1
+101,house,object,0.0413,1
+454,laundromat-s,scene,0.0412,1
+146,lined,texture,0.0411,1
+220,toilet,object,0.0411,1
+356,ball_pit-s,scene,0.0410,1
+144,screen,part,0.0409,1
+457,book,object,0.0409,1
+15,ball_pit-s,scene,0.0409,1
+95,cockpit-s,scene,0.0408,1
+389,laundromat-s,scene,0.0408,1
+323,cabinet,object,0.0407,1
+461,car,object,0.0406,1
+367,screen,part,0.0404,1
+27,cushion,object,0.0401,1
+362,pool table,object,0.0399,0
+441,washer,object,0.0399,0
+399,laundromat-s,scene,0.0399,0
+433,ball_pit-s,scene,0.0397,0
+17,ball_pit-s,scene,0.0396,0
+245,bowling_alley-s,scene,0.0396,0
+487,staircase-s,scene,0.0395,0
+0,pool table,object,0.0394,0
+105,forest-needleleaf-s,scene,0.0394,0
+422,bed,object,0.0393,0
+124,cracked,texture,0.0393,0
+68,horse,object,0.0392,0
+61,conference_room-s,scene,0.0392,0
+449,bakery-shop-s,scene,0.0391,0
+285,chequered,texture,0.0390,0
+130,pool table,object,0.0389,0
+121,screen,part,0.0388,0
+70,book,object,0.0386,0
+312,pool table,object,0.0384,0
+172,corridor-s,scene,0.0383,0
+480,seat,part,0.0382,0
+56,car,object,0.0381,0
+270,food,material,0.0380,0
+93,conference_room-s,scene,0.0380,0
+224,pool table,object,0.0380,0
+300,bus,object,0.0379,0
+218,ball_pit-s,scene,0.0379,0
+328,crosswalk,part,0.0378,0
+338,crosswalk,part,0.0378,0
+342,bus,object,0.0376,0
+269,pool table,object,0.0374,0
+203,track,object,0.0373,0
+36,closet-s,scene,0.0372,0
+354,lighthouse-s,scene,0.0372,0
+303,lighthouse-s,scene,0.0372,0
+511,pool table,object,0.0371,0
+325,closet-s,scene,0.0370,0
+468,conference_room-s,scene,0.0370,0
+142,cockpit-s,scene,0.0369,0
+291,airplane,object,0.0369,0
+370,pillow,object,0.0368,0
+196,crosswalk,part,0.0368,0
+205,food,material,0.0366,0
+194,drawer,part,0.0366,0
+504,toilet,object,0.0366,0
+90,liquor_store-indoor-s,scene,0.0361,0
+80,striped,texture,0.0359,0
+60,laundromat-s,scene,0.0358,0
+262,airplane,object,0.0358,0
+169,closet-s,scene,0.0358,0
+339,bus,object,0.0357,0
+355,lighthouse-s,scene,0.0357,0
+485,ball_pit-s,scene,0.0357,0
+386,roof,part,0.0356,0
+22,swivel chair,object,0.0355,0
+360,building,object,0.0355,0
+364,pool table,object,0.0354,0
+379,amphitheater-s,scene,0.0353,0
+247,ball_pit-s,scene,0.0352,0
+299,conference_room-s,scene,0.0352,0
+474,food,material,0.0352,0
+156,laundromat-s,scene,0.0351,0
+155,train,object,0.0350,0
+346,bed,object,0.0349,0
+296,pillow,object,0.0349,0
+424,attic-s,scene,0.0348,0
+6,closet-s,scene,0.0347,0
+302,pool table,object,0.0347,0
+314,wheel,part,0.0346,0
+249,bed,object,0.0346,0
+329,toilet,object,0.0345,0
+206,laundromat-s,scene,0.0345,0
+466,horse,object,0.0344,0
+136,sofa,object,0.0344,0
+1,motorbike,object,0.0343,0
+24,food,material,0.0342,0
+320,bus,object,0.0340,0
+440,waterfall,object,0.0340,0
+225,laundromat-s,scene,0.0340,0
+492,stove,object,0.0339,0
+115,conference_room-s,scene,0.0338,0
+333,wheel,part,0.0338,0
+180,airplane,object,0.0338,0
+83,food,material,0.0336,0
+106,waterfall,object,0.0335,0
+236,wheel,part,0.0335,0
+396,bus,object,0.0333,0
+82,screen,part,0.0333,0
+191,grass,object,0.0332,0
+215,food,material,0.0332,0
+232,sea,object,0.0330,0
+238,laundromat-s,scene,0.0330,0
+420,closet-s,scene,0.0328,0
+14,ball_pit-s,scene,0.0328,0
+395,bakery-shop-s,scene,0.0327,0
+201,track,object,0.0327,0
+171,ball_pit-s,scene,0.0327,0
+351,studded,texture,0.0326,0
+352,bed,object,0.0324,0
+316,waterfall,object,0.0321,0
+315,drawer,part,0.0321,0
+188,escalator,object,0.0320,0
+327,bed,object,0.0319,0
+491,pool table,object,0.0319,0
+229,laundromat-s,scene,0.0318,0
+381,waterfall,object,0.0318,0
+408,wheel,part,0.0316,0
+465,bus,object,0.0315,0
+140,closet-s,scene,0.0314,0
+322,pillow,object,0.0313,0
+189,creek-s,scene,0.0313,0
+104,polka-dotted,texture,0.0312,0
+506,paisley,texture,0.0311,0
+452,pillow,object,0.0311,0
+335,airplane_cabin-s,scene,0.0311,0
+295,train,object,0.0310,0
+460,grid,texture,0.0309,0
+161,washer,object,0.0308,0
+30,ice_skating_rink-indoor-s,scene,0.0307,0
+473,pool table,object,0.0307,0
+248,bed,object,0.0307,0
+416,book,object,0.0306,0
+108,laundromat-s,scene,0.0306,0
+207,curtain,object,0.0306,0
+57,bus,object,0.0305,0
+107,screen,part,0.0305,0
+429,laundromat-s,scene,0.0304,0
+486,ball_pit-s,scene,0.0303,0
+509,waffled,texture,0.0302,0
+310,crosswalk,part,0.0302,0
+233,washer,object,0.0302,0
+387,book,object,0.0302,0
+308,airplane,object,0.0300,0
+298,pitch,object,0.0297,0
+494,jacuzzi-indoor-s,scene,0.0297,0
+425,drawer,part,0.0296,0
+98,washer,object,0.0296,0
+2,bowling_alley-s,scene,0.0295,0
+428,airplane,object,0.0293,0
+279,ball_pit-s,scene,0.0293,0
+326,striped,texture,0.0293,0
+32,drawer,part,0.0293,0
+380,pool table,object,0.0292,0
+244,track,object,0.0292,0
+263,ball_pit-s,scene,0.0290,0
+100,track,object,0.0290,0
+231,cockpit-s,scene,0.0289,0
+334,bed,object,0.0289,0
+305,wheel,part,0.0289,0
+368,ball_pit-s,scene,0.0289,0
+230,dotted,texture,0.0289,0
+199,seat,part,0.0287,0
+151,lighthouse-s,scene,0.0287,0
+252,shoe_shop-s,scene,0.0286,0
+47,closet-s,scene,0.0286,0
+261,snow,object,0.0284,0
+237,staircase-s,scene,0.0283,0
+123,road,object,0.0283,0
+46,crosswalk,part,0.0283,0
+221,staircase-s,scene,0.0283,0
+133,bed,object,0.0280,0
+129,classroom-s,scene,0.0279,0
+293,ball_pit-s,scene,0.0278,0
+413,washer,object,0.0278,0
+264,crosswalk,part,0.0277,0
+178,food,material,0.0277,0
+202,food,material,0.0276,0
+145,pillow,object,0.0275,0
+235,car,object,0.0275,0
+510,seat,part,0.0275,0
+430,book,object,0.0275,0
+38,wheel,part,0.0275,0
+321,food,material,0.0275,0
+274,bowling_alley-s,scene,0.0274,0
+496,ball_pit-s,scene,0.0274,0
+255,horse,object,0.0273,0
+213,book,object,0.0273,0
+397,pantry-s,scene,0.0273,0
+127,bowling_alley-s,scene,0.0271,0
+469,crosswalk,part,0.0271,0
+73,corridor-s,scene,0.0270,0
+91,screen,part,0.0270,0
+96,closet-s,scene,0.0268,0
+306,track,object,0.0267,0
+456,track,object,0.0267,0
+72,pool table,object,0.0267,0
+443,lighthouse-s,scene,0.0266,0
+116,laundromat-s,scene,0.0265,0
+11,airplane,object,0.0263,0
+365,cemetery-s,scene,0.0263,0
+294,pantry-s,scene,0.0262,0
+241,windowpane,object,0.0262,0
+160,bed,object,0.0261,0
+63,table,object,0.0261,0
+74,laundromat-s,scene,0.0259,0
+152,art_gallery-s,scene,0.0258,0
+66,pool table,object,0.0258,0
+410,sink,object,0.0258,0
+222,wheel,part,0.0258,0
+479,crosswalk,part,0.0258,0
+50,skyscraper,object,0.0257,0
+349,closet-s,scene,0.0256,0
+402,drawer,part,0.0256,0
+363,ball_pit-s,scene,0.0256,0
+204,pillow,object,0.0255,0
+138,tent,object,0.0255,0
+490,muzzle,part,0.0255,0
+125,conference_room-s,scene,0.0254,0
+447,sink,object,0.0253,0
+79,sink,object,0.0253,0
+185,pool table,object,0.0253,0
+139,track,object,0.0253,0
+345,cockpit-s,scene,0.0252,0
+369,ice_skating_rink-indoor-s,scene,0.0251,0
+259,airplane,object,0.0251,0
+436,screen,part,0.0250,0
+481,cabinet,object,0.0250,0
+174,banded,texture,0.0250,0
+376,conference_room-s,scene,0.0249,0
+25,field-cultivated-s,scene,0.0249,0
+417,washer,object,0.0249,0
+103,laundromat-s,scene,0.0248,0
+503,computer,object,0.0248,0
+48,ball_pit-s,scene,0.0248,0
+34,cracked,texture,0.0247,0
+415,ball_pit-s,scene,0.0247,0
+97,pool table,object,0.0247,0
+507,pool table,object,0.0246,0
+254,pantry-s,scene,0.0245,0
+289,airplane,object,0.0245,0
+227,book,object,0.0245,0
+128,pool table,object,0.0243,0
+251,pool table,object,0.0243,0
+488,horse,object,0.0242,0
+283,head,part,0.0241,0
+446,chequered,texture,0.0240,0
+77,conference_room-s,scene,0.0240,0
+122,closet-s,scene,0.0240,0
+120,bar-s,scene,0.0239,0
+102,pool table,object,0.0239,0
+177,computer,object,0.0238,0
+5,airplane,object,0.0236,0
+392,staircase-s,scene,0.0234,0
+200,book,object,0.0234,0
+313,pool table,object,0.0232,0
+497,stove,object,0.0232,0
+164,washer,object,0.0232,0
+432,closet-s,scene,0.0231,0
+278,corn_field-s,scene,0.0231,0
+421,airplane,object,0.0230,0
+383,playground-s,scene,0.0229,0
+216,skyscraper,object,0.0228,0
+409,garage door,part,0.0227,0
+467,bowling_alley-s,scene,0.0226,0
+89,ceiling,object,0.0224,0
+29,skyscraper,object,0.0223,0
+40,grass,object,0.0223,0
+411,horse,object,0.0222,0
+3,bed,object,0.0222,0
+350,back pillow,part,0.0222,0
+76,sink,object,0.0222,0
+228,grid,texture,0.0221,0
+147,signboard,object,0.0219,0
+110,closet-s,scene,0.0218,0
+85,bottle,object,0.0218,0
+448,airplane_cabin-s,scene,0.0218,0
+183,swirly,texture,0.0217,0
+451,ball_pit-s,scene,0.0217,0
+482,reception-s,scene,0.0216,0
+31,bus,object,0.0216,0
+357,crosswalk,part,0.0216,0
+55,crosswalk,part,0.0216,0
+99,seat,part,0.0215,0
+159,pitch,object,0.0215,0
+475,bed,object,0.0215,0
+54,airplane,object,0.0215,0
+330,bus,object,0.0214,0
+158,stadium-baseball-s,scene,0.0214,0
+113,classroom-s,scene,0.0214,0
+281,brick,material,0.0211,0
+28,conference_room-s,scene,0.0211,0
+243,body,part,0.0210,0
+398,seat,part,0.0210,0
+337,screen,part,0.0207,0
+165,bowling_alley-s,scene,0.0207,0
+52,house,object,0.0206,0
+126,bed,object,0.0206,0
+353,cockpit-s,scene,0.0203,0
+246,windmill-s,scene,0.0203,0
+170,house,object,0.0203,0
+65,pool table,object,0.0203,0
+223,tent,object,0.0203,0
+450,laundromat-s,scene,0.0201,0
+71,computer,object,0.0199,0
+210,wrestling_ring-indoor-s,scene,0.0197,0
+455,shoe_shop-s,scene,0.0196,0
+49,train,object,0.0195,0
+464,crosswalk,part,0.0194,0
+13,food,material,0.0194,0
+167,topiary_garden-s,scene,0.0193,0
+499,bed,object,0.0193,0
+359,bed,object,0.0192,0
+276,screen,part,0.0191,0
+198,washer,object,0.0191,0
+419,train,object,0.0190,0
+197,golf_course-s,scene,0.0190,0
+134,seat,part,0.0186,0
+234,cockpit-s,scene,0.0186,0
+33,crosswalk,part,0.0185,0
+208,conference_room-s,scene,0.0185,0
+407,shoe_shop-s,scene,0.0184,0
+400,staircase-s,scene,0.0183,0
+470,escalator-indoor-s,scene,0.0176,0
+377,washer,object,0.0174,0
+361,bus,object,0.0173,0
+382,bowling_alley-s,scene,0.0171,0
+250,television,object,0.0171,0
+118,swirly,texture,0.0170,0
+280,playground-s,scene,0.0169,0
+271,ceiling,object,0.0169,0
+371,ball_pit-s,scene,0.0166,0
+319,windmill-s,scene,0.0163,0
+477,tree,object,0.0161,0
+445,supermarket-s,scene,0.0160,0
+92,bow_window-outdoor-s,scene,0.0152,0
+41,pagoda-s,scene,0.0149,0
+37,screen,part,0.0145,0
+458,closet-s,scene,0.0141,0
+265,airplane,object,0.0138,0
+45,mosque-outdoor-s,scene,0.0136,0
+483,classroom-s,scene,0.0132,0
+292,desk,object,0.0127,0
+438,art_gallery-s,scene,0.0126,0
+86,mountain,object,0.0125,0

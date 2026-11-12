@@ -1,0 +1,38 @@
+{
+ "alexnet-places365": {
+  "n_images": 14596,
+  "n_scene_classes_matched": 267,
+  "top1": 0.43141956700465883,
+  "top5": 0.7843244724582077
+ },
+ "caffe-alexnet-places365": {
+  "n_images": 14596,
+  "n_scene_classes_matched": 267,
+  "top1": 0.46588106330501505,
+  "top5": 0.8065223348862702
+ },
+ "caffe-alexnet-places205": {
+  "n_images": 9727,
+  "n_scene_classes_matched": 167,
+  "top1": 0.6196155032384085,
+  "top5": 0.9235118741646962
+ },
+ "caffe-alexnet-hybrid": {
+  "n_images": 9727,
+  "n_scene_classes_matched": 167,
+  "top1": 0.15935026215688292,
+  "top5": 0.5451835098180323
+ },
+ "caffe-vgg16-places365": {
+  "n_images": 14596,
+  "n_scene_classes_matched": 267,
+  "top1": 0.5145245272677446,
+  "top5": 0.8470813921622362
+ },
+ "caffe-vgg16-hybrid1365": {
+  "n_images": 14596,
+  "n_scene_classes_matched": 267,
+  "top1": 0.5089065497396547,
+  "top5": 0.8496848451630584
+ }
+}

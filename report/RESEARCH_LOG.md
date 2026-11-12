@@ -40,3 +40,31 @@
   -> Places > ImageNet now clear (63 vs 43, objects 33 vs 15); with torchvision/PyTorch models it was 55 vs 53.
   -> Places205 rises monotonically as in paper Fig. 5. Our absolute counts are higher than the paper's (its Fig. 4/5
      y-axes end at 40); possible reasons: 224 instead of 227 input, other pipeline details. Reported, not explained away.
+- Caffe AlexNet-Places365 has 0-1 "tie" units (zero on >99.5% of positions) per layer, while the PyTorch
+  AlexNet-Places365 release had 237 of 384 in conv3 -> the many dead units were a property of that PyTorch checkpoint,
+  not of Places365 training; this explains part of the weak Places365 results of session 1.
+- Caffe AlexNet conv5 unique detectors: Places365 68, Hybrid 65, Places205 63, ImageNet 43 -> same ordering as the
+  paper's Fig. 8 for AlexNet (Places365 > Hybrid > Places205 > ImageNet).
+- Caffe AlexNet-Places365 conv3 and conv4 both have 40 unique concepts with identical category split: checked, the
+  layers are distinct (10 concepts only in conv3, 10 only in conv4, different thresholds) -> coincidence.
+- VGG16 Caffe, unique detectors conv1_2..conv5_3: Places365 6, 7, 10, 44, 148 (conv5_3: 59 objects, 48 scenes);
+  Hybrid1365 6, 10, 13, 44, 147. VGG16-ImageNet (session 1) conv5_3 89 -> Places > ImageNet clearly for VGG too.
+- VGG16-ImageNet and VGG16-BN conv3_3/conv4_3/conv5_3 are identical to session 1 (9/46/89 and 2/26/96).
+- Rotation of the paper's model (Caffe AlexNet-Places205 conv5), seed 0: 63, 60, 57, 45, 18, 11 for alpha 0..1
+  -> 82.5% drop at alpha=1 (paper: 80%). alpha=0 equals the baseline (63) -> check passed.
+- Rotation of the paper's model, 3 seeds: alpha=1 gives 11, 10, 9 unique detectors (baseline 63) -> mean drop 84%
+  (paper 80%). Reproduced.
+- VGG16 random: 7, 7, 4, 5, 4 unique detectors (conv1_2..conv5_3) -> stays low as expected.
+- Human check page: 50 items (8 per AlexNet-Places205 layer, 10 VGG16-Places365 conv5_3), 24 true / 26 decoy labels;
+  per-layer true-label counts 2-5 -> per-layer numbers will be noisy, pooled numbers are the main result.
+- Rotation torchvision AlexNet-ImageNet, 3 seeds: 53 -> 23, 22, 21 (58% drop), smaller than the paper model (84%).
+  Open question: model (torchvision vs Caffe) or training data (ImageNet vs Places)? -> add rotation of Caffe
+  AlexNet-ImageNet (3 seeds) to separate the two.
+- Rotation Caffe VGG16-Places365 conv5_3: 148 -> 29 (s0), 32 (s1) at alpha=1 (~79% drop); alpha=0.2 can be slightly
+  above baseline (151, s1) -> small rotations are noise-level, the collapse happens between 0.6 and 0.8 as in AlexNet.
+- First full analysis (local): last layer of 12 models: Places > ImageNet inside each family (AlexNet Caffe: 63-68 vs 43;
+  VGG16: 147-148 vs 89); VGG > AlexNet; random 4-6. Surprise: torchvision AlexNet-ImageNet (53) > BVLC Caffe (43).
+  Threshold sweep 0.02-0.08: 8 of 66 model pairs change order.
+- Cascade (paper model): none 63, fc 63, +conv5 10, +conv4 8, +conv3 2, +conv2 6, +conv1 2 -> sanity check passed.
+- Small models trained (val. acc, 3 seeds): baseline 82.0-82.9, nodropout 77.8-78.9, batchnorm 86.2-86.3,
+  gap256/768/1024/2048 82.3-83.3. baseline-s0 82.9 vs 82.6 in session 1 (GPU training is not bit-deterministic).

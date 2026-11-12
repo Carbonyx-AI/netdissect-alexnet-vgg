@@ -1,0 +1,4 @@
+=== Thu Nov 12 16:53:00 2026 {'model': 'caffe-alexnet-places205', 'layers': 'conv5', 'name': 'cascade-fc-caffe-alexnet-places205', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': 'fc', 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+randomized classifier + layers []
+Broden: N=63305, labels=1197 valid, shards=50
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.16 GB

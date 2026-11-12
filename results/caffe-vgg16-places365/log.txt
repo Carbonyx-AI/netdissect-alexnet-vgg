@@ -1,0 +1,23 @@
+=== Thu Nov 12 14:04:43 2026 {'model': 'caffe-vgg16-places365', 'layers': 'conv1_2,conv2_2,conv3_3,conv4_3,conv5_3', 'name': 'caffe-vgg16-places365', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'max_images': 0, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+[quantile] conv1_2: n=3176391680/unit, n_top=15881959, tie units=0, candidate memory 13.93 GB
+[quantile] conv2_2: n=794097920/unit, n_top=3970490, tie units=0, candidate memory 6.28 GB
+[quantile] conv3_3: n=198524480/unit, n_top=992623, tie units=0, candidate memory 3.03 GB
+[quantile] conv4_3: n=49631120/unit, n_top=248156, tie units=0, candidate memory 1.51 GB
+[quantile] conv5_3: n=12407780/unit, n_top=62039, tie units=0, candidate memory 0.38 GB
+[iou] batch 0 (0s)
+[iou] batch 200 (63s)
+[iou] batch 400 (127s)
+[iou] batch 600 (192s)
+[iou] batch 800 (256s)
+[iou] batch 1000 (320s)
+[iou] batch 1200 (385s)
+[iou] batch 1400 (449s)
+[iou] batch 1600 (514s)
+[iou] batch 1800 (578s)
+conv1_2: unique=6 {'object': 0, 'part': 0, 'scene': 0, 'material': 0, 'texture': 1, 'color': 5} detector_units=19/64
+conv2_2: unique=7 {'object': 0, 'part': 0, 'scene': 0, 'material': 0, 'texture': 2, 'color': 5} detector_units=16/128
+conv3_3: unique=10 {'object': 0, 'part': 0, 'scene': 0, 'material': 0, 'texture': 9, 'color': 1} detector_units=29/256
+conv4_3: unique=44 {'object': 16, 'part': 6, 'scene': 1, 'material': 1, 'texture': 17, 'color': 3} detector_units=122/512
+conv5_3: unique=148 {'object': 59, 'part': 12, 'scene': 48, 'material': 2, 'texture': 26, 'color': 1} detector_units=295/512
+=== done in 1326s

@@ -1,0 +1,147 @@
+{
+ "args": {
+  "model": "caffe-vgg16-places365",
+  "layers": "conv5_3",
+  "name": "rot-caffe-vgg16-places365-s2",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": "0,0.2,0.4,0.6,0.8,1",
+  "rot_seed": 2,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 343.05625319480896,
+  "iou": 778.0928146839142
+ },
+ "variants": {
+  "conv5_3@rot0": {
+   "unique_total": 148,
+   "unique_per_cat": {
+    "object": 59,
+    "part": 12,
+    "scene": 48,
+    "material": 2,
+    "texture": 26,
+    "color": 1
+   },
+   "detector_units": 295,
+   "detector_units_per_cat": {
+    "object": 139,
+    "part": 23,
+    "scene": 70,
+    "material": 5,
+    "texture": 57,
+    "color": 1
+   }
+  },
+  "conv5_3@rot0.2": {
+   "unique_total": 149,
+   "unique_per_cat": {
+    "object": 59,
+    "part": 12,
+    "scene": 48,
+    "material": 2,
+    "texture": 27,
+    "color": 1
+   },
+   "detector_units": 294,
+   "detector_units_per_cat": {
+    "object": 138,
+    "part": 23,
+    "scene": 70,
+    "material": 5,
+    "texture": 57,
+    "color": 1
+   }
+  },
+  "conv5_3@rot0.4": {
+   "unique_total": 145,
+   "unique_per_cat": {
+    "object": 59,
+    "part": 11,
+    "scene": 44,
+    "material": 2,
+    "texture": 28,
+    "color": 1
+   },
+   "detector_units": 283,
+   "detector_units_per_cat": {
+    "object": 135,
+    "part": 23,
+    "scene": 63,
+    "material": 4,
+    "texture": 57,
+    "color": 1
+   }
+  },
+  "conv5_3@rot0.6": {
+   "unique_total": 124,
+   "unique_per_cat": {
+    "object": 54,
+    "part": 10,
+    "scene": 35,
+    "material": 1,
+    "texture": 23,
+    "color": 1
+   },
+   "detector_units": 252,
+   "detector_units_per_cat": {
+    "object": 126,
+    "part": 20,
+    "scene": 56,
+    "material": 3,
+    "texture": 46,
+    "color": 1
+   }
+  },
+  "conv5_3@rot0.8": {
+   "unique_total": 56,
+   "unique_per_cat": {
+    "object": 28,
+    "part": 10,
+    "scene": 11,
+    "material": 1,
+    "texture": 6,
+    "color": 0
+   },
+   "detector_units": 206,
+   "detector_units_per_cat": {
+    "object": 117,
+    "part": 29,
+    "scene": 48,
+    "material": 3,
+    "texture": 9,
+    "color": 0
+   }
+  },
+  "conv5_3@rot1": {
+   "unique_total": 30,
+   "unique_per_cat": {
+    "object": 17,
+    "part": 4,
+    "scene": 6,
+    "material": 1,
+    "texture": 2,
+    "color": 0
+   },
+   "detector_units": 194,
+   "detector_units_per_cat": {
+    "object": 120,
+    "part": 22,
+    "scene": 46,
+    "material": 4,
+    "texture": 2,
+    "color": 0
+   }
+  }
+ }
+}

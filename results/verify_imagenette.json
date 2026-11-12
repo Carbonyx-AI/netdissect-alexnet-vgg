@@ -1,0 +1,27 @@
+{
+ "alexnet-imagenet": {
+  "outputs": 1000,
+  "imagenette_top1_full_softmax": 0.7337579617834394,
+  "classes_found": 1.0
+ },
+ "caffe-alexnet-imagenet": {
+  "outputs": 1000,
+  "imagenette_top1_full_softmax": 0.6797452229299363,
+  "classes_found": 1.0
+ },
+ "caffe-alexnet-hybrid": {
+  "outputs": 1183,
+  "imagenette_top1_full_softmax": 0.5352866242038217,
+  "classes_found": 0.8957961783439491
+ },
+ "vgg16-imagenet": {
+  "outputs": 1000,
+  "imagenette_top1_full_softmax": 0.8201273885350319,
+  "classes_found": 1.0
+ },
+ "caffe-vgg16-hybrid1365": {
+  "outputs": 1365,
+  "imagenette_top1_full_softmax": 0.7401273885350318,
+  "classes_found": 1.0
+ }
+}

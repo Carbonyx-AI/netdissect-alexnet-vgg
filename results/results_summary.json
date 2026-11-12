@@ -1,287 +1,8 @@
 {
  "layers": [
   {
-   "run": "alexnet-imagenet",
-   "layer": "conv1",
-   "units": 64,
-   "object": 0,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 2,
-   "color": 4,
-   "unique_total": 6,
-   "detector_units": 8,
-   "pct_detector_units": 12.5,
-   "unmatched_units": 56,
-   "mean_best_iou": 0.02461484507685879,
-   "boot_unique_ci95": [
-    5.0,
-    8.0
-   ],
-   "boot_unique_boot_mean": 6.335,
-   "boot_label_agreement_mean": 0.861875,
-   "boot_label_agreement_ci95": [
-    0.5,
-    1.0
-   ],
-   "most_common_concept": "blue-c (3 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-imagenet",
-   "layer": "conv2",
-   "units": 192,
-   "object": 3,
-   "part": 0,
-   "scene": 1,
-   "material": 0,
-   "texture": 14,
-   "color": 2,
-   "unique_total": 20,
-   "detector_units": 57,
-   "pct_detector_units": 29.6875,
-   "unmatched_units": 135,
-   "mean_best_iou": 0.03571483315131117,
-   "boot_unique_ci95": [
-    16.0,
-    22.0
-   ],
-   "boot_unique_boot_mean": 19.185,
-   "boot_label_agreement_mean": 0.8610526315789473,
-   "boot_label_agreement_ci95": [
-    0.7894736842105263,
-    0.9298245614035088
-   ],
-   "most_common_concept": "banded (10 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-imagenet",
-   "layer": "conv3",
-   "units": 384,
-   "object": 8,
-   "part": 3,
-   "scene": 1,
-   "material": 0,
-   "texture": 19,
-   "color": 2,
-   "unique_total": 33,
-   "detector_units": 107,
-   "pct_detector_units": 27.864583333333332,
-   "unmatched_units": 277,
-   "mean_best_iou": 0.03614161890999525,
-   "boot_unique_ci95": [
-    30.0,
-    35.0
-   ],
-   "boot_unique_boot_mean": 32.365,
-   "boot_label_agreement_mean": 0.844626168224299,
-   "boot_label_agreement_ci95": [
-    0.7850467289719626,
-    0.9252336448598131
-   ],
-   "most_common_concept": "perforated (17 units)",
-   "n_dog_units": 1
-  },
-  {
-   "run": "alexnet-imagenet",
-   "layer": "conv4",
-   "units": 256,
-   "object": 6,
-   "part": 4,
-   "scene": 0,
-   "material": 1,
-   "texture": 15,
-   "color": 2,
-   "unique_total": 28,
-   "detector_units": 84,
-   "pct_detector_units": 32.8125,
-   "unmatched_units": 172,
-   "mean_best_iou": 0.039244500891562575,
-   "boot_unique_ci95": [
-    27.0,
-    32.0
-   ],
-   "boot_unique_boot_mean": 29.625,
-   "boot_label_agreement_mean": 0.8851190476190476,
-   "boot_label_agreement_ci95": [
-    0.7976190476190477,
-    0.9523809523809523
-   ],
-   "most_common_concept": "perforated (8 units)",
-   "n_dog_units": 5
-  },
-  {
-   "run": "alexnet-imagenet",
-   "layer": "conv5",
-   "units": 256,
-   "object": 17,
-   "part": 7,
-   "scene": 1,
-   "material": 1,
-   "texture": 23,
-   "color": 4,
-   "unique_total": 53,
-   "detector_units": 135,
-   "pct_detector_units": 52.734375,
-   "unmatched_units": 121,
-   "mean_best_iou": 0.05169162449387658,
-   "boot_unique_ci95": [
-    49.0,
-    57.0
-   ],
-   "boot_unique_boot_mean": 52.77,
-   "boot_label_agreement_mean": 0.8896666666666667,
-   "boot_label_agreement_ci95": [
-    0.837037037037037,
-    0.9335185185185185
-   ],
-   "most_common_concept": "dog (13 units)",
-   "n_dog_units": 13
-  },
-  {
-   "run": "alexnet-places365",
-   "layer": "conv1",
-   "units": 64,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 1,
-   "color": 5,
-   "unique_total": 7,
-   "detector_units": 13,
-   "pct_detector_units": 20.3125,
-   "unmatched_units": 51,
-   "mean_best_iou": 0.02644420543437393,
-   "boot_unique_ci95": [
-    7.0,
-    9.0
-   ],
-   "boot_unique_boot_mean": 7.47,
-   "boot_label_agreement_mean": 0.9503846153846155,
-   "boot_label_agreement_ci95": [
-    0.7692307692307693,
-    1.0
-   ],
-   "most_common_concept": "red-c (3 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-places365",
-   "layer": "conv2",
-   "units": 192,
-   "object": 2,
-   "part": 0,
-   "scene": 1,
-   "material": 0,
-   "texture": 12,
-   "color": 3,
-   "unique_total": 18,
-   "detector_units": 30,
-   "pct_detector_units": 15.625,
-   "unmatched_units": 162,
-   "mean_best_iou": 0.016638682376231496,
-   "boot_unique_ci95": [
-    13.0,
-    18.0
-   ],
-   "boot_unique_boot_mean": 15.79,
-   "boot_label_agreement_mean": 0.8078333333333334,
-   "boot_label_agreement_ci95": [
-    0.7,
-    0.9
-   ],
-   "most_common_concept": "banded (6 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-places365",
-   "layer": "conv3",
-   "units": 384,
-   "object": 3,
-   "part": 0,
-   "scene": 2,
-   "material": 0,
-   "texture": 13,
-   "color": 3,
-   "unique_total": 21,
-   "detector_units": 48,
-   "pct_detector_units": 12.5,
-   "unmatched_units": 336,
-   "mean_best_iou": 0.014001904920217212,
-   "boot_unique_ci95": [
-    18.0,
-    23.0
-   ],
-   "boot_unique_boot_mean": 20.63,
-   "boot_label_agreement_mean": 0.8609375,
-   "boot_label_agreement_ci95": [
-    0.7703125000000001,
-    0.9375
-   ],
-   "most_common_concept": "chequered (6 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-places365",
-   "layer": "conv4",
-   "units": 256,
-   "object": 8,
-   "part": 4,
-   "scene": 1,
-   "material": 1,
-   "texture": 12,
-   "color": 1,
-   "unique_total": 27,
-   "detector_units": 86,
-   "pct_detector_units": 33.59375,
-   "unmatched_units": 170,
-   "mean_best_iou": 0.03494852639742454,
-   "boot_unique_ci95": [
-    27.975,
-    34.025000000000006
-   ],
-   "boot_unique_boot_mean": 30.71,
-   "boot_label_agreement_mean": 0.8337209302325581,
-   "boot_label_agreement_ci95": [
-    0.7558139534883721,
-    0.9069767441860465
-   ],
-   "most_common_concept": "grid (11 units)",
-   "n_dog_units": 0
-  },
-  {
-   "run": "alexnet-places365",
-   "layer": "conv5",
-   "units": 256,
-   "object": 20,
-   "part": 4,
-   "scene": 5,
-   "material": 1,
-   "texture": 23,
-   "color": 2,
-   "unique_total": 55,
-   "detector_units": 119,
-   "pct_detector_units": 46.484375,
-   "unmatched_units": 137,
-   "mean_best_iou": 0.043950548653076016,
-   "boot_unique_ci95": [
-    51.975,
-    60.0
-   ],
-   "boot_unique_boot_mean": 55.65,
-   "boot_label_agreement_mean": 0.9142857142857145,
-   "boot_label_agreement_ci95": [
-    0.8569327731092437,
-    0.957983193277311
-   ],
-   "most_common_concept": "grass (9 units)",
-   "n_dog_units": 3
-  },
-  {
    "run": "alexnet-random",
+   "model": "AlexNet random",
    "layer": "conv1",
    "units": 64,
    "object": 1,
@@ -296,20 +17,21 @@
    "unmatched_units": 57,
    "mean_best_iou": 0.021679448643473077,
    "boot_unique_ci95": [
-    4.0,
-    7.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 5.355,
-   "boot_label_agreement_mean": 0.8299999999999998,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.7142857142857143,
-    1.0
+    NaN,
+    NaN
    ],
-   "most_common_concept": "sky (2 units)",
+   "most_common_concept": "sky (2)",
    "n_dog_units": 0
   },
   {
    "run": "alexnet-random",
+   "model": "AlexNet random",
    "layer": "conv2",
    "units": 192,
    "object": 1,
@@ -324,20 +46,21 @@
    "unmatched_units": 166,
    "mean_best_iou": 0.023336953399692384,
    "boot_unique_ci95": [
-    5.0,
-    10.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 7.185,
-   "boot_label_agreement_mean": 0.7453846153846153,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.49903846153846154,
-    0.8855769230769233
+    NaN,
+    NaN
    ],
-   "most_common_concept": "chequered (8 units)",
+   "most_common_concept": "chequered (8)",
    "n_dog_units": 0
   },
   {
    "run": "alexnet-random",
+   "model": "AlexNet random",
    "layer": "conv3",
    "units": 384,
    "object": 2,
@@ -352,20 +75,21 @@
    "unmatched_units": 291,
    "mean_best_iou": 0.028965389574658027,
    "boot_unique_ci95": [
-    7.0,
-    13.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 10.125,
-   "boot_label_agreement_mean": 0.8656989247311827,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.6021505376344086,
-    0.967741935483871
+    NaN,
+    NaN
    ],
-   "most_common_concept": "chequered (69 units)",
+   "most_common_concept": "chequered (69)",
    "n_dog_units": 0
   },
   {
    "run": "alexnet-random",
+   "model": "AlexNet random",
    "layer": "conv4",
    "units": 256,
    "object": 1,
@@ -380,20 +104,21 @@
    "unmatched_units": 204,
    "mean_best_iou": 0.02713797427349414,
    "boot_unique_ci95": [
-    4.0,
-    8.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 6.28,
-   "boot_label_agreement_mean": 0.8559615384615384,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.51875,
-    0.9807692307692307
+    NaN,
+    NaN
    ],
-   "most_common_concept": "chequered (44 units)",
+   "most_common_concept": "chequered (44)",
    "n_dog_units": 0
   },
   {
    "run": "alexnet-random",
+   "model": "AlexNet random",
    "layer": "conv5",
    "units": 256,
    "object": 1,
@@ -417,11 +142,1085 @@
     0.4459821428571429,
     0.9821428571428571
    ],
-   "most_common_concept": "chequered (48 units)",
+   "most_common_concept": "chequered (48)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-imagenet",
+   "model": "AlexNet ImageNet (tv)",
+   "layer": "conv1",
+   "units": 64,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 4,
+   "unique_total": 6,
+   "detector_units": 8,
+   "pct_detector_units": 12.5,
+   "unmatched_units": 56,
+   "mean_best_iou": 0.02461484507685879,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "blue-c (3)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-imagenet",
+   "model": "AlexNet ImageNet (tv)",
+   "layer": "conv2",
+   "units": 192,
+   "object": 3,
+   "part": 0,
+   "scene": 1,
+   "material": 0,
+   "texture": 14,
+   "color": 2,
+   "unique_total": 20,
+   "detector_units": 57,
+   "pct_detector_units": 29.6875,
+   "unmatched_units": 135,
+   "mean_best_iou": 0.03571483315131117,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (10)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-imagenet",
+   "model": "AlexNet ImageNet (tv)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 8,
+   "part": 3,
+   "scene": 1,
+   "material": 0,
+   "texture": 19,
+   "color": 2,
+   "unique_total": 33,
+   "detector_units": 107,
+   "pct_detector_units": 27.864583333333332,
+   "unmatched_units": 277,
+   "mean_best_iou": 0.03614161890999525,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (17)",
+   "n_dog_units": 1
+  },
+  {
+   "run": "alexnet-imagenet",
+   "model": "AlexNet ImageNet (tv)",
+   "layer": "conv4",
+   "units": 256,
+   "object": 6,
+   "part": 4,
+   "scene": 0,
+   "material": 1,
+   "texture": 15,
+   "color": 2,
+   "unique_total": 28,
+   "detector_units": 84,
+   "pct_detector_units": 32.8125,
+   "unmatched_units": 172,
+   "mean_best_iou": 0.039244500891562575,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (8)",
+   "n_dog_units": 5
+  },
+  {
+   "run": "alexnet-imagenet",
+   "model": "AlexNet ImageNet (tv)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 17,
+   "part": 7,
+   "scene": 1,
+   "material": 1,
+   "texture": 23,
+   "color": 4,
+   "unique_total": 53,
+   "detector_units": 135,
+   "pct_detector_units": 52.734375,
+   "unmatched_units": 121,
+   "mean_best_iou": 0.05169162449387658,
+   "boot_unique_ci95": [
+    49.0,
+    57.0
+   ],
+   "boot_unique_boot_mean": 52.77,
+   "boot_label_agreement_mean": 0.8896666666666667,
+   "boot_label_agreement_ci95": [
+    0.837037037037037,
+    0.9335185185185185
+   ],
+   "most_common_concept": "dog (13)",
+   "n_dog_units": 13
+  },
+  {
+   "run": "caffe-alexnet-imagenet",
+   "model": "AlexNet ImageNet (Caffe)",
+   "layer": "conv1",
+   "units": 96,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 4,
+   "unique_total": 7,
+   "detector_units": 13,
+   "pct_detector_units": 13.541666666666666,
+   "unmatched_units": 83,
+   "mean_best_iou": 0.025458289301657857,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "veined (4)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-imagenet",
+   "model": "AlexNet ImageNet (Caffe)",
+   "layer": "conv2",
+   "units": 256,
+   "object": 2,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 13,
+   "color": 5,
+   "unique_total": 20,
+   "detector_units": 54,
+   "pct_detector_units": 21.09375,
+   "unmatched_units": 202,
+   "mean_best_iou": 0.02920095544403327,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "striped (7)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-imagenet",
+   "model": "AlexNet ImageNet (Caffe)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 8,
+   "part": 4,
+   "scene": 1,
+   "material": 0,
+   "texture": 21,
+   "color": 1,
+   "unique_total": 35,
+   "detector_units": 88,
+   "pct_detector_units": 22.916666666666668,
+   "unmatched_units": 296,
+   "mean_best_iou": 0.029497622874969404,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (7)",
+   "n_dog_units": 4
+  },
+  {
+   "run": "caffe-alexnet-imagenet",
+   "model": "AlexNet ImageNet (Caffe)",
+   "layer": "conv4",
+   "units": 384,
+   "object": 9,
+   "part": 5,
+   "scene": 0,
+   "material": 0,
+   "texture": 14,
+   "color": 1,
+   "unique_total": 29,
+   "detector_units": 70,
+   "pct_detector_units": 18.229166666666668,
+   "unmatched_units": 314,
+   "mean_best_iou": 0.027747098469382434,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "head (9)",
+   "n_dog_units": 1
+  },
+  {
+   "run": "caffe-alexnet-imagenet",
+   "model": "AlexNet ImageNet (Caffe)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 15,
+   "part": 8,
+   "scene": 0,
+   "material": 1,
+   "texture": 18,
+   "color": 1,
+   "unique_total": 43,
+   "detector_units": 89,
+   "pct_detector_units": 34.765625,
+   "unmatched_units": 167,
+   "mean_best_iou": 0.03794254989767406,
+   "boot_unique_ci95": [
+    39.0,
+    46.025000000000006
+   ],
+   "boot_unique_boot_mean": 42.605,
+   "boot_label_agreement_mean": 0.9342696629213484,
+   "boot_label_agreement_ci95": [
+    0.8876404494382022,
+    0.9775280898876404
+   ],
+   "most_common_concept": "dog (13)",
+   "n_dog_units": 13
+  },
+  {
+   "run": "alexnet-places365",
+   "model": "AlexNet Places365 (PT)",
+   "layer": "conv1",
+   "units": 64,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 5,
+   "unique_total": 7,
+   "detector_units": 13,
+   "pct_detector_units": 20.3125,
+   "unmatched_units": 51,
+   "mean_best_iou": 0.02644420543437393,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (3)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-places365",
+   "model": "AlexNet Places365 (PT)",
+   "layer": "conv2",
+   "units": 192,
+   "object": 2,
+   "part": 0,
+   "scene": 1,
+   "material": 0,
+   "texture": 12,
+   "color": 3,
+   "unique_total": 18,
+   "detector_units": 30,
+   "pct_detector_units": 15.625,
+   "unmatched_units": 162,
+   "mean_best_iou": 0.016638682376231496,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (6)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-places365",
+   "model": "AlexNet Places365 (PT)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 3,
+   "part": 0,
+   "scene": 2,
+   "material": 0,
+   "texture": 13,
+   "color": 3,
+   "unique_total": 21,
+   "detector_units": 48,
+   "pct_detector_units": 12.5,
+   "unmatched_units": 336,
+   "mean_best_iou": 0.014001904920217212,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "chequered (6)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-places365",
+   "model": "AlexNet Places365 (PT)",
+   "layer": "conv4",
+   "units": 256,
+   "object": 8,
+   "part": 4,
+   "scene": 1,
+   "material": 1,
+   "texture": 12,
+   "color": 1,
+   "unique_total": 27,
+   "detector_units": 86,
+   "pct_detector_units": 33.59375,
+   "unmatched_units": 170,
+   "mean_best_iou": 0.03494852639742454,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "grid (11)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "alexnet-places365",
+   "model": "AlexNet Places365 (PT)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 20,
+   "part": 4,
+   "scene": 5,
+   "material": 1,
+   "texture": 23,
+   "color": 2,
+   "unique_total": 55,
+   "detector_units": 119,
+   "pct_detector_units": 46.484375,
+   "unmatched_units": 137,
+   "mean_best_iou": 0.043950548653076016,
+   "boot_unique_ci95": [
+    51.975,
+    60.0
+   ],
+   "boot_unique_boot_mean": 55.65,
+   "boot_label_agreement_mean": 0.9142857142857145,
+   "boot_label_agreement_ci95": [
+    0.8569327731092437,
+    0.957983193277311
+   ],
+   "most_common_concept": "grass (9)",
+   "n_dog_units": 3
+  },
+  {
+   "run": "caffe-alexnet-places365",
+   "model": "AlexNet Places365 (Caffe)",
+   "layer": "conv1",
+   "units": 96,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 4,
+   "unique_total": 6,
+   "detector_units": 16,
+   "pct_detector_units": 16.666666666666668,
+   "unmatched_units": 80,
+   "mean_best_iou": 0.02802855047706404,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "veined (5)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places365",
+   "model": "AlexNet Places365 (Caffe)",
+   "layer": "conv2",
+   "units": 256,
+   "object": 2,
+   "part": 0,
+   "scene": 1,
+   "material": 0,
+   "texture": 12,
+   "color": 6,
+   "unique_total": 21,
+   "detector_units": 66,
+   "pct_detector_units": 25.78125,
+   "unmatched_units": 190,
+   "mean_best_iou": 0.03359983523542333,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (11)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places365",
+   "model": "AlexNet Places365 (Caffe)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 13,
+   "part": 4,
+   "scene": 2,
+   "material": 1,
+   "texture": 19,
+   "color": 1,
+   "unique_total": 40,
+   "detector_units": 111,
+   "pct_detector_units": 28.90625,
+   "unmatched_units": 273,
+   "mean_best_iou": 0.034603074371047066,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "sky (7)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places365",
+   "model": "AlexNet Places365 (Caffe)",
+   "layer": "conv4",
+   "units": 384,
+   "object": 13,
+   "part": 4,
+   "scene": 2,
+   "material": 1,
+   "texture": 19,
+   "color": 1,
+   "unique_total": 40,
+   "detector_units": 96,
+   "pct_detector_units": 25.0,
+   "unmatched_units": 288,
+   "mean_best_iou": 0.033434692891827884,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (8)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places365",
+   "model": "AlexNet Places365 (Caffe)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 33,
+   "part": 4,
+   "scene": 5,
+   "material": 1,
+   "texture": 24,
+   "color": 1,
+   "unique_total": 68,
+   "detector_units": 116,
+   "pct_detector_units": 45.3125,
+   "unmatched_units": 140,
+   "mean_best_iou": 0.04534617977466508,
+   "boot_unique_ci95": [
+    65.0,
+    75.025
+   ],
+   "boot_unique_boot_mean": 70.865,
+   "boot_label_agreement_mean": 0.9073275862068965,
+   "boot_label_agreement_ci95": [
+    0.8620689655172413,
+    0.9482758620689655
+   ],
+   "most_common_concept": "water (6)",
+   "n_dog_units": 2
+  },
+  {
+   "run": "caffe-alexnet-places205",
+   "model": "AlexNet Places205 (Caffe, paper)",
+   "layer": "conv1",
+   "units": 96,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 5,
+   "unique_total": 7,
+   "detector_units": 13,
+   "pct_detector_units": 13.541666666666666,
+   "unmatched_units": 83,
+   "mean_best_iou": 0.026529090619090468,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "veined (4)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places205",
+   "model": "AlexNet Places205 (Caffe, paper)",
+   "layer": "conv2",
+   "units": 256,
+   "object": 3,
+   "part": 0,
+   "scene": 1,
+   "material": 0,
+   "texture": 10,
+   "color": 6,
+   "unique_total": 20,
+   "detector_units": 70,
+   "pct_detector_units": 27.34375,
+   "unmatched_units": 186,
+   "mean_best_iou": 0.03359725490698646,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (15)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places205",
+   "model": "AlexNet Places205 (Caffe, paper)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 12,
+   "part": 2,
+   "scene": 1,
+   "material": 0,
+   "texture": 18,
+   "color": 1,
+   "unique_total": 34,
+   "detector_units": 102,
+   "pct_detector_units": 26.5625,
+   "unmatched_units": 282,
+   "mean_best_iou": 0.03226396573307605,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "grid (12)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places205",
+   "model": "AlexNet Places205 (Caffe, paper)",
+   "layer": "conv4",
+   "units": 384,
+   "object": 17,
+   "part": 3,
+   "scene": 1,
+   "material": 1,
+   "texture": 15,
+   "color": 0,
+   "unique_total": 37,
+   "detector_units": 89,
+   "pct_detector_units": 23.177083333333332,
+   "unmatched_units": 295,
+   "mean_best_iou": 0.03097406744207636,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "grid (11)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-places205",
+   "model": "AlexNet Places205 (Caffe, paper)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 33,
+   "part": 5,
+   "scene": 4,
+   "material": 1,
+   "texture": 19,
+   "color": 1,
+   "unique_total": 63,
+   "detector_units": 110,
+   "pct_detector_units": 42.96875,
+   "unmatched_units": 146,
+   "mean_best_iou": 0.04381530472038739,
+   "boot_unique_ci95": [
+    58.0,
+    67.0
+   ],
+   "boot_unique_boot_mean": 62.69,
+   "boot_label_agreement_mean": 0.9428181818181818,
+   "boot_label_agreement_ci95": [
+    0.9,
+    0.9729545454545455
+   ],
+   "most_common_concept": "grass (8)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-hybrid",
+   "model": "AlexNet Hybrid (Caffe)",
+   "layer": "conv1",
+   "units": 96,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 3,
+   "color": 3,
+   "unique_total": 7,
+   "detector_units": 15,
+   "pct_detector_units": 15.625,
+   "unmatched_units": 81,
+   "mean_best_iou": 0.025765171632062628,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "veined (4)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-hybrid",
+   "model": "AlexNet Hybrid (Caffe)",
+   "layer": "conv2",
+   "units": 256,
+   "object": 4,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 15,
+   "color": 7,
+   "unique_total": 26,
+   "detector_units": 67,
+   "pct_detector_units": 26.171875,
+   "unmatched_units": 189,
+   "mean_best_iou": 0.03347323285734996,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (10)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-alexnet-hybrid",
+   "model": "AlexNet Hybrid (Caffe)",
+   "layer": "conv3",
+   "units": 384,
+   "object": 13,
+   "part": 4,
+   "scene": 1,
+   "material": 0,
+   "texture": 22,
+   "color": 1,
+   "unique_total": 41,
+   "detector_units": 110,
+   "pct_detector_units": 28.645833333333332,
+   "unmatched_units": 274,
+   "mean_best_iou": 0.033211500184334185,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (10)",
+   "n_dog_units": 4
+  },
+  {
+   "run": "caffe-alexnet-hybrid",
+   "model": "AlexNet Hybrid (Caffe)",
+   "layer": "conv4",
+   "units": 384,
+   "object": 18,
+   "part": 5,
+   "scene": 1,
+   "material": 0,
+   "texture": 14,
+   "color": 0,
+   "unique_total": 38,
+   "detector_units": 95,
+   "pct_detector_units": 24.739583333333332,
+   "unmatched_units": 289,
+   "mean_best_iou": 0.03206572606699664,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (9)",
+   "n_dog_units": 4
+  },
+  {
+   "run": "caffe-alexnet-hybrid",
+   "model": "AlexNet Hybrid (Caffe)",
+   "layer": "conv5",
+   "units": 256,
+   "object": 31,
+   "part": 7,
+   "scene": 3,
+   "material": 1,
+   "texture": 21,
+   "color": 2,
+   "unique_total": 65,
+   "detector_units": 114,
+   "pct_detector_units": 44.53125,
+   "unmatched_units": 142,
+   "mean_best_iou": 0.04511683743910753,
+   "boot_unique_ci95": [
+    62.0,
+    70.0
+   ],
+   "boot_unique_boot_mean": 66.26,
+   "boot_label_agreement_mean": 0.8959649122807017,
+   "boot_label_agreement_ci95": [
+    0.8596491228070176,
+    0.9473684210526315
+   ],
+   "most_common_concept": "dog (10)",
+   "n_dog_units": 10
+  },
+  {
+   "run": "vgg16-random",
+   "model": "VGG16 random",
+   "layer": "conv1_2",
+   "units": 64,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 5,
+   "unique_total": 7,
+   "detector_units": 27,
+   "pct_detector_units": 42.1875,
+   "unmatched_units": 37,
+   "mean_best_iou": 0.03822247582582746,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (10)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-random",
+   "model": "VGG16 random",
+   "layer": "conv2_2",
+   "units": 128,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 3,
+   "color": 3,
+   "unique_total": 7,
+   "detector_units": 37,
+   "pct_detector_units": 28.90625,
+   "unmatched_units": 91,
+   "mean_best_iou": 0.03135583990127357,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "white-c (21)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-random",
+   "model": "VGG16 random",
+   "layer": "conv3_3",
+   "units": 256,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 2,
+   "unique_total": 4,
+   "detector_units": 25,
+   "pct_detector_units": 9.765625,
+   "unmatched_units": 231,
+   "mean_best_iou": 0.019799539238447822,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "grid (15)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-random",
+   "model": "VGG16 random",
+   "layer": "conv4_3",
+   "units": 512,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 4,
+   "color": 0,
+   "unique_total": 5,
+   "detector_units": 59,
+   "pct_detector_units": 11.5234375,
+   "unmatched_units": 453,
+   "mean_best_iou": 0.020375112201944996,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "grid (54)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-random",
+   "model": "VGG16 random",
+   "layer": "conv5_3",
+   "units": 512,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 3,
+   "color": 0,
+   "unique_total": 4,
+   "detector_units": 61,
+   "pct_detector_units": 11.9140625,
+   "unmatched_units": 451,
+   "mean_best_iou": 0.01956021951276657,
+   "boot_unique_ci95": [
+    3.0,
+    6.0
+   ],
+   "boot_unique_boot_mean": 4.28,
+   "boot_label_agreement_mean": 0.7245081967213113,
+   "boot_label_agreement_ci95": [
+    0.3930327868852459,
+    0.902049180327869
+   ],
+   "most_common_concept": "grid (37)",
    "n_dog_units": 0
   },
   {
    "run": "vgg16-imagenet",
+   "model": "VGG16 ImageNet",
+   "layer": "conv1_2",
+   "units": 64,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 4,
+   "unique_total": 6,
+   "detector_units": 14,
+   "pct_detector_units": 21.875,
+   "unmatched_units": 50,
+   "mean_best_iou": 0.025154508870912945,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (5)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-imagenet",
+   "model": "VGG16 ImageNet",
+   "layer": "conv2_2",
+   "units": 128,
+   "object": 1,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 3,
+   "color": 2,
+   "unique_total": 6,
+   "detector_units": 9,
+   "pct_detector_units": 7.03125,
+   "unmatched_units": 119,
+   "mean_best_iou": 0.024093348464838543,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "banded (3)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16-imagenet",
+   "model": "VGG16 ImageNet",
    "layer": "conv3_3",
    "units": 256,
    "object": 1,
@@ -436,20 +1235,21 @@
    "unmatched_units": 241,
    "mean_best_iou": 0.017938960542693685,
    "boot_unique_ci95": [
-    5.0,
-    11.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 8.455,
-   "boot_label_agreement_mean": 0.9210000000000003,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.8,
-    1.0
+    NaN,
+    NaN
    ],
-   "most_common_concept": "perforated (3 units)",
+   "most_common_concept": "perforated (3)",
    "n_dog_units": 0
   },
   {
    "run": "vgg16-imagenet",
+   "model": "VGG16 ImageNet",
    "layer": "conv4_3",
    "units": 512,
    "object": 12,
@@ -464,20 +1264,21 @@
    "unmatched_units": 366,
    "mean_best_iou": 0.03434411704672717,
    "boot_unique_ci95": [
-    42.0,
-    48.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 45.31,
-   "boot_label_agreement_mean": 0.9204794520547945,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.8767123287671232,
-    0.9657534246575342
+    NaN,
+    NaN
    ],
-   "most_common_concept": "zigzagged (16 units)",
+   "most_common_concept": "zigzagged (16)",
    "n_dog_units": 3
   },
   {
    "run": "vgg16-imagenet",
+   "model": "VGG16 ImageNet",
    "layer": "conv5_3",
    "units": 512,
    "object": 37,
@@ -501,11 +1302,70 @@
     0.9047619047619048,
     0.9523809523809523
    ],
-   "most_common_concept": "dog (35 units)",
+   "most_common_concept": "dog (35)",
    "n_dog_units": 35
   },
   {
    "run": "vgg16bn-imagenet",
+   "model": "VGG16-BN ImageNet",
+   "layer": "conv1_2",
+   "units": 64,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 4,
+   "unique_total": 5,
+   "detector_units": 16,
+   "pct_detector_units": 25.0,
+   "unmatched_units": 48,
+   "mean_best_iou": 0.028519265085598752,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (6)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16bn-imagenet",
+   "model": "VGG16-BN ImageNet",
+   "layer": "conv2_2",
+   "units": 128,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 1,
+   "unique_total": 2,
+   "detector_units": 5,
+   "pct_detector_units": 3.90625,
+   "unmatched_units": 123,
+   "mean_best_iou": 0.02049541718713481,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (4)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "vgg16bn-imagenet",
+   "model": "VGG16-BN ImageNet",
    "layer": "conv3_3",
    "units": 256,
    "object": 1,
@@ -520,20 +1380,21 @@
    "unmatched_units": 254,
    "mean_best_iou": 0.010307954902899291,
    "boot_unique_ci95": [
-    2.0,
-    5.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 3.37,
-   "boot_label_agreement_mean": 1.0,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    1.0,
-    1.0
+    NaN,
+    NaN
    ],
-   "most_common_concept": "sky (1 units)",
+   "most_common_concept": "sky (1)",
    "n_dog_units": 0
   },
   {
    "run": "vgg16bn-imagenet",
+   "model": "VGG16-BN ImageNet",
    "layer": "conv4_3",
    "units": 512,
    "object": 3,
@@ -548,20 +1409,21 @@
    "unmatched_units": 452,
    "mean_best_iou": 0.02266233496502651,
    "boot_unique_ci95": [
-    23.0,
-    30.0
+    NaN,
+    NaN
    ],
-   "boot_unique_boot_mean": 26.65,
-   "boot_label_agreement_mean": 0.92875,
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
    "boot_label_agreement_ci95": [
-    0.8666666666666667,
-    0.9666666666666667
+    NaN,
+    NaN
    ],
-   "most_common_concept": "zigzagged (10 units)",
+   "most_common_concept": "zigzagged (10)",
    "n_dog_units": 0
   },
   {
    "run": "vgg16bn-imagenet",
+   "model": "VGG16-BN ImageNet",
    "layer": "conv5_3",
    "units": 512,
    "object": 49,
@@ -585,17 +1447,309 @@
     0.9131832797427653,
     0.9614147909967846
    ],
-   "most_common_concept": "dog (33 units)",
+   "most_common_concept": "dog (33)",
    "n_dog_units": 33
+  },
+  {
+   "run": "caffe-vgg16-places365",
+   "model": "VGG16 Places365 (Caffe)",
+   "layer": "conv1_2",
+   "units": 64,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 1,
+   "color": 5,
+   "unique_total": 6,
+   "detector_units": 19,
+   "pct_detector_units": 29.6875,
+   "unmatched_units": 45,
+   "mean_best_iou": 0.033883069398142965,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "blue-c (5)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-places365",
+   "model": "VGG16 Places365 (Caffe)",
+   "layer": "conv2_2",
+   "units": 128,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 5,
+   "unique_total": 7,
+   "detector_units": 16,
+   "pct_detector_units": 12.5,
+   "unmatched_units": 112,
+   "mean_best_iou": 0.02876087138268399,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (6)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-places365",
+   "model": "VGG16 Places365 (Caffe)",
+   "layer": "conv3_3",
+   "units": 256,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 9,
+   "color": 1,
+   "unique_total": 10,
+   "detector_units": 29,
+   "pct_detector_units": 11.328125,
+   "unmatched_units": 227,
+   "mean_best_iou": 0.02429841497166398,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "zigzagged (5)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-places365",
+   "model": "VGG16 Places365 (Caffe)",
+   "layer": "conv4_3",
+   "units": 512,
+   "object": 16,
+   "part": 6,
+   "scene": 1,
+   "material": 1,
+   "texture": 17,
+   "color": 3,
+   "unique_total": 44,
+   "detector_units": 122,
+   "pct_detector_units": 23.828125,
+   "unmatched_units": 390,
+   "mean_best_iou": 0.03242601567877397,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (11)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-places365",
+   "model": "VGG16 Places365 (Caffe)",
+   "layer": "conv5_3",
+   "units": 512,
+   "object": 59,
+   "part": 12,
+   "scene": 48,
+   "material": 2,
+   "texture": 26,
+   "color": 1,
+   "unique_total": 148,
+   "detector_units": 295,
+   "pct_detector_units": 57.6171875,
+   "unmatched_units": 217,
+   "mean_best_iou": 0.05382179322464826,
+   "boot_unique_ci95": [
+    142.0,
+    157.0
+   ],
+   "boot_unique_boot_mean": 149.625,
+   "boot_label_agreement_mean": 0.8946101694915254,
+   "boot_label_agreement_ci95": [
+    0.8610169491525423,
+    0.9255084745762712
+   ],
+   "most_common_concept": "airplane (8)",
+   "n_dog_units": 2
+  },
+  {
+   "run": "caffe-vgg16-hybrid1365",
+   "model": "VGG16 Hybrid1365 (Caffe)",
+   "layer": "conv1_2",
+   "units": 64,
+   "object": 0,
+   "part": 0,
+   "scene": 0,
+   "material": 0,
+   "texture": 2,
+   "color": 4,
+   "unique_total": 6,
+   "detector_units": 16,
+   "pct_detector_units": 25.0,
+   "unmatched_units": 48,
+   "mean_best_iou": 0.028527609637497422,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "blue-c (4)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-hybrid1365",
+   "model": "VGG16 Hybrid1365 (Caffe)",
+   "layer": "conv2_2",
+   "units": 128,
+   "object": 0,
+   "part": 0,
+   "scene": 1,
+   "material": 0,
+   "texture": 4,
+   "color": 5,
+   "unique_total": 10,
+   "detector_units": 18,
+   "pct_detector_units": 14.0625,
+   "unmatched_units": 110,
+   "mean_best_iou": 0.0273312517332234,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "red-c (5)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-hybrid1365",
+   "model": "VGG16 Hybrid1365 (Caffe)",
+   "layer": "conv3_3",
+   "units": 256,
+   "object": 2,
+   "part": 1,
+   "scene": 0,
+   "material": 0,
+   "texture": 8,
+   "color": 2,
+   "unique_total": 13,
+   "detector_units": 30,
+   "pct_detector_units": 11.71875,
+   "unmatched_units": 226,
+   "mean_best_iou": 0.023058957844994017,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "perforated (8)",
+   "n_dog_units": 0
+  },
+  {
+   "run": "caffe-vgg16-hybrid1365",
+   "model": "VGG16 Hybrid1365 (Caffe)",
+   "layer": "conv4_3",
+   "units": 512,
+   "object": 13,
+   "part": 7,
+   "scene": 1,
+   "material": 0,
+   "texture": 21,
+   "color": 2,
+   "unique_total": 44,
+   "detector_units": 113,
+   "pct_detector_units": 22.0703125,
+   "unmatched_units": 399,
+   "mean_best_iou": 0.031202259519139595,
+   "boot_unique_ci95": [
+    NaN,
+    NaN
+   ],
+   "boot_unique_boot_mean": NaN,
+   "boot_label_agreement_mean": NaN,
+   "boot_label_agreement_ci95": [
+    NaN,
+    NaN
+   ],
+   "most_common_concept": "zigzagged (12)",
+   "n_dog_units": 1
+  },
+  {
+   "run": "caffe-vgg16-hybrid1365",
+   "model": "VGG16 Hybrid1365 (Caffe)",
+   "layer": "conv5_3",
+   "units": 512,
+   "object": 61,
+   "part": 16,
+   "scene": 40,
+   "material": 4,
+   "texture": 25,
+   "color": 1,
+   "unique_total": 147,
+   "detector_units": 321,
+   "pct_detector_units": 62.6953125,
+   "unmatched_units": 191,
+   "mean_best_iou": 0.06104947682799844,
+   "boot_unique_ci95": [
+    140.975,
+    155.0
+   ],
+   "boot_unique_boot_mean": 147.795,
+   "boot_label_agreement_mean": 0.9061682242990653,
+   "boot_label_agreement_ci95": [
+    0.8691588785046729,
+    0.9345794392523364
+   ],
+   "most_common_concept": "dog (17)",
+   "n_dog_units": 17
   }
  ],
  "rotation": [
   {
    "model": "rot-alexnet-imagenet",
-   "alpha": 0,
-   "n_seeds": 1,
+   "alpha": 0.0,
+   "n_seeds": 3,
    "unique_mean": 53.0,
    "unique_sd": 0.0,
+   "unique_min": 53,
+   "unique_max": 53,
    "detector_units_mean": 135.0,
    "object": 17.0,
    "part": 7.0,
@@ -607,54 +1761,62 @@
   {
    "model": "rot-alexnet-imagenet",
    "alpha": 0.2,
-   "n_seeds": 1,
-   "unique_mean": 49.0,
-   "unique_sd": 0.0,
-   "detector_units_mean": 133.0,
-   "object": 16.0,
-   "part": 6.0,
+   "n_seeds": 3,
+   "unique_mean": 51.0,
+   "unique_sd": 1.632993161855452,
+   "unique_min": 49,
+   "unique_max": 53,
+   "detector_units_mean": 135.0,
+   "object": 16.666666666666668,
+   "part": 6.333333333333333,
    "scene": 1.0,
    "material": 1.0,
-   "texture": 21.0,
+   "texture": 22.0,
    "color": 4.0
   },
   {
    "model": "rot-alexnet-imagenet",
    "alpha": 0.4,
-   "n_seeds": 1,
-   "unique_mean": 46.0,
-   "unique_sd": 0.0,
-   "detector_units_mean": 130.0,
-   "object": 14.0,
-   "part": 5.0,
-   "scene": 1.0,
+   "n_seeds": 3,
+   "unique_mean": 48.666666666666664,
+   "unique_sd": 2.494438257849294,
+   "unique_min": 46,
+   "unique_max": 52,
+   "detector_units_mean": 131.0,
+   "object": 15.0,
+   "part": 5.666666666666667,
+   "scene": 0.6666666666666666,
    "material": 1.0,
-   "texture": 21.0,
+   "texture": 22.333333333333332,
    "color": 4.0
   },
   {
    "model": "rot-alexnet-imagenet",
    "alpha": 0.6,
-   "n_seeds": 1,
-   "unique_mean": 39.0,
-   "unique_sd": 0.0,
-   "detector_units_mean": 118.0,
-   "object": 12.0,
+   "n_seeds": 3,
+   "unique_mean": 40.333333333333336,
+   "unique_sd": 1.8856180831641267,
+   "unique_min": 39,
+   "unique_max": 43,
+   "detector_units_mean": 119.66666666666667,
+   "object": 12.666666666666666,
    "part": 5.0,
    "scene": 0.0,
    "material": 1.0,
-   "texture": 19.0,
+   "texture": 19.666666666666668,
    "color": 2.0
   },
   {
    "model": "rot-alexnet-imagenet",
    "alpha": 0.8,
-   "n_seeds": 1,
-   "unique_mean": 22.0,
-   "unique_sd": 0.0,
-   "detector_units_mean": 104.0,
-   "object": 6.0,
-   "part": 2.0,
+   "n_seeds": 3,
+   "unique_mean": 22.333333333333332,
+   "unique_sd": 0.4714045207910317,
+   "unique_min": 22,
+   "unique_max": 23,
+   "detector_units_mean": 106.0,
+   "object": 5.666666666666667,
+   "part": 2.6666666666666665,
    "scene": 0.0,
    "material": 0.0,
    "texture": 14.0,
@@ -662,24 +1824,28 @@
   },
   {
    "model": "rot-alexnet-imagenet",
-   "alpha": 1,
-   "n_seeds": 1,
-   "unique_mean": 23.0,
-   "unique_sd": 0.0,
-   "detector_units_mean": 107.0,
-   "object": 5.0,
-   "part": 4.0,
+   "alpha": 1.0,
+   "n_seeds": 3,
+   "unique_mean": 22.0,
+   "unique_sd": 0.816496580927726,
+   "unique_min": 21,
+   "unique_max": 23,
+   "detector_units_mean": 107.33333333333333,
+   "object": 6.333333333333333,
+   "part": 2.6666666666666665,
    "scene": 0.0,
-   "material": 0.0,
-   "texture": 14.0,
+   "material": 0.3333333333333333,
+   "texture": 12.666666666666666,
    "color": 0.0
   },
   {
    "model": "rot-alexnet-places365",
-   "alpha": 0,
+   "alpha": 0.0,
    "n_seeds": 3,
    "unique_mean": 55.0,
    "unique_sd": 0.0,
+   "unique_min": 55,
+   "unique_max": 55,
    "detector_units_mean": 119.0,
    "object": 20.0,
    "part": 4.0,
@@ -694,6 +1860,8 @@
    "n_seeds": 3,
    "unique_mean": 55.333333333333336,
    "unique_sd": 1.247219128924647,
+   "unique_min": 54,
+   "unique_max": 57,
    "detector_units_mean": 119.66666666666667,
    "object": 21.333333333333332,
    "part": 4.0,
@@ -708,6 +1876,8 @@
    "n_seeds": 3,
    "unique_mean": 53.666666666666664,
    "unique_sd": 2.6246692913372702,
+   "unique_min": 50,
+   "unique_max": 56,
    "detector_units_mean": 114.33333333333333,
    "object": 21.0,
    "part": 4.0,
@@ -722,6 +1892,8 @@
    "n_seeds": 3,
    "unique_mean": 46.0,
    "unique_sd": 0.816496580927726,
+   "unique_min": 45,
+   "unique_max": 47,
    "detector_units_mean": 99.66666666666667,
    "object": 18.0,
    "part": 3.6666666666666665,
@@ -736,6 +1908,8 @@
    "n_seeds": 3,
    "unique_mean": 19.0,
    "unique_sd": 0.0,
+   "unique_min": 19,
+   "unique_max": 19,
    "detector_units_mean": 60.0,
    "object": 4.333333333333333,
    "part": 2.0,
@@ -746,10 +1920,12 @@
   },
   {
    "model": "rot-alexnet-places365",
-   "alpha": 1,
+   "alpha": 1.0,
    "n_seeds": 3,
    "unique_mean": 17.333333333333332,
    "unique_sd": 1.699673171197595,
+   "unique_min": 15,
+   "unique_max": 19,
    "detector_units_mean": 63.333333333333336,
    "object": 4.0,
    "part": 1.3333333333333333,
@@ -757,11 +1933,229 @@
    "material": 0.3333333333333333,
    "texture": 10.333333333333334,
    "color": 0.3333333333333333
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 0.0,
+   "n_seeds": 3,
+   "unique_mean": 63.0,
+   "unique_sd": 0.0,
+   "unique_min": 63,
+   "unique_max": 63,
+   "detector_units_mean": 110.0,
+   "object": 33.0,
+   "part": 5.0,
+   "scene": 4.0,
+   "material": 1.0,
+   "texture": 19.0,
+   "color": 1.0
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 0.2,
+   "n_seeds": 3,
+   "unique_mean": 61.0,
+   "unique_sd": 0.816496580927726,
+   "unique_min": 60,
+   "unique_max": 62,
+   "detector_units_mean": 107.33333333333333,
+   "object": 32.333333333333336,
+   "part": 5.0,
+   "scene": 3.6666666666666665,
+   "material": 1.0,
+   "texture": 18.333333333333332,
+   "color": 0.6666666666666666
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 0.4,
+   "n_seeds": 3,
+   "unique_mean": 59.0,
+   "unique_sd": 1.632993161855452,
+   "unique_min": 57,
+   "unique_max": 61,
+   "detector_units_mean": 102.66666666666667,
+   "object": 31.333333333333332,
+   "part": 4.333333333333333,
+   "scene": 4.0,
+   "material": 1.0,
+   "texture": 18.0,
+   "color": 0.3333333333333333
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 0.6,
+   "n_seeds": 3,
+   "unique_mean": 46.333333333333336,
+   "unique_sd": 2.6246692913372702,
+   "unique_min": 44,
+   "unique_max": 50,
+   "detector_units_mean": 79.66666666666667,
+   "object": 24.333333333333332,
+   "part": 4.333333333333333,
+   "scene": 2.3333333333333335,
+   "material": 1.0,
+   "texture": 14.0,
+   "color": 0.3333333333333333
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 0.8,
+   "n_seeds": 3,
+   "unique_mean": 16.666666666666668,
+   "unique_sd": 1.247219128924647,
+   "unique_min": 15,
+   "unique_max": 18,
+   "detector_units_mean": 35.0,
+   "object": 10.0,
+   "part": 1.6666666666666667,
+   "scene": 0.3333333333333333,
+   "material": 0.6666666666666666,
+   "texture": 4.0,
+   "color": 0.0
+  },
+  {
+   "model": "rot-caffe-alexnet-places205",
+   "alpha": 1.0,
+   "n_seeds": 3,
+   "unique_mean": 10.0,
+   "unique_sd": 0.816496580927726,
+   "unique_min": 9,
+   "unique_max": 11,
+   "detector_units_mean": 25.666666666666668,
+   "object": 5.0,
+   "part": 1.3333333333333333,
+   "scene": 0.3333333333333333,
+   "material": 0.0,
+   "texture": 3.3333333333333335,
+   "color": 0.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 0.0,
+   "n_seeds": 3,
+   "unique_mean": 148.0,
+   "unique_sd": 0.0,
+   "unique_min": 148,
+   "unique_max": 148,
+   "detector_units_mean": 295.0,
+   "object": 59.0,
+   "part": 12.0,
+   "scene": 48.0,
+   "material": 2.0,
+   "texture": 26.0,
+   "color": 1.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 0.2,
+   "n_seeds": 3,
+   "unique_mean": 149.33333333333334,
+   "unique_sd": 1.247219128924647,
+   "unique_min": 148,
+   "unique_max": 151,
+   "detector_units_mean": 293.3333333333333,
+   "object": 60.0,
+   "part": 12.0,
+   "scene": 48.0,
+   "material": 2.0,
+   "texture": 26.333333333333332,
+   "color": 1.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 0.4,
+   "n_seeds": 3,
+   "unique_mean": 146.0,
+   "unique_sd": 1.4142135623730951,
+   "unique_min": 145,
+   "unique_max": 148,
+   "detector_units_mean": 283.6666666666667,
+   "object": 59.333333333333336,
+   "part": 12.0,
+   "scene": 45.333333333333336,
+   "material": 2.0,
+   "texture": 26.333333333333332,
+   "color": 1.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 0.6,
+   "n_seeds": 3,
+   "unique_mean": 126.66666666666667,
+   "unique_sd": 2.0548046676563256,
+   "unique_min": 124,
+   "unique_max": 129,
+   "detector_units_mean": 248.66666666666666,
+   "object": 56.0,
+   "part": 11.0,
+   "scene": 34.666666666666664,
+   "material": 1.6666666666666667,
+   "texture": 22.333333333333332,
+   "color": 1.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 0.8,
+   "n_seeds": 3,
+   "unique_mean": 54.333333333333336,
+   "unique_sd": 1.247219128924647,
+   "unique_min": 53,
+   "unique_max": 56,
+   "detector_units_mean": 194.66666666666666,
+   "object": 27.666666666666668,
+   "part": 8.0,
+   "scene": 10.666666666666666,
+   "material": 1.0,
+   "texture": 7.0,
+   "color": 0.0
+  },
+  {
+   "model": "rot-caffe-vgg16-places365",
+   "alpha": 1.0,
+   "n_seeds": 3,
+   "unique_mean": 30.333333333333332,
+   "unique_sd": 1.247219128924647,
+   "unique_min": 29,
+   "unique_max": 32,
+   "detector_units_mean": 181.0,
+   "object": 16.333333333333332,
+   "part": 4.333333333333333,
+   "scene": 7.0,
+   "material": 1.0,
+   "texture": 1.6666666666666667,
+   "color": 0.0
   }
  ],
  "rotation_drop_pct": {
-  "rot-alexnet-imagenet": 56.60377358490566,
-  "rot-alexnet-places365": 68.48484848484848
+  "rot-alexnet-imagenet": {
+   "drop_pct": 58.490566037735846,
+   "baseline": 53.0,
+   "rotated_mean": 22.0,
+   "rotated_sd": 0.816496580927726,
+   "n_seeds": 3
+  },
+  "rot-alexnet-places365": {
+   "drop_pct": 68.48484848484848,
+   "baseline": 55.0,
+   "rotated_mean": 17.333333333333332,
+   "rotated_sd": 1.699673171197595,
+   "n_seeds": 3
+  },
+  "rot-caffe-alexnet-places205": {
+   "drop_pct": 84.12698412698413,
+   "baseline": 63.0,
+   "rotated_mean": 10.0,
+   "rotated_sd": 0.816496580927726,
+   "n_seeds": 3
+  },
+  "rot-caffe-vgg16-places365": {
+   "drop_pct": 79.5045045045045,
+   "baseline": 148.0,
+   "rotated_mean": 30.333333333333332,
+   "rotated_sd": 1.247219128924647,
+   "n_seeds": 3
+  }
  },
  "negative": [
   {
@@ -771,7 +2165,6 @@
    "neg_unique": 12,
    "pos_detector_units": 135,
    "neg_detector_units": 254,
-   "units_detector_in_both": 134,
    "both_same_concept": 0,
    "pos_object": 17,
    "pos_part": 7,
@@ -785,114 +2178,13 @@
    "neg_material": 0,
    "neg_texture": 9,
    "neg_color": 0,
-   "neg_only_concepts": [],
-   "top_negative_units": [
-    {
-     "unit": 130,
-     "neg_label": "dotted",
-     "neg_iou": 0.16587086871368517,
-     "pos_label": "cat",
-     "pos_iou": 0.17281991338338948
-    },
-    {
-     "unit": 246,
-     "neg_label": "polka-dotted",
-     "neg_iou": 0.15461247318669546,
-     "pos_label": "shelf",
-     "pos_iou": 0.021566688879755512
-    },
-    {
-     "unit": 167,
-     "neg_label": "polka-dotted",
-     "neg_iou": 0.15160547273996497,
-     "pos_label": "water",
-     "pos_iou": 0.037864787599976225
-    },
-    {
-     "unit": 164,
-     "neg_label": "dotted",
-     "neg_iou": 0.14822939290974066,
-     "pos_label": "black-c",
-     "pos_iou": 0.02393855656830999
-    },
-    {
-     "unit": 148,
-     "neg_label": "dotted",
-     "neg_iou": 0.14561422235713106,
-     "pos_label": "chequered",
-     "pos_iou": 0.029341688603472166
-    },
-    {
-     "unit": 196,
-     "neg_label": "dotted",
-     "neg_iou": 0.14260089326285882,
-     "pos_label": "cat",
-     "pos_iou": 0.12445370017809143
-    },
-    {
-     "unit": 33,
-     "neg_label": "dotted",
-     "neg_iou": 0.14142888887235008,
-     "pos_label": "bicycle",
-     "pos_iou": 0.04969033658347114
-    },
-    {
-     "unit": 239,
-     "neg_label": "dotted",
-     "neg_iou": 0.14080949556754085,
-     "pos_label": "waffled",
-     "pos_iou": 0.02483161647039632
-    },
-    {
-     "unit": 81,
-     "neg_label": "dotted",
-     "neg_iou": 0.13861825861737861,
-     "pos_label": "chequered",
-     "pos_iou": 0.03522174993702538
-    },
-    {
-     "unit": 44,
-     "neg_label": "dotted",
-     "neg_iou": 0.13716127074374726,
-     "pos_label": "grid",
-     "pos_iou": 0.05122859644146894
-    },
-    {
-     "unit": 35,
-     "neg_label": "polka-dotted",
-     "neg_iou": 0.13657775503500302,
-     "pos_label": "cobwebbed",
-     "pos_iou": 0.17330222806328904
-    },
-    {
-     "unit": 221,
-     "neg_label": "dotted",
-     "neg_iou": 0.1325933663388958,
-     "pos_label": "cobwebbed",
-     "pos_iou": 0.05329974431730667
-    },
-    {
-     "unit": 97,
-     "neg_label": "dotted",
-     "neg_iou": 0.130541652134034,
-     "pos_label": "wood",
-     "pos_iou": 0.013828596604238514
-    },
-    {
-     "unit": 26,
-     "neg_label": "dotted",
-     "neg_iou": 0.12939258287131522,
-     "pos_label": "swirly",
-     "pos_iou": 0.07064516091475381
-    },
-    {
-     "unit": 249,
-     "neg_label": "dotted",
-     "neg_iou": 0.12911021532505657,
-     "pos_label": "car",
-     "pos_iou": 0.017089080429700816
-    }
-   ]
+   "top_negative_labels": {
+    "polka-dotted": 66,
+    "grid": 45,
+    "dotted": 43,
+    "chequered": 31,
+    "perforated": 23
+   }
   },
   {
    "model": "alexnet-places365",
@@ -901,7 +2193,6 @@
    "neg_unique": 11,
    "pos_detector_units": 119,
    "neg_detector_units": 242,
-   "units_detector_in_both": 113,
    "both_same_concept": 0,
    "pos_object": 20,
    "pos_part": 4,
@@ -915,116 +2206,41 @@
    "neg_material": 0,
    "neg_texture": 9,
    "neg_color": 0,
-   "neg_only_concepts": [
-    "polka-dotted"
-   ],
-   "top_negative_units": [
-    {
-     "unit": 221,
-     "neg_label": "grid",
-     "neg_iou": 0.12863206620317566,
-     "pos_label": "casino-indoor-s",
-     "pos_iou": 0.0161134784039256
-    },
-    {
-     "unit": 251,
-     "neg_label": "grid",
-     "neg_iou": 0.12655472172286322,
-     "pos_label": "porous",
-     "pos_iou": 0.04543413652170422
-    },
-    {
-     "unit": 140,
-     "neg_label": "dotted",
-     "neg_iou": 0.12536828521107207,
-     "pos_label": "skyscraper-s",
-     "pos_iou": 0.04662879564065785
-    },
-    {
-     "unit": 153,
-     "neg_label": "zigzagged",
-     "neg_iou": 0.12511392829778603,
-     "pos_label": "sea",
-     "pos_iou": 0.07073699972571719
-    },
-    {
-     "unit": 91,
-     "neg_label": "zigzagged",
-     "neg_iou": 0.12456286530239702,
-     "pos_label": "grass",
-     "pos_iou": 0.07206164323672877
-    },
-    {
-     "unit": 151,
-     "neg_label": "grid",
-     "neg_iou": 0.12166681079987403,
-     "pos_label": "tree",
-     "pos_iou": 0.07814957728014378
-    },
-    {
-     "unit": 121,
-     "neg_label": "grid",
-     "neg_iou": 0.11654928143067894,
-     "pos_label": "cracked",
-     "pos_iou": 0.09561910582928372
-    },
-    {
-     "unit": 211,
-     "neg_label": "grid",
-     "neg_iou": 0.11201220134817766,
-     "pos_label": "fibrous",
-     "pos_iou": 0.03373417301122542
-    },
-    {
-     "unit": 199,
-     "neg_label": "grid",
-     "neg_iou": 0.11161001800582591,
-     "pos_label": "veined",
-     "pos_iou": 0.021180298676445587
-    },
-    {
-     "unit": 228,
-     "neg_label": "grid",
-     "neg_iou": 0.11156354045211649,
-     "pos_label": "blue-c",
-     "pos_iou": 0.026341283312558507
-    },
-    {
-     "unit": 252,
-     "neg_label": "grid",
-     "neg_iou": 0.11128412695550916,
-     "pos_label": "mountain",
-     "pos_iou": 0.053341179444631064
-    },
-    {
-     "unit": 22,
-     "neg_label": "grid",
-     "neg_iou": 0.11117512192969847,
-     "pos_label": "painted",
-     "pos_iou": 0.018030086619901586
-    },
-    {
-     "unit": 20,
-     "neg_label": "grid",
-     "neg_iou": 0.11067683101358426,
-     "pos_label": "motorbike",
-     "pos_iou": 0.042912982201167765
-    },
-    {
-     "unit": 174,
-     "neg_label": "grid",
-     "neg_iou": 0.11025464657080965,
-     "pos_label": "floor",
-     "pos_iou": 0.028086006407048825
-    },
-    {
-     "unit": 172,
-     "neg_label": "grid",
-     "neg_iou": 0.10981568892406787,
-     "pos_label": "building",
-     "pos_iou": 0.03137485906391297
-    }
-   ]
+   "top_negative_labels": {
+    "grid": 107,
+    "perforated": 60,
+    "zigzagged": 41,
+    "polka-dotted": 15,
+    "swirly": 5
+   }
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "layer": "conv5",
+   "pos_unique": 63,
+   "neg_unique": 10,
+   "pos_detector_units": 110,
+   "neg_detector_units": 157,
+   "both_same_concept": 0,
+   "pos_object": 33,
+   "pos_part": 5,
+   "pos_scene": 4,
+   "pos_material": 1,
+   "pos_texture": 19,
+   "pos_color": 1,
+   "neg_object": 1,
+   "neg_part": 1,
+   "neg_scene": 0,
+   "neg_material": 0,
+   "neg_texture": 8,
+   "neg_color": 0,
+   "top_negative_labels": {
+    "grid": 82,
+    "polka-dotted": 31,
+    "swirly": 15,
+    "perforated": 11,
+    "dotted": 10
+   }
   },
   {
    "model": "vgg16-imagenet",
@@ -1033,7 +2249,6 @@
    "neg_unique": 16,
    "pos_detector_units": 315,
    "neg_detector_units": 493,
-   "units_detector_in_both": 301,
    "both_same_concept": 0,
    "pos_object": 37,
    "pos_part": 13,
@@ -1047,114 +2262,41 @@
    "neg_material": 0,
    "neg_texture": 7,
    "neg_color": 0,
-   "neg_only_concepts": [],
-   "top_negative_units": [
-    {
-     "unit": 244,
-     "neg_label": "chequered",
-     "neg_iou": 0.2036357236137337,
-     "pos_label": "wrinkled",
-     "pos_iou": 0.038897093434224976
-    },
-    {
-     "unit": 91,
-     "neg_label": "chequered",
-     "neg_iou": 0.201218630887082,
-     "pos_label": "lamp",
-     "pos_iou": 0.01984332430026032
-    },
-    {
-     "unit": 19,
-     "neg_label": "chequered",
-     "neg_iou": 0.19854582006745758,
-     "pos_label": "airplane",
-     "pos_iou": 0.052911537358562875
-    },
-    {
-     "unit": 306,
-     "neg_label": "honeycombed",
-     "neg_iou": 0.18094146817117682,
-     "pos_label": "wheel",
-     "pos_iou": 0.051507707269786415
-    },
-    {
-     "unit": 160,
-     "neg_label": "car",
-     "neg_iou": 0.18042413003552893,
-     "pos_label": "tile",
-     "pos_iou": 0.03813367425792753
-    },
-    {
-     "unit": 353,
-     "neg_label": "chequered",
-     "neg_iou": 0.17962930162250298,
-     "pos_label": "cat",
-     "pos_iou": 0.11295732223708334
-    },
-    {
-     "unit": 180,
-     "neg_label": "chequered",
-     "neg_iou": 0.1787674611420715,
-     "pos_label": "bakery-shop-s",
-     "pos_iou": 0.02144971179915317
-    },
-    {
-     "unit": 192,
-     "neg_label": "wheel",
-     "neg_iou": 0.17330544289681724,
-     "pos_label": "waffled",
-     "pos_iou": 0.08637670190652434
-    },
-    {
-     "unit": 184,
-     "neg_label": "chequered",
-     "neg_iou": 0.1718483948875077,
-     "pos_label": "sheep",
-     "pos_iou": 0.08864979537009406
-    },
-    {
-     "unit": 504,
-     "neg_label": "car",
-     "neg_iou": 0.16784045202832007,
-     "pos_label": "back",
-     "pos_iou": 0.012706674831598286
-    },
-    {
-     "unit": 43,
-     "neg_label": "chequered",
-     "neg_iou": 0.16729011452906184,
-     "pos_label": "horse",
-     "pos_iou": 0.05239415174250727
-    },
-    {
-     "unit": 234,
-     "neg_label": "chequered",
-     "neg_iou": 0.1660417242896805,
-     "pos_label": "bottle",
-     "pos_iou": 0.0515292433428929
-    },
-    {
-     "unit": 113,
-     "neg_label": "chequered",
-     "neg_iou": 0.16235467219224686,
-     "pos_label": "motorbike",
-     "pos_iou": 0.159282428457486
-    },
-    {
-     "unit": 132,
-     "neg_label": "chequered",
-     "neg_iou": 0.16218116288237291,
-     "pos_label": "cat",
-     "pos_iou": 0.07941589847867452
-    },
-    {
-     "unit": 252,
-     "neg_label": "honeycombed",
-     "neg_iou": 0.15744651840221466,
-     "pos_label": "plant",
-     "pos_iou": 0.06674599323165276
-    }
-   ]
+   "top_negative_labels": {
+    "chequered": 184,
+    "honeycombed": 128,
+    "car": 84,
+    "zigzagged": 25,
+    "wheel": 16
+   }
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "layer": "conv5_3",
+   "pos_unique": 148,
+   "neg_unique": 10,
+   "pos_detector_units": 295,
+   "neg_detector_units": 483,
+   "both_same_concept": 0,
+   "pos_object": 59,
+   "pos_part": 12,
+   "pos_scene": 48,
+   "pos_material": 2,
+   "pos_texture": 26,
+   "pos_color": 1,
+   "neg_object": 1,
+   "neg_part": 1,
+   "neg_scene": 1,
+   "neg_material": 0,
+   "neg_texture": 7,
+   "neg_color": 0,
+   "top_negative_labels": {
+    "chequered": 286,
+    "car": 105,
+    "polka-dotted": 35,
+    "wheel": 22,
+    "swirly": 16
+   }
   }
  ],
  "stability": [
@@ -1162,501 +2304,805 @@
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.02,
-   "u_object": 32,
-   "u_part": 10,
-   "u_scene": 3,
-   "u_material": 2,
-   "u_texture": 28,
-   "u_color": 6,
    "unique": 81,
    "detector_units": 222,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.03,
-   "u_object": 23,
-   "u_part": 7,
-   "u_scene": 1,
-   "u_material": 1,
-   "u_texture": 26,
-   "u_color": 5,
    "unique": 63,
    "detector_units": 170,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.04,
-   "u_object": 17,
-   "u_part": 7,
-   "u_scene": 1,
-   "u_material": 1,
-   "u_texture": 23,
-   "u_color": 4,
    "unique": 53,
    "detector_units": 135,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.05,
-   "u_object": 11,
-   "u_part": 6,
-   "u_scene": 0,
-   "u_material": 1,
-   "u_texture": 19,
-   "u_color": 1,
    "unique": 38,
    "detector_units": 95,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.06,
-   "u_object": 10,
-   "u_part": 5,
-   "u_scene": 0,
-   "u_material": 1,
-   "u_texture": 19,
-   "u_color": 1,
    "unique": 36,
    "detector_units": 70,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "iou_threshold",
    "value": 0.08,
-   "u_object": 5,
-   "u_part": 3,
-   "u_scene": 0,
-   "u_material": 0,
-   "u_texture": 13,
-   "u_color": 1,
    "unique": 22,
    "detector_units": 42,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "quantile",
    "value": 0.01,
-   "u_object": 17,
-   "u_part": 5,
-   "u_scene": 1,
-   "u_material": 1,
-   "u_texture": 26,
-   "u_color": 6,
    "unique": 56,
    "detector_units": 175,
-   "label_agreement_with_baseline": 0.8814814814814815
+   "label_agreement": 0.8814814814814815
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "quantile",
    "value": 0.001,
-   "u_object": 6,
-   "u_part": 5,
-   "u_scene": 0,
-   "u_material": 1,
-   "u_texture": 10,
-   "u_color": 0,
    "unique": 22,
    "detector_units": 41,
-   "label_agreement_with_baseline": 0.6074074074074074
+   "label_agreement": 0.6074074074074074
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "noise",
    "value": 0.05,
-   "u_object": 14,
-   "u_part": 6,
-   "u_scene": 0,
-   "u_material": 1,
-   "u_texture": 21,
-   "u_color": 4,
    "unique": 46,
    "detector_units": 124,
-   "label_agreement_with_baseline": 0.837037037037037
+   "label_agreement": 0.837037037037037
   },
   {
    "model": "alexnet-imagenet",
    "perturbation": "noise",
    "value": 0.1,
-   "u_object": 10,
-   "u_part": 5,
-   "u_scene": 0,
-   "u_material": 1,
-   "u_texture": 22,
-   "u_color": 4,
    "unique": 42,
    "detector_units": 111,
-   "label_agreement_with_baseline": 0.6962962962962963
-  },
-  {
-   "model": "alexnet-imagenet",
-   "perturbation": "baseline",
-   "value": 0,
-   "unique": 53,
-   "detector_units": 135,
-   "label_agreement_with_baseline": 1.0,
-   "u_object": 17,
-   "u_part": 7,
-   "u_scene": 1,
-   "u_material": 1,
-   "u_texture": 23,
-   "u_color": 4
+   "label_agreement": 0.6962962962962963
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.02,
-   "u_object": 34,
-   "u_part": 4,
-   "u_scene": 9,
-   "u_material": 1,
-   "u_texture": 28,
-   "u_color": 6,
    "unique": 82,
    "detector_units": 205,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.03,
-   "u_object": 28,
-   "u_part": 4,
-   "u_scene": 6,
-   "u_material": 1,
-   "u_texture": 27,
-   "u_color": 3,
    "unique": 69,
    "detector_units": 158,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.04,
-   "u_object": 20,
-   "u_part": 4,
-   "u_scene": 5,
-   "u_material": 1,
-   "u_texture": 23,
-   "u_color": 2,
    "unique": 55,
    "detector_units": 119,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.05,
-   "u_object": 15,
-   "u_part": 4,
-   "u_scene": 3,
-   "u_material": 1,
-   "u_texture": 18,
-   "u_color": 1,
    "unique": 42,
    "detector_units": 84,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.06,
-   "u_object": 9,
-   "u_part": 3,
-   "u_scene": 1,
-   "u_material": 0,
-   "u_texture": 15,
-   "u_color": 1,
    "unique": 29,
    "detector_units": 54,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "iou_threshold",
    "value": 0.08,
-   "u_object": 5,
-   "u_part": 1,
-   "u_scene": 1,
-   "u_material": 0,
-   "u_texture": 9,
-   "u_color": 0,
    "unique": 16,
    "detector_units": 24,
-   "label_agreement_with_baseline": 1.0
+   "label_agreement": 1.0
   },
   {
    "model": "alexnet-places365",
    "perturbation": "quantile",
    "value": 0.01,
-   "u_object": 23,
-   "u_part": 2,
-   "u_scene": 3,
-   "u_material": 0,
-   "u_texture": 27,
-   "u_color": 6,
    "unique": 61,
    "detector_units": 170,
-   "label_agreement_with_baseline": 0.7983193277310925
+   "label_agreement": 0.7983193277310925
   },
   {
    "model": "alexnet-places365",
    "perturbation": "quantile",
    "value": 0.001,
-   "u_object": 12,
-   "u_part": 3,
-   "u_scene": 2,
-   "u_material": 0,
-   "u_texture": 10,
-   "u_color": 0,
    "unique": 27,
    "detector_units": 33,
-   "label_agreement_with_baseline": 0.5714285714285714
+   "label_agreement": 0.5714285714285714
   },
   {
    "model": "alexnet-places365",
    "perturbation": "noise",
    "value": 0.05,
-   "u_object": 18,
-   "u_part": 4,
-   "u_scene": 5,
-   "u_material": 1,
-   "u_texture": 22,
-   "u_color": 3,
    "unique": 53,
    "detector_units": 109,
-   "label_agreement_with_baseline": 0.957983193277311
+   "label_agreement": 0.957983193277311
   },
   {
    "model": "alexnet-places365",
    "perturbation": "noise",
    "value": 0.1,
-   "u_object": 13,
-   "u_part": 4,
-   "u_scene": 4,
-   "u_material": 1,
-   "u_texture": 21,
-   "u_color": 2,
    "unique": 45,
    "detector_units": 91,
-   "label_agreement_with_baseline": 0.7310924369747899
+   "label_agreement": 0.7310924369747899
   },
   {
-   "model": "alexnet-places365",
-   "perturbation": "baseline",
-   "value": 0,
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.02,
+   "unique": 106,
+   "detector_units": 211,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.03,
+   "unique": 83,
+   "detector_units": 157,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.04,
+   "unique": 63,
+   "detector_units": 110,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.05,
+   "unique": 45,
+   "detector_units": 73,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.06,
+   "unique": 34,
+   "detector_units": 53,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "iou_threshold",
+   "value": 0.08,
+   "unique": 19,
+   "detector_units": 27,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "quantile",
+   "value": 0.01,
+   "unique": 68,
+   "detector_units": 158,
+   "label_agreement": 0.8545454545454545
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "quantile",
+   "value": 0.001,
+   "unique": 36,
+   "detector_units": 42,
+   "label_agreement": 0.4727272727272727
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "noise",
+   "value": 0.05,
    "unique": 55,
-   "detector_units": 119,
-   "label_agreement_with_baseline": 1.0,
-   "u_object": 20,
-   "u_part": 4,
-   "u_scene": 5,
-   "u_material": 1,
-   "u_texture": 23,
-   "u_color": 2
+   "detector_units": 85,
+   "label_agreement": 0.8545454545454545
+  },
+  {
+   "model": "caffe-alexnet-places205",
+   "perturbation": "noise",
+   "value": 0.1,
+   "unique": 37,
+   "detector_units": 58,
+   "label_agreement": 0.6636363636363637
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.02,
+   "unique": 123,
+   "detector_units": 475,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.03,
+   "unique": 110,
+   "detector_units": 413,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.04,
+   "unique": 89,
+   "detector_units": 315,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.05,
+   "unique": 73,
+   "detector_units": 249,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.06,
+   "unique": 63,
+   "detector_units": 195,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "iou_threshold",
+   "value": 0.08,
+   "unique": 46,
+   "detector_units": 116,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "quantile",
+   "value": 0.01,
+   "unique": 96,
+   "detector_units": 389,
+   "label_agreement": 0.7873015873015873
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "quantile",
+   "value": 0.001,
+   "unique": 66,
+   "detector_units": 182,
+   "label_agreement": 0.6317460317460317
+  },
+  {
+   "model": "vgg16-imagenet",
+   "perturbation": "noise",
+   "value": 0.05,
+   "unique": 73,
+   "detector_units": 274,
+   "label_agreement": 0.819047619047619
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.02,
+   "unique": 209,
+   "detector_units": 484,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.03,
+   "unique": 176,
+   "detector_units": 394,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.04,
+   "unique": 148,
+   "detector_units": 295,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.05,
+   "unique": 109,
+   "detector_units": 202,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.06,
+   "unique": 89,
+   "detector_units": 155,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "iou_threshold",
+   "value": 0.08,
+   "unique": 58,
+   "detector_units": 77,
+   "label_agreement": 1.0
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "quantile",
+   "value": 0.01,
+   "unique": 123,
+   "detector_units": 345,
+   "label_agreement": 0.752542372881356
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "quantile",
+   "value": 0.001,
+   "unique": 138,
+   "detector_units": 207,
+   "label_agreement": 0.5627118644067797
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "noise",
+   "value": 0.05,
+   "unique": 121,
+   "detector_units": 251,
+   "label_agreement": 0.847457627118644
+  },
+  {
+   "model": "caffe-vgg16-places365",
+   "perturbation": "noise",
+   "value": 0.1,
+   "unique": 89,
+   "detector_units": 185,
+   "label_agreement": 0.6779661016949152
   }
  ],
- "cascade": [
-  {
-   "randomized": "none",
-   "unique_total": 53,
-   "unique_per_cat": {
-    "object": 17,
-    "part": 7,
-    "scene": 1,
-    "material": 1,
-    "texture": 23,
-    "color": 4
+ "threshold_ordering": {
+  "n_pairs": 66,
+  "n_pairs_flipping": 8,
+  "flipping_pairs": [
+   [
+    "AlexNet random",
+    "VGG16 random"
+   ],
+   [
+    "AlexNet ImageNet (tv)",
+    "AlexNet Places365 (PT)"
+   ],
+   [
+    "AlexNet ImageNet (tv)",
+    "AlexNet Places205 (Caffe, paper)"
+   ],
+   [
+    "AlexNet ImageNet (tv)",
+    "AlexNet Hybrid (Caffe)"
+   ],
+   [
+    "AlexNet ImageNet (Caffe)",
+    "AlexNet Places365 (PT)"
+   ],
+   [
+    "AlexNet Places365 (Caffe)",
+    "AlexNet Places205 (Caffe, paper)"
+   ],
+   [
+    "AlexNet Places205 (Caffe, paper)",
+    "AlexNet Hybrid (Caffe)"
+   ],
+   [
+    "VGG16 Places365 (Caffe)",
+    "VGG16 Hybrid1365 (Caffe)"
+   ]
+  ],
+  "kendall_tau_0.02_vs_0.08": 0.8000946913656627
+ },
+ "cascade": {
+  "alexnet-imagenet": [
+   {
+    "randomized": "none",
+    "unique_total": 53,
+    "unique_per_cat": {
+     "object": 17,
+     "part": 7,
+     "scene": 1,
+     "material": 1,
+     "texture": 23,
+     "color": 4
+    },
+    "detector_units": 135,
+    "detector_units_per_cat": {
+     "object": 50,
+     "part": 16,
+     "scene": 1,
+     "material": 3,
+     "texture": 59,
+     "color": 6
+    }
    },
-   "detector_units": 135,
-   "detector_units_per_cat": {
-    "object": 50,
-    "part": 16,
-    "scene": 1,
-    "material": 3,
-    "texture": 59,
-    "color": 6
+   {
+    "randomized": "fc",
+    "unique_total": 53,
+    "unique_per_cat": {
+     "object": 17,
+     "part": 7,
+     "scene": 1,
+     "material": 1,
+     "texture": 23,
+     "color": 4
+    },
+    "detector_units": 135,
+    "detector_units_per_cat": {
+     "object": 50,
+     "part": 16,
+     "scene": 1,
+     "material": 3,
+     "texture": 59,
+     "color": 6
+    },
+    "label_agreement_with_trained": 1.0
+   },
+   {
+    "randomized": "conv5",
+    "unique_total": 14,
+    "unique_per_cat": {
+     "object": 1,
+     "part": 3,
+     "scene": 0,
+     "material": 0,
+     "texture": 10,
+     "color": 0
+    },
+    "detector_units": 107,
+    "detector_units_per_cat": {
+     "object": 1,
+     "part": 6,
+     "scene": 0,
+     "material": 0,
+     "texture": 100,
+     "color": 0
+    },
+    "label_agreement_with_trained": 0.0078125
+   },
+   {
+    "randomized": "conv4",
+    "unique_total": 7,
+    "unique_per_cat": {
+     "object": 0,
+     "part": 0,
+     "scene": 0,
+     "material": 0,
+     "texture": 7,
+     "color": 0
+    },
+    "detector_units": 86,
+    "detector_units_per_cat": {
+     "object": 0,
+     "part": 0,
+     "scene": 0,
+     "material": 0,
+     "texture": 86,
+     "color": 0
+    },
+    "label_agreement_with_trained": 0.01171875
+   },
+   {
+    "randomized": "conv3",
+    "unique_total": 6,
+    "unique_per_cat": {
+     "object": 0,
+     "part": 0,
+     "scene": 1,
+     "material": 0,
+     "texture": 5,
+     "color": 0
+    },
+    "detector_units": 64,
+    "detector_units_per_cat": {
+     "object": 0,
+     "part": 0,
+     "scene": 1,
+     "material": 0,
+     "texture": 63,
+     "color": 0
+    },
+    "label_agreement_with_trained": 0.0078125
+   },
+   {
+    "randomized": "conv2",
+    "unique_total": 7,
+    "unique_per_cat": {
+     "object": 1,
+     "part": 0,
+     "scene": 1,
+     "material": 0,
+     "texture": 5,
+     "color": 0
+    },
+    "detector_units": 74,
+    "detector_units_per_cat": {
+     "object": 1,
+     "part": 0,
+     "scene": 28,
+     "material": 0,
+     "texture": 45,
+     "color": 0
+    },
+    "label_agreement_with_trained": 0.0234375
+   },
+   {
+    "randomized": "conv1",
+    "unique_total": 3,
+    "unique_per_cat": {
+     "object": 1,
+     "part": 0,
+     "scene": 0,
+     "material": 0,
+     "texture": 2,
+     "color": 0
+    },
+    "detector_units": 59,
+    "detector_units_per_cat": {
+     "object": 1,
+     "part": 0,
+     "scene": 0,
+     "material": 0,
+     "texture": 58,
+     "color": 0
+    },
+    "label_agreement_with_trained": 0.01953125
    }
-  },
-  {
-   "randomized": "fc\nonly",
-   "unique_total": 53,
-   "unique_per_cat": {
-    "object": 17,
-    "part": 7,
-    "scene": 1,
-    "material": 1,
-    "texture": 23,
-    "color": 4
-   },
-   "detector_units": 135,
-   "detector_units_per_cat": {
-    "object": 50,
-    "part": 16,
-    "scene": 1,
-    "material": 3,
-    "texture": 59,
-    "color": 6
-   },
-   "label_agreement_with_trained": 1.0
-  },
-  {
-   "randomized": "conv5\n+above",
-   "unique_total": 14,
-   "unique_per_cat": {
-    "object": 1,
-    "part": 3,
-    "scene": 0,
-    "material": 0,
-    "texture": 10,
-    "color": 0
-   },
-   "detector_units": 107,
-   "detector_units_per_cat": {
-    "object": 1,
-    "part": 6,
-    "scene": 0,
-    "material": 0,
-    "texture": 100,
-    "color": 0
-   },
-   "label_agreement_with_trained": 0.0078125
-  },
-  {
-   "randomized": "conv4\n+above",
-   "unique_total": 7,
-   "unique_per_cat": {
-    "object": 0,
-    "part": 0,
-    "scene": 0,
-    "material": 0,
-    "texture": 7,
-    "color": 0
-   },
-   "detector_units": 86,
-   "detector_units_per_cat": {
-    "object": 0,
-    "part": 0,
-    "scene": 0,
-    "material": 0,
-    "texture": 86,
-    "color": 0
-   },
-   "label_agreement_with_trained": 0.01171875
-  },
-  {
-   "randomized": "conv3\n+above",
-   "unique_total": 6,
-   "unique_per_cat": {
-    "object": 0,
-    "part": 0,
-    "scene": 1,
-    "material": 0,
-    "texture": 5,
-    "color": 0
-   },
-   "detector_units": 64,
-   "detector_units_per_cat": {
-    "object": 0,
-    "part": 0,
-    "scene": 1,
-    "material": 0,
-    "texture": 63,
-    "color": 0
-   },
-   "label_agreement_with_trained": 0.0078125
-  },
-  {
-   "randomized": "conv2\n+above",
-   "unique_total": 7,
-   "unique_per_cat": {
-    "object": 1,
-    "part": 0,
-    "scene": 1,
-    "material": 0,
-    "texture": 5,
-    "color": 0
-   },
-   "detector_units": 74,
-   "detector_units_per_cat": {
-    "object": 1,
-    "part": 0,
-    "scene": 28,
-    "material": 0,
-    "texture": 45,
-    "color": 0
-   },
-   "label_agreement_with_trained": 0.0234375
-  },
-  {
-   "randomized": "conv1\n+above",
-   "unique_total": 3,
-   "unique_per_cat": {
-    "object": 1,
-    "part": 0,
-    "scene": 0,
-    "material": 0,
-    "texture": 2,
-    "color": 0
-   },
-   "detector_units": 59,
-   "detector_units_per_cat": {
-    "object": 1,
-    "part": 0,
-    "scene": 0,
-    "material": 0,
-    "texture": 58,
-    "color": 0
-   },
-   "label_agreement_with_trained": 0.01953125
-  }
- ],
+  ],
+  "caffe-alexnet-places205": [
+   {
+    "randomized": "none",
+    "unique_total": 63,
+    "unique_per_cat": {
+     "object": 33,
+     "part": 5,
+     "scene": 4,
+     "material": 1,
+     "texture": 19,
+     "color": 1
+    },
+    "detector_units": 110,
+    "detector_units_per_cat": {
+     "object": 67,
+     "part": 6,
+     "scene": 6,
+     "material": 3,
+     "texture": 27,
+     "color": 1
+    }
+   }
+  ],
+  "caffe-vgg16-places365": [
+   {
+    "randomized": "none",
+    "unique_total": 148,
+    "unique_per_cat": {
+     "object": 59,
+     "part": 12,
+     "scene": 48,
+     "material": 2,
+     "texture": 26,
+     "color": 1
+    },
+    "detector_units": 295,
+    "detector_units_per_cat": {
+     "object": 139,
+     "part": 23,
+     "scene": 70,
+     "material": 5,
+     "texture": 57,
+     "color": 1
+    }
+   }
+  ]
+ },
  "jaccard": {
   "AlexNet random": {
    "AlexNet random": 1.0,
-   "AlexNet ImageNet": 0.093,
-   "AlexNet Places365": 0.089,
+   "AlexNet ImageNet (tv)": 0.093,
+   "AlexNet ImageNet (Caffe)": 0.114,
+   "AlexNet Places365 (PT)": 0.089,
+   "AlexNet Places365 (Caffe)": 0.072,
+   "AlexNet Places205 (Caffe, paper)": 0.095,
+   "AlexNet Hybrid (Caffe)": 0.076,
+   "VGG16 random": 0.429,
    "VGG16 ImageNet": 0.056,
-   "VGG16-BN ImageNet": 0.02
+   "VGG16-BN ImageNet": 0.02,
+   "VGG16 Places365 (Caffe)": 0.041,
+   "VGG16 Hybrid1365 (Caffe)": 0.041
   },
-  "AlexNet ImageNet": {
+  "AlexNet ImageNet (tv)": {
    "AlexNet random": 0.093,
-   "AlexNet ImageNet": 1.0,
-   "AlexNet Places365": 0.612,
+   "AlexNet ImageNet (tv)": 1.0,
+   "AlexNet ImageNet (Caffe)": 0.6,
+   "AlexNet Places365 (PT)": 0.612,
+   "AlexNet Places365 (Caffe)": 0.476,
+   "AlexNet Places205 (Caffe, paper)": 0.365,
+   "AlexNet Hybrid (Caffe)": 0.494,
+   "VGG16 random": 0.056,
    "VGG16 ImageNet": 0.464,
-   "VGG16-BN ImageNet": 0.355
+   "VGG16-BN ImageNet": 0.355,
+   "VGG16 Places365 (Caffe)": 0.256,
+   "VGG16 Hybrid1365 (Caffe)": 0.282
   },
-  "AlexNet Places365": {
+  "AlexNet ImageNet (Caffe)": {
+   "AlexNet random": 0.114,
+   "AlexNet ImageNet (tv)": 0.6,
+   "AlexNet ImageNet (Caffe)": 1.0,
+   "AlexNet Places365 (PT)": 0.531,
+   "AlexNet Places365 (Caffe)": 0.461,
+   "AlexNet Places205 (Caffe, paper)": 0.395,
+   "AlexNet Hybrid (Caffe)": 0.459,
+   "VGG16 random": 0.068,
+   "VGG16 ImageNet": 0.389,
+   "VGG16-BN ImageNet": 0.299,
+   "VGG16 Places365 (Caffe)": 0.224,
+   "VGG16 Hybrid1365 (Caffe)": 0.242
+  },
+  "AlexNet Places365 (PT)": {
    "AlexNet random": 0.089,
-   "AlexNet ImageNet": 0.612,
-   "AlexNet Places365": 1.0,
+   "AlexNet ImageNet (tv)": 0.612,
+   "AlexNet ImageNet (Caffe)": 0.531,
+   "AlexNet Places365 (PT)": 1.0,
+   "AlexNet Places365 (Caffe)": 0.597,
+   "AlexNet Places205 (Caffe, paper)": 0.513,
+   "AlexNet Hybrid (Caffe)": 0.558,
+   "VGG16 random": 0.054,
    "VGG16 ImageNet": 0.44,
-   "VGG16-BN ImageNet": 0.325
+   "VGG16-BN ImageNet": 0.325,
+   "VGG16 Places365 (Caffe)": 0.318,
+   "VGG16 Hybrid1365 (Caffe)": 0.278
+  },
+  "AlexNet Places365 (Caffe)": {
+   "AlexNet random": 0.072,
+   "AlexNet ImageNet (tv)": 0.476,
+   "AlexNet ImageNet (Caffe)": 0.461,
+   "AlexNet Places365 (PT)": 0.597,
+   "AlexNet Places365 (Caffe)": 1.0,
+   "AlexNet Places205 (Caffe, paper)": 0.56,
+   "AlexNet Hybrid (Caffe)": 0.547,
+   "VGG16 random": 0.059,
+   "VGG16 ImageNet": 0.495,
+   "VGG16-BN ImageNet": 0.402,
+   "VGG16 Places365 (Caffe)": 0.412,
+   "VGG16 Hybrid1365 (Caffe)": 0.344
+  },
+  "AlexNet Places205 (Caffe, paper)": {
+   "AlexNet random": 0.095,
+   "AlexNet ImageNet (tv)": 0.365,
+   "AlexNet ImageNet (Caffe)": 0.395,
+   "AlexNet Places365 (PT)": 0.513,
+   "AlexNet Places365 (Caffe)": 0.56,
+   "AlexNet Places205 (Caffe, paper)": 1.0,
+   "AlexNet Hybrid (Caffe)": 0.488,
+   "VGG16 random": 0.063,
+   "VGG16 ImageNet": 0.448,
+   "VGG16-BN ImageNet": 0.371,
+   "VGG16 Places365 (Caffe)": 0.388,
+   "VGG16 Hybrid1365 (Caffe)": 0.346
+  },
+  "AlexNet Hybrid (Caffe)": {
+   "AlexNet random": 0.076,
+   "AlexNet ImageNet (tv)": 0.494,
+   "AlexNet ImageNet (Caffe)": 0.459,
+   "AlexNet Places365 (PT)": 0.558,
+   "AlexNet Places365 (Caffe)": 0.547,
+   "AlexNet Places205 (Caffe, paper)": 0.488,
+   "AlexNet Hybrid (Caffe)": 1.0,
+   "VGG16 random": 0.045,
+   "VGG16 ImageNet": 0.387,
+   "VGG16-BN ImageNet": 0.376,
+   "VGG16 Places365 (Caffe)": 0.331,
+   "VGG16 Hybrid1365 (Caffe)": 0.342
+  },
+  "VGG16 random": {
+   "AlexNet random": 0.429,
+   "AlexNet ImageNet (tv)": 0.056,
+   "AlexNet ImageNet (Caffe)": 0.068,
+   "AlexNet Places365 (PT)": 0.054,
+   "AlexNet Places365 (Caffe)": 0.059,
+   "AlexNet Places205 (Caffe, paper)": 0.063,
+   "AlexNet Hybrid (Caffe)": 0.045,
+   "VGG16 random": 1.0,
+   "VGG16 ImageNet": 0.033,
+   "VGG16-BN ImageNet": 0.01,
+   "VGG16 Places365 (Caffe)": 0.027,
+   "VGG16 Hybrid1365 (Caffe)": 0.027
   },
   "VGG16 ImageNet": {
    "AlexNet random": 0.056,
-   "AlexNet ImageNet": 0.464,
-   "AlexNet Places365": 0.44,
+   "AlexNet ImageNet (tv)": 0.464,
+   "AlexNet ImageNet (Caffe)": 0.389,
+   "AlexNet Places365 (PT)": 0.44,
+   "AlexNet Places365 (Caffe)": 0.495,
+   "AlexNet Places205 (Caffe, paper)": 0.448,
+   "AlexNet Hybrid (Caffe)": 0.387,
+   "VGG16 random": 0.033,
    "VGG16 ImageNet": 1.0,
-   "VGG16-BN ImageNet": 0.595
+   "VGG16-BN ImageNet": 0.595,
+   "VGG16 Places365 (Caffe)": 0.394,
+   "VGG16 Hybrid1365 (Caffe)": 0.466
   },
   "VGG16-BN ImageNet": {
    "AlexNet random": 0.02,
-   "AlexNet ImageNet": 0.355,
-   "AlexNet Places365": 0.325,
+   "AlexNet ImageNet (tv)": 0.355,
+   "AlexNet ImageNet (Caffe)": 0.299,
+   "AlexNet Places365 (PT)": 0.325,
+   "AlexNet Places365 (Caffe)": 0.402,
+   "AlexNet Places205 (Caffe, paper)": 0.371,
+   "AlexNet Hybrid (Caffe)": 0.376,
+   "VGG16 random": 0.01,
    "VGG16 ImageNet": 0.595,
-   "VGG16-BN ImageNet": 1.0
+   "VGG16-BN ImageNet": 1.0,
+   "VGG16 Places365 (Caffe)": 0.386,
+   "VGG16 Hybrid1365 (Caffe)": 0.464
+  },
+  "VGG16 Places365 (Caffe)": {
+   "AlexNet random": 0.041,
+   "AlexNet ImageNet (tv)": 0.256,
+   "AlexNet ImageNet (Caffe)": 0.224,
+   "AlexNet Places365 (PT)": 0.318,
+   "AlexNet Places365 (Caffe)": 0.412,
+   "AlexNet Places205 (Caffe, paper)": 0.388,
+   "AlexNet Hybrid (Caffe)": 0.331,
+   "VGG16 random": 0.027,
+   "VGG16 ImageNet": 0.394,
+   "VGG16-BN ImageNet": 0.386,
+   "VGG16 Places365 (Caffe)": 1.0,
+   "VGG16 Hybrid1365 (Caffe)": 0.569
+  },
+  "VGG16 Hybrid1365 (Caffe)": {
+   "AlexNet random": 0.041,
+   "AlexNet ImageNet (tv)": 0.282,
+   "AlexNet ImageNet (Caffe)": 0.242,
+   "AlexNet Places365 (PT)": 0.278,
+   "AlexNet Places365 (Caffe)": 0.344,
+   "AlexNet Places205 (Caffe, paper)": 0.346,
+   "AlexNet Hybrid (Caffe)": 0.342,
+   "VGG16 random": 0.027,
+   "VGG16 ImageNet": 0.466,
+   "VGG16-BN ImageNet": 0.464,
+   "VGG16 Places365 (Caffe)": 0.569,
+   "VGG16 Hybrid1365 (Caffe)": 1.0
   }
  },
  "fidelity": {
@@ -2059,230 +3505,117 @@
    }
   }
  },
- "training_variants": [
-  {
-   "variant": "baseline",
-   "units": 256,
-   "val_acc": 0.8264968152866242,
-   "object": 6,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 9,
-   "color": 2,
-   "unique_total": 17,
-   "detector_units": 56,
-   "boot_unique_ci95": [
-    15.0,
-    21.0
-   ],
-   "boot_unique_boot_mean": 17.405,
-   "boot_label_agreement_mean": 0.8810714285714286,
-   "boot_label_agreement_ci95": [
-    0.8031250000000001,
-    0.9464285714285714
+ "net2vec": {
+  "alexnet-places365/net2vec_conv5.json": {
+   "n_concepts": 49,
+   "mean_direction_iou": 0.08299455331518801,
+   "mean_best_unit_iou": 0.051439114798551414,
+   "frac_direction_better": 1.0,
+   "wilcoxon_p": 3.552713678800501e-15,
+   "concepts_without_unit_but_direction_iou_gt_0.04": [
+    "sink",
+    "building",
+    "pink-c",
+    "torso",
+    "blue-c",
+    "floor",
+    "wood",
+    "yellow-c",
+    "glass",
+    "purple-c",
+    "green-c",
+    "white-c",
+    "leg"
    ]
   },
-  {
-   "variant": "repeat1",
-   "units": 256,
-   "val_acc": 0.8300636942675159,
-   "object": 7,
-   "part": 0,
-   "scene": 1,
-   "material": 0,
-   "texture": 11,
-   "color": 1,
-   "unique_total": 20,
-   "detector_units": 60,
-   "boot_unique_ci95": [
-    15.0,
-    21.0
-   ],
-   "boot_unique_boot_mean": 17.77,
-   "boot_label_agreement_mean": 0.8319999999999999,
-   "boot_label_agreement_ci95": [
-    0.7333333333333333,
-    0.9166666666666666
-   ]
-  },
-  {
-   "variant": "repeat2",
-   "units": 256,
-   "val_acc": 0.8262420382165605,
-   "object": 6,
-   "part": 1,
-   "scene": 0,
-   "material": 0,
-   "texture": 10,
-   "color": 0,
-   "unique_total": 17,
-   "detector_units": 66,
-   "boot_unique_ci95": [
-    15.0,
-    20.0
-   ],
-   "boot_unique_boot_mean": 17.57,
-   "boot_label_agreement_mean": 0.8479545454545453,
-   "boot_label_agreement_ci95": [
-    0.7424242424242424,
-    0.9246212121212122
-   ]
-  },
-  {
-   "variant": "nodropout",
-   "units": 256,
-   "val_acc": 0.7793630573248408,
-   "object": 5,
-   "part": 0,
-   "scene": 1,
-   "material": 0,
-   "texture": 8,
-   "color": 2,
-   "unique_total": 16,
-   "detector_units": 50,
-   "boot_unique_ci95": [
-    15.0,
-    21.0
-   ],
-   "boot_unique_boot_mean": 17.29,
-   "boot_label_agreement_mean": 0.8830000000000001,
-   "boot_label_agreement_ci95": [
-    0.7795000000000001,
-    0.9605000000000001
-   ]
-  },
-  {
-   "variant": "batchnorm",
-   "units": 256,
-   "val_acc": 0.859108280254777,
-   "object": 5,
-   "part": 2,
-   "scene": 1,
-   "material": 0,
-   "texture": 18,
-   "color": 0,
-   "unique_total": 26,
-   "detector_units": 84,
-   "boot_unique_ci95": [
-    23.0,
-    29.0
-   ],
-   "boot_unique_boot_mean": 25.86,
-   "boot_label_agreement_mean": 0.7948214285714286,
-   "boot_label_agreement_ci95": [
-    0.7023809523809523,
-    0.8812500000000001
-   ]
-  },
-  {
-   "variant": "gapwide",
-   "units": 768,
-   "val_acc": 0.8303184713375796,
-   "object": 4,
-   "part": 1,
-   "scene": 0,
-   "material": 0,
-   "texture": 9,
-   "color": 0,
-   "unique_total": 14,
-   "detector_units": 300,
-   "boot_unique_ci95": [
-    13.0,
-    18.0
-   ],
-   "boot_unique_boot_mean": 15.305,
-   "boot_label_agreement_mean": 0.8443999999999999,
-   "boot_label_agreement_ci95": [
-    0.7564166666666667,
-    0.9034166666666666
+  "alexnet-imagenet/net2vec_conv5.json": {
+   "n_concepts": 48,
+   "mean_direction_iou": 0.09285699308975971,
+   "mean_best_unit_iou": 0.06327026455342212,
+   "frac_direction_better": 0.9791666666666666,
+   "wilcoxon_p": 7.815970093361102e-13,
+   "concepts_without_unit_but_direction_iou_gt_0.04": [
+    "torso",
+    "ceiling",
+    "leg",
+    "blue-c",
+    "building",
+    "pink-c",
+    "wood",
+    "purple-c",
+    "arm",
+    "green-c",
+    "floor",
+    "white-c"
    ]
   }
- ],
- "training_dynamics": [
-  {
-   "iteration": 0,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 5,
-   "color": 0,
-   "unique_total": 6
+ },
+ "verify_imagenette": {
+  "alexnet-imagenet": {
+   "outputs": 1000,
+   "imagenette_top1_full_softmax": 0.7337579617834394,
+   "classes_found": 1.0
   },
-  {
-   "iteration": 50,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 5,
-   "color": 0,
-   "unique_total": 6
+  "caffe-alexnet-imagenet": {
+   "outputs": 1000,
+   "imagenette_top1_full_softmax": 0.6797452229299363,
+   "classes_found": 1.0
   },
-  {
-   "iteration": 100,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 6,
-   "color": 0,
-   "unique_total": 7
+  "caffe-alexnet-hybrid": {
+   "outputs": 1183,
+   "imagenette_top1_full_softmax": 0.5352866242038217,
+   "classes_found": 0.8957961783439491
   },
-  {
-   "iteration": 200,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 5,
-   "color": 0,
-   "unique_total": 6
+  "vgg16-imagenet": {
+   "outputs": 1000,
+   "imagenette_top1_full_softmax": 0.8201273885350319,
+   "classes_found": 1.0
   },
-  {
-   "iteration": 400,
-   "object": 1,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 6,
-   "color": 1,
-   "unique_total": 8
-  },
-  {
-   "iteration": 800,
-   "object": 3,
-   "part": 0,
-   "scene": 1,
-   "material": 0,
-   "texture": 9,
-   "color": 2,
-   "unique_total": 15
-  },
-  {
-   "iteration": 1600,
-   "object": 7,
-   "part": 1,
-   "scene": 0,
-   "material": 0,
-   "texture": 6,
-   "color": 1,
-   "unique_total": 15
-  },
-  {
-   "iteration": 4440,
-   "object": 6,
-   "part": 0,
-   "scene": 0,
-   "material": 0,
-   "texture": 9,
-   "color": 2,
-   "unique_total": 17
+  "caffe-vgg16-hybrid1365": {
+   "outputs": 1365,
+   "imagenette_top1_full_softmax": 0.7401273885350318,
+   "classes_found": 1.0
   }
- ],
- "discrimination": {
-  "task": "Broden top-30 scenes, n_train=6844, n_val=2789",
+ },
+ "verify_scenes": {
+  "alexnet-places365": {
+   "n_images": 14596,
+   "n_scene_classes_matched": 267,
+   "top1": 0.43141956700465883,
+   "top5": 0.7843244724582077
+  },
+  "caffe-alexnet-places365": {
+   "n_images": 14596,
+   "n_scene_classes_matched": 267,
+   "top1": 0.46588106330501505,
+   "top5": 0.8065223348862702
+  },
+  "caffe-alexnet-places205": {
+   "n_images": 9727,
+   "n_scene_classes_matched": 167,
+   "top1": 0.6196155032384085,
+   "top5": 0.9235118741646962
+  },
+  "caffe-alexnet-hybrid": {
+   "n_images": 9727,
+   "n_scene_classes_matched": 167,
+   "top1": 0.15935026215688292,
+   "top5": 0.5451835098180323
+  },
+  "caffe-vgg16-places365": {
+   "n_images": 14596,
+   "n_scene_classes_matched": 267,
+   "top1": 0.5145245272677446,
+   "top5": 0.8470813921622362
+  },
+  "caffe-vgg16-hybrid1365": {
+   "n_images": 14596,
+   "n_scene_classes_matched": 267,
+   "top1": 0.5089065497396547,
+   "top5": 0.8496848451630584
+  }
+ },
+ "discrimination_scenes": {
   "rows": [
    {
     "run": "alexnet-random",
@@ -2361,14 +3694,12 @@
     "unique_object_detectors": 4,
     "unique_total": 14
    }
-  ]
- },
- "discrimination_spearman": {
-  "rho": 0.7853963157608237,
-  "p": 0.004175581632899191,
-  "n": 11
- },
- "discrimination_spearman_within": {
+  ],
+  "all": {
+   "rho": 0.7853963157608237,
+   "p": 0.004175581632899191,
+   "n": 11
+  },
   "pretrained_and_random": {
    "rho": 0.9999999999999999,
    "p": 1.4042654220543672e-24,

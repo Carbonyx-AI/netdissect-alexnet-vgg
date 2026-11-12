@@ -1,0 +1,47 @@
+{
+ "args": {
+  "model": "caffe-vgg16-places365",
+  "layers": "conv5_3",
+  "name": "neg-caffe-vgg16-places365",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": true,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 136.03463649749756,
+  "iou": 208.12728142738342
+ },
+ "variants": {
+  "conv5_3": {
+   "unique_total": 10,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 1,
+    "scene": 1,
+    "material": 0,
+    "texture": 7,
+    "color": 0
+   },
+   "detector_units": 483,
+   "detector_units_per_cat": {
+    "object": 105,
+    "part": 22,
+    "scene": 5,
+    "material": 0,
+    "texture": 351,
+    "color": 0
+   }
+  }
+ }
+}

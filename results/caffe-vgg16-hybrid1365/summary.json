@@ -1,0 +1,127 @@
+{
+ "args": {
+  "model": "caffe-vgg16-hybrid1365",
+  "layers": "conv1_2,conv2_2,conv3_3,conv4_3,conv5_3",
+  "name": "caffe-vgg16-hybrid1365",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "max_images": 0,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 671.4377031326294,
+  "iou": 647.770341873169
+ },
+ "variants": {
+  "conv1_2": {
+   "unique_total": 6,
+   "unique_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 2,
+    "color": 4
+   },
+   "detector_units": 16,
+   "detector_units_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 4,
+    "color": 12
+   }
+  },
+  "conv2_2": {
+   "unique_total": 10,
+   "unique_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 4,
+    "color": 5
+   },
+   "detector_units": 18,
+   "detector_units_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 7,
+    "color": 10
+   }
+  },
+  "conv3_3": {
+   "unique_total": 13,
+   "unique_per_cat": {
+    "object": 2,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 8,
+    "color": 2
+   },
+   "detector_units": 30,
+   "detector_units_per_cat": {
+    "object": 2,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 21,
+    "color": 6
+   }
+  },
+  "conv4_3": {
+   "unique_total": 44,
+   "unique_per_cat": {
+    "object": 13,
+    "part": 7,
+    "scene": 1,
+    "material": 0,
+    "texture": 21,
+    "color": 2
+   },
+   "detector_units": 113,
+   "detector_units_per_cat": {
+    "object": 24,
+    "part": 27,
+    "scene": 2,
+    "material": 0,
+    "texture": 56,
+    "color": 4
+   }
+  },
+  "conv5_3": {
+   "unique_total": 147,
+   "unique_per_cat": {
+    "object": 61,
+    "part": 16,
+    "scene": 40,
+    "material": 4,
+    "texture": 25,
+    "color": 1
+   },
+   "detector_units": 321,
+   "detector_units_per_cat": {
+    "object": 150,
+    "part": 38,
+    "scene": 59,
+    "material": 11,
+    "texture": 62,
+    "color": 1
+   }
+  }
+ }
+}

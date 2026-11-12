@@ -2,10 +2,10 @@
  "args": {
   "model": "vgg16-imagenet",
   "layers": "conv5_3",
+  "name": "neg-vgg16-imagenet",
   "data": "work/broden",
   "weights": "work",
   "out": "results",
-  "name": "neg-vgg16-imagenet",
   "batch": 32,
   "quantile": 0.005,
   "iou": 0.04,
@@ -14,12 +14,13 @@
   "rot_seed": 0,
   "noise": 0.0,
   "randomize_from": null,
+  "max_images": 0,
   "gpu_mem_gb": 10.0,
   "seed": 0
  },
  "runtime_s": {
-  "quantile": 139.66605019569397,
-  "iou": 228.81566834449768
+  "quantile": 137.06729340553284,
+  "iou": 199.67118000984192
  },
  "variants": {
   "conv5_3": {

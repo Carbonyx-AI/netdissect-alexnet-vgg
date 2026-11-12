@@ -263,8 +263,8 @@ if len(U) > 2:
         ax.plot(thr, U.loc[lab], "-o", ms=3, lw=1.3, label=lab, color="#2a78d6" if "AlexNet" in lab else "#eb6834",
                 alpha=0.35 if "random" in lab else 0.9)
     ax.axvline(0.04, color=GREY, ls="--", lw=0.8)
-    ax.set_xlabel("IoU threshold for a detector"); ax.set_ylabel("Unique detectors (last conv)"); ax.set_yscale("log")
-    ax.set_title(f"Threshold sweep: {len(flips)} of {len(pairs)} model pairs change order", fontsize=9, loc="left")
+    ax.set_xlabel("IoU threshold for a detector"); ax.set_ylabel("Unique detectors (last conv)")
+    ax.set_title(f"Threshold sweep (blue AlexNet, orange VGG16): {len(flips)} of {len(pairs)} pairs change order", fontsize=8, loc="left")
     save(fig, "fig_threshold_sweep.png")
 
 # ---------------- cascading randomisation ----------------
