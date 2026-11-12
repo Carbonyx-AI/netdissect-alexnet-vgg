@@ -1,0 +1,126 @@
+{
+ "args": {
+  "model": "alexnet-random",
+  "layers": "conv1,conv2,conv3,conv4,conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "alexnet-random",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 104.71686291694641,
+  "iou": 532.5201423168182
+ },
+ "variants": {
+  "conv1": {
+   "unique_total": 5,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 1,
+    "color": 3
+   },
+   "detector_units": 7,
+   "detector_units_per_cat": {
+    "object": 2,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 1,
+    "color": 4
+   }
+  },
+  "conv2": {
+   "unique_total": 9,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 8,
+    "color": 0
+   },
+   "detector_units": 26,
+   "detector_units_per_cat": {
+    "object": 3,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 23,
+    "color": 0
+   }
+  },
+  "conv3": {
+   "unique_total": 10,
+   "unique_per_cat": {
+    "object": 2,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 6,
+    "color": 2
+   },
+   "detector_units": 93,
+   "detector_units_per_cat": {
+    "object": 9,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 82,
+    "color": 2
+   }
+  },
+  "conv4": {
+   "unique_total": 7,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 6,
+    "color": 0
+   },
+   "detector_units": 52,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 51,
+    "color": 0
+   }
+  },
+  "conv5": {
+   "unique_total": 6,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 5,
+    "color": 0
+   },
+   "detector_units": 56,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 55,
+    "color": 0
+   }
+  }
+ }
+}

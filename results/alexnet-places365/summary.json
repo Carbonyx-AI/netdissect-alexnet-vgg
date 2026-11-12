@@ -1,0 +1,126 @@
+{
+ "args": {
+  "model": "alexnet-places365",
+  "layers": "conv1,conv2,conv3,conv4,conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "alexnet-places365",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 149.23141384124756,
+  "iou": 528.8355839252472
+ },
+ "variants": {
+  "conv1": {
+   "unique_total": 7,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 1,
+    "color": 5
+   },
+   "detector_units": 13,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 2,
+    "color": 10
+   }
+  },
+  "conv2": {
+   "unique_total": 18,
+   "unique_per_cat": {
+    "object": 2,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 12,
+    "color": 3
+   },
+   "detector_units": 30,
+   "detector_units_per_cat": {
+    "object": 2,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 22,
+    "color": 5
+   }
+  },
+  "conv3": {
+   "unique_total": 21,
+   "unique_per_cat": {
+    "object": 3,
+    "part": 0,
+    "scene": 2,
+    "material": 0,
+    "texture": 13,
+    "color": 3
+   },
+   "detector_units": 48,
+   "detector_units_per_cat": {
+    "object": 5,
+    "part": 0,
+    "scene": 5,
+    "material": 0,
+    "texture": 35,
+    "color": 3
+   }
+  },
+  "conv4": {
+   "unique_total": 27,
+   "unique_per_cat": {
+    "object": 8,
+    "part": 4,
+    "scene": 1,
+    "material": 1,
+    "texture": 12,
+    "color": 1
+   },
+   "detector_units": 86,
+   "detector_units_per_cat": {
+    "object": 22,
+    "part": 8,
+    "scene": 4,
+    "material": 1,
+    "texture": 49,
+    "color": 2
+   }
+  },
+  "conv5": {
+   "unique_total": 55,
+   "unique_per_cat": {
+    "object": 20,
+    "part": 4,
+    "scene": 5,
+    "material": 1,
+    "texture": 23,
+    "color": 2
+   },
+   "detector_units": 119,
+   "detector_units_per_cat": {
+    "object": 51,
+    "part": 9,
+    "scene": 7,
+    "material": 1,
+    "texture": 48,
+    "color": 3
+   }
+  }
+ }
+}

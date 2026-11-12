@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "small-baseline@work/trained/baseline/iter1600.pt",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "small-baseline-iter1600",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 6.3832197189331055,
+  "iou": 38.70360445976257
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 15,
+   "unique_per_cat": {
+    "object": 7,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 6,
+    "color": 1
+   },
+   "detector_units": 70,
+   "detector_units_per_cat": {
+    "object": 25,
+    "part": 4,
+    "scene": 0,
+    "material": 0,
+    "texture": 38,
+    "color": 3
+   }
+  }
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "small-repeat2@work/trained/repeat2/iter4440.pt",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "small-repeat2",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 6.117727518081665,
+  "iou": 38.68678140640259
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 17,
+   "unique_per_cat": {
+    "object": 6,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 10,
+    "color": 0
+   },
+   "detector_units": 66,
+   "detector_units_per_cat": {
+    "object": 19,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 46,
+    "color": 0
+   }
+  }
+ }
+}

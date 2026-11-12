@@ -1,0 +1,86 @@
+{
+ "args": {
+  "model": "vgg16bn-imagenet",
+  "layers": "conv3_3,conv4_3,conv5_3",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "vgg16bn-imagenet",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 335.06816482543945,
+  "iou": 576.515538930893
+ },
+ "variants": {
+  "conv3_3": {
+   "unique_total": 2,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 0,
+    "color": 0
+   },
+   "detector_units": 2,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 1,
+    "scene": 0,
+    "material": 0,
+    "texture": 0,
+    "color": 0
+   }
+  },
+  "conv4_3": {
+   "unique_total": 26,
+   "unique_per_cat": {
+    "object": 3,
+    "part": 8,
+    "scene": 0,
+    "material": 0,
+    "texture": 15,
+    "color": 0
+   },
+   "detector_units": 60,
+   "detector_units_per_cat": {
+    "object": 6,
+    "part": 14,
+    "scene": 0,
+    "material": 0,
+    "texture": 40,
+    "color": 0
+   }
+  },
+  "conv5_3": {
+   "unique_total": 96,
+   "unique_per_cat": {
+    "object": 49,
+    "part": 13,
+    "scene": 9,
+    "material": 4,
+    "texture": 20,
+    "color": 1
+   },
+   "detector_units": 311,
+   "detector_units_per_cat": {
+    "object": 192,
+    "part": 47,
+    "scene": 13,
+    "material": 6,
+    "texture": 52,
+    "color": 1
+   }
+  }
+ }
+}

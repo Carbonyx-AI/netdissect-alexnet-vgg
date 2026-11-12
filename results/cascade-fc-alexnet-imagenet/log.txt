@@ -1,0 +1,19 @@
+=== Wed Nov 11 21:32:51 2026 {'model': 'alexnet-imagenet', 'layers': 'conv5', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'name': 'cascade-fc-alexnet-imagenet', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': 'fc', 'gpu_mem_gb': 10.0, 'seed': 0}
+randomized classifier + layers []
+Broden: N=63305, labels=1197 valid, shards=50
+geometry (start, jump): {'conv5': (15.0, 16.0)}
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+quantile pass done in 22s
+[iou] batch 0 (0s)
+[iou] batch 200 (11s)
+[iou] batch 400 (22s)
+[iou] batch 600 (33s)
+[iou] batch 800 (43s)
+[iou] batch 1000 (55s)
+[iou] batch 1200 (65s)
+[iou] batch 1400 (76s)
+[iou] batch 1600 (87s)
+[iou] batch 1800 (98s)
+IoU pass done in 108s
+conv5: unique=53 {'object': 17, 'part': 7, 'scene': 1, 'material': 1, 'texture': 23, 'color': 4} detector_units=135/256
+=== done Wed Nov 11 21:35:04 2026 total 132s, peak GPU mem 1.27 GB

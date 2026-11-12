@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "alexnet-imagenet",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "noise0.05-alexnet-imagenet",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.05,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 280.0866641998291,
+  "iou": 141.17942428588867
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 46,
+   "unique_per_cat": {
+    "object": 14,
+    "part": 6,
+    "scene": 0,
+    "material": 1,
+    "texture": 21,
+    "color": 4
+   },
+   "detector_units": 124,
+   "detector_units_per_cat": {
+    "object": 37,
+    "part": 18,
+    "scene": 0,
+    "material": 3,
+    "texture": 59,
+    "color": 7
+   }
+  }
+ }
+}

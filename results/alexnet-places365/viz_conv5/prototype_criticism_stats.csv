@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+26,dotted,texture,0.1667,0.22,0.22
+51,grid,texture,0.1506,0.15,0.15
+255,lined,texture,0.1489,0.03,0.03
+135,water,object,0.1449,0.56,0.5065384290522552
+56,chequered,texture,0.1317,0.11,0.11
+216,zigzagged,texture,0.1314,0.18,0.18
+47,ball_pit-s,scene,0.1259,0.17,0.17
+249,studded,texture,0.1238,0.09,0.09
+9,wheel,part,0.1106,0.91,0.2633251157654449
+142,road,object,0.1058,0.91,0.6394840927032663
+204,lined,texture,0.1053,0.04,0.04
+86,chequered,texture,0.105,0.03,0.03

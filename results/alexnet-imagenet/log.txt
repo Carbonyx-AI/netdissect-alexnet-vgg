@@ -1,0 +1,26 @@
+=== Wed Nov 11 18:38:01 2026 {'model': 'alexnet-imagenet', 'layers': 'conv1,conv2,conv3,conv4,conv5', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'name': 'alexnet-imagenet', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+geometry (start, jump): {'conv1': (3.0, 4.0), 'conv2': (7.0, 8.0), 'conv3': (15.0, 16.0), 'conv4': (15.0, 16.0), 'conv5': (15.0, 16.0)}
+[quantile] conv1: n=191497625/unit, n_top=957489, tie units=0, candidate memory 1.37 GB
+[quantile] conv2: n=46149345/unit, n_top=230747, tie units=0, candidate memory 0.99 GB
+[quantile] conv3: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.46 GB
+[quantile] conv4: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+quantile pass done in 95s
+[iou] batch 0 (0s)
+[iou] batch 200 (60s)
+[iou] batch 400 (109s)
+[iou] batch 600 (153s)
+[iou] batch 800 (196s)
+[iou] batch 1000 (236s)
+[iou] batch 1200 (277s)
+[iou] batch 1400 (318s)
+[iou] batch 1600 (358s)
+[iou] batch 1800 (402s)
+IoU pass done in 443s
+conv1: unique=6 {'object': 0, 'part': 0, 'scene': 0, 'material': 0, 'texture': 2, 'color': 4} detector_units=8/64
+conv2: unique=20 {'object': 3, 'part': 0, 'scene': 1, 'material': 0, 'texture': 14, 'color': 2} detector_units=57/192
+conv3: unique=33 {'object': 8, 'part': 3, 'scene': 1, 'material': 0, 'texture': 19, 'color': 2} detector_units=107/384
+conv4: unique=28 {'object': 6, 'part': 4, 'scene': 0, 'material': 1, 'texture': 15, 'color': 2} detector_units=84/256
+conv5: unique=53 {'object': 17, 'part': 7, 'scene': 1, 'material': 1, 'texture': 23, 'color': 4} detector_units=135/256
+=== done Wed Nov 11 18:47:08 2026 total 546s, peak GPU mem 2.16 GB

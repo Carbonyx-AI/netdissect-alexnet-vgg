@@ -1,0 +1,21 @@
+{
+ "n_concepts": 48,
+ "mean_direction_iou": 0.09285699308975971,
+ "mean_best_unit_iou": 0.06327026455342212,
+ "frac_direction_better": 0.9791666666666666,
+ "wilcoxon_p": 7.815970093361102e-13,
+ "concepts_without_unit_but_direction_iou_gt_0.04": [
+  "torso",
+  "ceiling",
+  "leg",
+  "blue-c",
+  "building",
+  "pink-c",
+  "wood",
+  "purple-c",
+  "arm",
+  "green-c",
+  "floor",
+  "white-c"
+ ]
+}

@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+38,ball_pit-s,scene,0.1544,0.08,0.08
+319,banded,texture,0.1502,0.13,0.13
+80,zigzagged,texture,0.1246,0.14,0.14
+267,grid,texture,0.0997,0.07,0.07
+356,banded,texture,0.0966,0.17,0.17
+275,grid,texture,0.0925,0.08,0.08
+265,perforated,texture,0.082,0.13,0.13
+280,perforated,texture,0.078,0.08,0.08
+16,ball_pit-s,scene,0.0761,0.11,0.11
+137,ball_pit-s,scene,0.0737,0.09,0.09
+142,zigzagged,texture,0.0737,0.1,0.1
+145,chequered,texture,0.0724,0.11,0.11

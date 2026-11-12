@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+328,cat,object,0.2731,0.78,0.5403294081548372
+396,dotted,texture,0.2616,0.3,0.3
+471,cobwebbed,texture,0.2434,0.47,0.47
+125,mountain,object,0.235,0.97,0.6889760518299171
+45,knitted,texture,0.2315,0.13,0.13
+49,wheel,part,0.2096,0.86,0.28275444312408476
+352,wheel,part,0.1818,0.71,0.3572425995584412
+259,freckled,texture,0.1754,0.06,0.06
+87,honeycombed,texture,0.1742,0.27,0.27
+186,waffled,texture,0.1683,0.05,0.05
+331,bird,object,0.1674,0.95,0.3631667578223609
+508,chequered,texture,0.1649,0.31,0.31

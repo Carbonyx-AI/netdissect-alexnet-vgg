@@ -1,0 +1,18 @@
+=== Wed Nov 11 23:02:31 2026 {'model': 'small-baseline@work/trained/baseline/iter4440.pt', 'layers': 'conv5', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'name': 'small-baseline-iter4440', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+geometry (start, jump): {'conv5': (15.0, 16.0)}
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.30 GB
+quantile pass done in 6s
+[iou] batch 0 (0s)
+[iou] batch 200 (4s)
+[iou] batch 400 (8s)
+[iou] batch 600 (12s)
+[iou] batch 800 (16s)
+[iou] batch 1000 (19s)
+[iou] batch 1200 (23s)
+[iou] batch 1400 (27s)
+[iou] batch 1600 (31s)
+[iou] batch 1800 (35s)
+IoU pass done in 39s
+conv5: unique=17 {'object': 6, 'part': 0, 'scene': 0, 'material': 0, 'texture': 9, 'color': 2} detector_units=56/256
+=== done Wed Nov 11 23:03:18 2026 total 46s, peak GPU mem 1.25 GB

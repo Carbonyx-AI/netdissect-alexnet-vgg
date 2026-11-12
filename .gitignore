@@ -1,0 +1,12 @@
+# data and checkpoints live outside the repo (see README)
+work/
+__pycache__/
+*.pyc
+.DS_Store
+# per-shard IoU sums (~580 MB, only needed for bootstrap); shard-summed copies sumsT_*.npz are kept
+results/*/sums_*.npz
+results/*/maxact_*.npy
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out

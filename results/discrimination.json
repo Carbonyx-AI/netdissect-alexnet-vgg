@@ -1,0 +1,82 @@
+{
+ "task": "Broden top-30 scenes, n_train=6844, n_val=2789",
+ "rows": [
+  {
+   "run": "alexnet-random",
+   "layer": "conv5",
+   "scene_probe_acc": 0.2857653501133124,
+   "unique_object_detectors": 1,
+   "unique_total": 6
+  },
+  {
+   "run": "alexnet-imagenet",
+   "layer": "conv5",
+   "scene_probe_acc": 0.5925341761360566,
+   "unique_object_detectors": 17,
+   "unique_total": 53
+  },
+  {
+   "run": "alexnet-places365",
+   "layer": "conv5",
+   "scene_probe_acc": 0.6302560453613599,
+   "unique_object_detectors": 20,
+   "unique_total": 55
+  },
+  {
+   "run": "vgg16-imagenet",
+   "layer": "conv5_3",
+   "scene_probe_acc": 0.6661645556489627,
+   "unique_object_detectors": 37,
+   "unique_total": 89
+  },
+  {
+   "run": "vgg16bn-imagenet",
+   "layer": "conv5_3",
+   "scene_probe_acc": 0.6907183319330216,
+   "unique_object_detectors": 49,
+   "unique_total": 96
+  },
+  {
+   "run": "small-baseline",
+   "layer": "conv5",
+   "scene_probe_acc": 0.3646355006222924,
+   "unique_object_detectors": 6,
+   "unique_total": 17
+  },
+  {
+   "run": "small-repeat1",
+   "layer": "conv5",
+   "scene_probe_acc": 0.36506352567424377,
+   "unique_object_detectors": 7,
+   "unique_total": 20
+  },
+  {
+   "run": "small-repeat2",
+   "layer": "conv5",
+   "scene_probe_acc": 0.35193611606955527,
+   "unique_object_detectors": 6,
+   "unique_total": 17
+  },
+  {
+   "run": "small-nodropout",
+   "layer": "conv5",
+   "scene_probe_acc": 0.3549970791985591,
+   "unique_object_detectors": 5,
+   "unique_total": 16
+  },
+  {
+   "run": "small-batchnorm",
+   "layer": "conv5",
+   "scene_probe_acc": 0.39255834637830656,
+   "unique_object_detectors": 5,
+   "unique_total": 26
+  },
+  {
+   "run": "small-gapwide",
+   "layer": "conv5",
+   "scene_probe_acc": 0.37975053787231444,
+   "unique_object_detectors": 4,
+   "unique_total": 14
+  }
+ ]
+}

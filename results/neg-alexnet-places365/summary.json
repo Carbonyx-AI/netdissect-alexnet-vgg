@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "alexnet-places365",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "neg-alexnet-places365",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": true,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 24.508140087127686,
+  "iou": 115.54518747329712
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 11,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 9,
+    "color": 0
+   },
+   "detector_units": 242,
+   "detector_units_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 240,
+    "color": 0
+   }
+  }
+ }
+}

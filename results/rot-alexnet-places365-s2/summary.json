@@ -1,0 +1,146 @@
+{
+ "args": {
+  "model": "alexnet-places365",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "rot-alexnet-places365-s2",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": "0,0.2,0.4,0.6,0.8,1",
+  "rot_seed": 2,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 167.24727940559387,
+  "iou": 685.0093865394592
+ },
+ "variants": {
+  "conv5@rot0": {
+   "unique_total": 55,
+   "unique_per_cat": {
+    "object": 20,
+    "part": 4,
+    "scene": 5,
+    "material": 1,
+    "texture": 23,
+    "color": 2
+   },
+   "detector_units": 119,
+   "detector_units_per_cat": {
+    "object": 51,
+    "part": 9,
+    "scene": 7,
+    "material": 1,
+    "texture": 48,
+    "color": 3
+   }
+  },
+  "conv5@rot0.2": {
+   "unique_total": 57,
+   "unique_per_cat": {
+    "object": 22,
+    "part": 4,
+    "scene": 3,
+    "material": 1,
+    "texture": 25,
+    "color": 2
+   },
+   "detector_units": 122,
+   "detector_units_per_cat": {
+    "object": 55,
+    "part": 8,
+    "scene": 5,
+    "material": 1,
+    "texture": 50,
+    "color": 3
+   }
+  },
+  "conv5@rot0.4": {
+   "unique_total": 55,
+   "unique_per_cat": {
+    "object": 24,
+    "part": 4,
+    "scene": 2,
+    "material": 1,
+    "texture": 22,
+    "color": 2
+   },
+   "detector_units": 113,
+   "detector_units_per_cat": {
+    "object": 52,
+    "part": 8,
+    "scene": 5,
+    "material": 1,
+    "texture": 44,
+    "color": 3
+   }
+  },
+  "conv5@rot0.6": {
+   "unique_total": 46,
+   "unique_per_cat": {
+    "object": 17,
+    "part": 4,
+    "scene": 1,
+    "material": 0,
+    "texture": 22,
+    "color": 2
+   },
+   "detector_units": 102,
+   "detector_units_per_cat": {
+    "object": 40,
+    "part": 7,
+    "scene": 4,
+    "material": 0,
+    "texture": 49,
+    "color": 2
+   }
+  },
+  "conv5@rot0.8": {
+   "unique_total": 19,
+   "unique_per_cat": {
+    "object": 2,
+    "part": 2,
+    "scene": 2,
+    "material": 1,
+    "texture": 12,
+    "color": 0
+   },
+   "detector_units": 61,
+   "detector_units_per_cat": {
+    "object": 5,
+    "part": 5,
+    "scene": 3,
+    "material": 1,
+    "texture": 47,
+    "color": 0
+   }
+  },
+  "conv5@rot1": {
+   "unique_total": 18,
+   "unique_per_cat": {
+    "object": 4,
+    "part": 1,
+    "scene": 1,
+    "material": 0,
+    "texture": 12,
+    "color": 0
+   },
+   "detector_units": 65,
+   "detector_units_per_cat": {
+    "object": 6,
+    "part": 4,
+    "scene": 4,
+    "material": 0,
+    "texture": 51,
+    "color": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,34 @@
+=== Wed Nov 11 20:09:02 2026 {'model': 'alexnet-places365', 'layers': 'conv5', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'name': 'rot-alexnet-places365-s2', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': '0,0.2,0.4,0.6,0.8,1', 'rot_seed': 2, 'noise': 0.0, 'randomize_from': None, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+rotation alpha=0.0: {'orth_err': 0.0, 'det': 1.0, 'dist_from_identity': 0.0}
+rotation alpha=0.2: {'orth_err': 9.992007221626409e-15, 'det': 1.0000000000006326, 'dist_from_identity': 5.771151974136394}
+rotation alpha=0.4: {'orth_err': 9.547918011776346e-15, 'det': 1.000000000000616, 'dist_from_identity': 11.200670949095482}
+rotation alpha=0.6: {'orth_err': 8.659739592076221e-15, 'det': 1.0000000000006246, 'dist_from_identity': 15.977694895915226}
+rotation alpha=0.8: {'orth_err': 7.993605777301127e-15, 'det': 1.00000000000065, 'dist_from_identity': 19.850798313280183}
+rotation alpha=1.0: {'orth_err': 1.3322676295501878e-15, 'det': 0.9999999999999942, 'dist_from_identity': 22.652709022579128}
+geometry (start, jump): {'conv5@rot0': (15.0, 16.0), 'conv5@rot0.2': (15.0, 16.0), 'conv5@rot0.4': (15.0, 16.0), 'conv5@rot0.6': (15.0, 16.0), 'conv5@rot0.8': (15.0, 16.0), 'conv5@rot1': (15.0, 16.0)}
+[quantile] conv5@rot0: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5@rot0.2: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5@rot0.4: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5@rot0.6: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5@rot0.8: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+[quantile] conv5@rot1: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+quantile pass done in 167s
+[iou] batch 0 (1s)
+[iou] batch 200 (67s)
+[iou] batch 400 (132s)
+[iou] batch 600 (189s)
+[iou] batch 800 (255s)
+[iou] batch 1000 (332s)
+[iou] batch 1200 (411s)
+[iou] batch 1400 (493s)
+[iou] batch 1600 (564s)
+[iou] batch 1800 (624s)
+IoU pass done in 685s
+conv5@rot0: unique=55 {'object': 20, 'part': 4, 'scene': 5, 'material': 1, 'texture': 23, 'color': 2} detector_units=119/256
+conv5@rot0.2: unique=57 {'object': 22, 'part': 4, 'scene': 3, 'material': 1, 'texture': 25, 'color': 2} detector_units=122/256
+conv5@rot0.4: unique=55 {'object': 24, 'part': 4, 'scene': 2, 'material': 1, 'texture': 22, 'color': 2} detector_units=113/256
+conv5@rot0.6: unique=46 {'object': 17, 'part': 4, 'scene': 1, 'material': 0, 'texture': 22, 'color': 2} detector_units=102/256
+conv5@rot0.8: unique=19 {'object': 2, 'part': 2, 'scene': 2, 'material': 1, 'texture': 12, 'color': 0} detector_units=61/256
+conv5@rot1: unique=18 {'object': 4, 'part': 1, 'scene': 1, 'material': 0, 'texture': 12, 'color': 0} detector_units=65/256
+=== done Wed Nov 11 20:23:30 2026 total 860s, peak GPU mem 1.86 GB

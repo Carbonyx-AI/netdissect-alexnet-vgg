@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "alexnet-imagenet",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "cascade-fc-alexnet-imagenet",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": "fc",
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 22.369444131851196,
+  "iou": 108.48388028144836
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 53,
+   "unique_per_cat": {
+    "object": 17,
+    "part": 7,
+    "scene": 1,
+    "material": 1,
+    "texture": 23,
+    "color": 4
+   },
+   "detector_units": 135,
+   "detector_units_per_cat": {
+    "object": 50,
+    "part": 16,
+    "scene": 1,
+    "material": 3,
+    "texture": 59,
+    "color": 6
+   }
+  }
+ }
+}

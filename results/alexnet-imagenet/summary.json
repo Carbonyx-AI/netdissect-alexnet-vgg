@@ -1,0 +1,126 @@
+{
+ "args": {
+  "model": "alexnet-imagenet",
+  "layers": "conv1,conv2,conv3,conv4,conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "alexnet-imagenet",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 95.1641263961792,
+  "iou": 443.0142946243286
+ },
+ "variants": {
+  "conv1": {
+   "unique_total": 6,
+   "unique_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 2,
+    "color": 4
+   },
+   "detector_units": 8,
+   "detector_units_per_cat": {
+    "object": 0,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 2,
+    "color": 6
+   }
+  },
+  "conv2": {
+   "unique_total": 20,
+   "unique_per_cat": {
+    "object": 3,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 14,
+    "color": 2
+   },
+   "detector_units": 57,
+   "detector_units_per_cat": {
+    "object": 6,
+    "part": 0,
+    "scene": 1,
+    "material": 0,
+    "texture": 45,
+    "color": 5
+   }
+  },
+  "conv3": {
+   "unique_total": 33,
+   "unique_per_cat": {
+    "object": 8,
+    "part": 3,
+    "scene": 1,
+    "material": 0,
+    "texture": 19,
+    "color": 2
+   },
+   "detector_units": 107,
+   "detector_units_per_cat": {
+    "object": 10,
+    "part": 4,
+    "scene": 1,
+    "material": 0,
+    "texture": 90,
+    "color": 2
+   }
+  },
+  "conv4": {
+   "unique_total": 28,
+   "unique_per_cat": {
+    "object": 6,
+    "part": 4,
+    "scene": 0,
+    "material": 1,
+    "texture": 15,
+    "color": 2
+   },
+   "detector_units": 84,
+   "detector_units_per_cat": {
+    "object": 12,
+    "part": 12,
+    "scene": 0,
+    "material": 1,
+    "texture": 57,
+    "color": 2
+   }
+  },
+  "conv5": {
+   "unique_total": 53,
+   "unique_per_cat": {
+    "object": 17,
+    "part": 7,
+    "scene": 1,
+    "material": 1,
+    "texture": 23,
+    "color": 4
+   },
+   "detector_units": 135,
+   "detector_units_per_cat": {
+    "object": 50,
+    "part": 16,
+    "scene": 1,
+    "material": 3,
+    "texture": 59,
+    "color": 6
+   }
+  }
+ }
+}

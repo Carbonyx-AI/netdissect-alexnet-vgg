@@ -1,0 +1,26 @@
+=== Wed Nov 11 18:47:12 2026 {'model': 'alexnet-places365', 'layers': 'conv1,conv2,conv3,conv4,conv5', 'data': 'work/broden', 'weights': 'work', 'out': 'results', 'name': 'alexnet-places365', 'batch': 32, 'quantile': 0.005, 'iou': 0.04, 'negative': False, 'rotate': None, 'rot_seed': 0, 'noise': 0.0, 'randomize_from': None, 'gpu_mem_gb': 10.0, 'seed': 0}
+Broden: N=63305, labels=1197 valid, shards=50
+geometry (start, jump): {'conv1': (3.0, 4.0), 'conv2': (7.0, 8.0), 'conv3': (15.0, 16.0), 'conv4': (15.0, 16.0), 'conv5': (15.0, 16.0)}
+[quantile] conv1: n=191497625/unit, n_top=957489, tie units=13, candidate memory 1.10 GB
+[quantile] conv2: n=46149345/unit, n_top=230747, tie units=130, candidate memory 0.32 GB
+[quantile] conv3: n=10698545/unit, n_top=53493, tie units=237, candidate memory 0.17 GB
+[quantile] conv4: n=10698545/unit, n_top=53493, tie units=2, candidate memory 0.30 GB
+[quantile] conv5: n=10698545/unit, n_top=53493, tie units=0, candidate memory 0.31 GB
+quantile pass done in 149s
+[iou] batch 0 (1s)
+[iou] batch 200 (45s)
+[iou] batch 400 (80s)
+[iou] batch 600 (128s)
+[iou] batch 800 (185s)
+[iou] batch 1000 (240s)
+[iou] batch 1200 (297s)
+[iou] batch 1400 (354s)
+[iou] batch 1600 (412s)
+[iou] batch 1800 (470s)
+IoU pass done in 529s
+conv1: unique=7 {'object': 1, 'part': 0, 'scene': 0, 'material': 0, 'texture': 1, 'color': 5} detector_units=13/64
+conv2: unique=18 {'object': 2, 'part': 0, 'scene': 1, 'material': 0, 'texture': 12, 'color': 3} detector_units=30/192
+conv3: unique=21 {'object': 3, 'part': 0, 'scene': 2, 'material': 0, 'texture': 13, 'color': 3} detector_units=48/384
+conv4: unique=27 {'object': 8, 'part': 4, 'scene': 1, 'material': 1, 'texture': 12, 'color': 1} detector_units=86/256
+conv5: unique=55 {'object': 20, 'part': 4, 'scene': 5, 'material': 1, 'texture': 23, 'color': 2} detector_units=119/256
+=== done Wed Nov 11 18:58:36 2026 total 683s, peak GPU mem 2.15 GB

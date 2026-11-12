@@ -1,0 +1,46 @@
+{
+ "args": {
+  "model": "small-baseline@work/trained/baseline/iter400.pt",
+  "layers": "conv5",
+  "data": "work/broden",
+  "weights": "work",
+  "out": "results",
+  "name": "small-baseline-iter400",
+  "batch": 32,
+  "quantile": 0.005,
+  "iou": 0.04,
+  "negative": false,
+  "rotate": null,
+  "rot_seed": 0,
+  "noise": 0.0,
+  "randomize_from": null,
+  "gpu_mem_gb": 10.0,
+  "seed": 0
+ },
+ "runtime_s": {
+  "quantile": 6.177923679351807,
+  "iou": 38.714356899261475
+ },
+ "variants": {
+  "conv5": {
+   "unique_total": 8,
+   "unique_per_cat": {
+    "object": 1,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 6,
+    "color": 1
+   },
+   "detector_units": 172,
+   "detector_units_per_cat": {
+    "object": 52,
+    "part": 0,
+    "scene": 0,
+    "material": 0,
+    "texture": 99,
+    "color": 21
+   }
+  }
+ }
+}

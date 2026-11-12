@@ -1,0 +1,13 @@
+unit,label,category,iou,frac_top100_mask_on_concept,mean_overlap_top100
+114,dotted,texture,0.2573,0.29,0.29
+255,striped,texture,0.1824,0.2,0.2
+15,dotted,texture,0.1824,0.27,0.27
+248,wheel,part,0.1819,0.4,0.24964735171994715
+35,cobwebbed,texture,0.1733,0.12,0.12
+130,cat,object,0.1728,0.53,0.4526977612121719
+132,perforated,texture,0.1511,0.24,0.24
+187,spiralled,texture,0.1406,0.27,0.27
+176,dog,object,0.1325,0.73,0.591462975754269
+115,cat,object,0.1316,0.58,0.44448030060467886
+95,grass,object,0.1262,0.73,0.5219920744313101
+196,cat,object,0.1245,0.3,0.2808632535222548
