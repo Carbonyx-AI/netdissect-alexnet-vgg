@@ -1,0 +1,206 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.7cm]{geometry}
+\usepackage{graphicx,booktabs,tabularx,amsmath,xcolor,hyperref,caption,subcaption,enumitem,placeins}
+\captionsetup{font=small,labelfont=bf,skip=2pt}
+\setlist{nosep,leftmargin=*}
+\setlength{\parskip}{2pt}
+\setlength{\textfloatsep}{8pt}
+\hypersetup{colorlinks,linkcolor=black,citecolor=black,urlcolor=blue!50!black}
+\newcommand{\fig}[1]{../results/figures/#1}
+\newcommand{\fillin}[1]{\colorbox{yellow!40}{\textbf{[#1]}}}
+\newcommand{\ok}{\textcolor{green!45!black}{\textbf{reproduced}}}
+\newcommand{\partly}{\textcolor{orange!80!black}{\textbf{partly}}}
+\newcommand{\no}{\textcolor{red!70!black}{\textbf{not reproduced}}}
+\title{\vspace{-1.3cm}\textbf{Network Dissection of AlexNet and VGG16: an honest reproduction in PyTorch}}
+\author{Interpretable Machine Learning --- Group Project \\ \fillin{Group members (names, roll numbers)}}
+\date{\fillin{Submission date} \quad Code: \url{https://github.com/Carbonyx-AI/netdissect-alexnet-vgg}}
+\begin{document}
+\maketitle
+\vspace{-0.7cm}
+\begin{abstract}\noindent
+We re-implemented Network Dissection \cite{bau2017} from scratch in PyTorch and repeated the paper's experiments for
+AlexNet and VGG16, using the paper's own Caffe models (AlexNet-Places205, -Hybrid, -Places365, BVLC AlexNet,
+VGG16-Places365/Hybrid1365, loaded with our own converter) next to torchvision models. We report five results.
+\textbf{(1)} Interpretability is tied to the basis: a random rotation of conv5 of the paper's AlexNet-Places205 removes 84\% of
+the unique detectors (paper: 80\%) while the output is unchanged. \textbf{(2)} Detectors move from colour/texture to objects
+with depth. \textbf{(3)} VGG16 $>$ AlexNet, trained $\gg$ random, and Places $>$ ImageNet for the original models.
+\textbf{(4)} In small-scale training on Imagenette, seeds converge and detectors emerge during training, but batch normalisation
+does not lower interpretability, removing dropout has no effect, and widening conv5 helps only a little.
+\textbf{(5)} The method passes a randomisation sanity check, but single-unit labels have almost no causal importance, and
+whether groups of same-labelled units matter depends on the model.
+\end{abstract}
+
+\section{Introduction}
+Network Dissection is a \emph{post-hoc, model-specific, global} method (Molnar \cite{molnar}, \emph{Learned Features}): every unit of a
+CNN is scored as a segmenter of every concept of a densely labelled dataset, and the number of distinct concepts that some
+unit detects measures how interpretable a layer is. The paper asks whether interpretable units are an accident of the
+coordinate system (H1) or a special, axis-aligned basis found by training (H2), and how interpretability depends on
+layer, architecture, training data and training regime. We implemented the method and repeated the paper's experiments on
+these questions (Sec.~3.2--3.5, 3.7) for AlexNet and VGG16, the two architectures of our topic, and then asked whether the
+method itself can be trusted. Expectations were written down before running the experiments (\texttt{report/EXPECTATIONS.md}).
+
+\section{Datasets and models}
+\textbf{Broden} (\texttt{broden1\_224}, 63{,}305 images, labels at 112\,px, 1{,}197 concepts: 584 objects, 234 parts,
+468 scenes, 32 materials, 47 textures, 11 colours, exactly the paper's Table~1) is the dataset the method is defined on;
+dissection needs pixel-level concept labels. The official server was offline, so we used the Internet Archive copy and
+verified it byte-for-byte (SHA-1). \textbf{Imagenette} (10 ImageNet classes) is used for accuracy checks, the fidelity test
+and the small training runs. \fillin{note instructor approval of Imagenette}
+
+\textbf{Models.} The paper used Caffe models, so we wrote a reader for \texttt{.caffemodel}/\texttt{.prototxt} files
+(own protobuf decoder; grouped convolutions, LRN, ceil pooling, BGR mean subtraction). Every converted model was checked
+before use: BVLC AlexNet reaches 76.7\% 1000-way top-1 on Imagenette (torchvision AlexNet 72.0\% under the same
+protocol); on Broden scene images AlexNet-Places205 reaches 62.0\% top-1 (205 classes), AlexNet-Places365 46.6\%,
+VGG16-Places365 51.5\%. AlexNet-Hybrid is weaker than expected on scenes (38.9\% on its 205 scene outputs) and is used with
+that caveat. Not available: VGG16-Places205 (link dead) and the self-supervised AlexNets (server offline).
+
+\textbf{Libraries.} PyTorch (computation, autograd), torchvision (AlexNet/VGG16 definitions and ImageNet weights),
+NumPy/pandas (data handling), Pillow (images, label PNGs), SciPy (Schur decomposition, statistical tests), Matplotlib
+(figures). Dissection, the Caffe reader, rotations and permutation importance are our code.
+
+\section{Method}
+For each unit $k$: $T_k$ is the exact top quantile with $P(a_k>T_k)=0.005$ over all positions of all images;
+$A_k(x)$ is upsampled bilinearly to $112\times112$ with each activation at its receptive-field centre and thresholded,
+$M_k=S_k>T_k$; then $\mathrm{IoU}_{k,c}=\sum_x|M_k\cap L_c|/\sum_x|M_k\cup L_c|$ over the images that have a label of
+$c$'s category; unit $k$ detects its best concept if IoU $>0.04$, and a layer's \emph{unique detectors} are the distinct
+concepts detected. Intersections for all concepts are accumulated per batch with a GPU \texttt{index\_add} (exact counts),
+all sums are kept for 50 random image shards (bootstrap intervals in Fig.~\ref{fig:last}), and the quantile is computed exactly
+with bounded memory (VGG conv1\_2 has $3.2\cdot10^9$ activations per unit). A random rotation $Q\in SO(K)$ comes from a QR
+decomposition; $Q^\alpha$ from the real Schur form.
+
+\section{Results}
+
+\subsection*{Result 1 --- Interpretability is axis-aligned (paper Sec.~3.2)}
+\begin{figure}[t]\centering
+\begin{subfigure}{0.5\linewidth}\includegraphics[width=\linewidth]{\fig{fig_rotation.png}}\caption{All rotated models (3 seeds each).}\label{fig:rot}\end{subfigure}\hfill
+\begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{\fig{fig_rotation_places205.png}}\caption{Paper's AlexNet-Places205 (paper Fig.~4).}\end{subfigure}
+\caption{Result 1: random rotations $Q^\alpha$ of the last conv layer.}
+\end{figure}
+For the paper's own model, rotating conv5 by a random $Q\in SO(256)$ reduces unique detectors from 63 to $10.0\pm0.8$
+(3 rotations), an \textbf{84\% drop} (paper: 80\%), with the collapse between $\alpha=0.6$ and $0.8$ as in the paper.
+VGG16-Places365 conv5\_3: $148\to30.3\pm1.2$ (80\%). The drop is smaller for other models: torchvision AlexNet-ImageNet 58\%,
+Caffe AlexNet-ImageNet 68\%, PyTorch AlexNet-Places365 69\% (3 seeds each): ImageNet models drop less than Places models in
+both model families. $\alpha=0$ reproduces the unrotated baseline exactly. We also measured the paper's premise: passing
+$Q^\top Qf(x)$ through the rest of the network leaves the output unchanged (max.\ logit difference $1.5\cdot10^{-5}$), while
+$Qf(x)$ alone gives chance accuracy. Conclusion: interpretability is a property of the basis, not of the information (H2): \ok.
+
+\subsection*{Result 2 --- Concepts by layer (paper Sec.~3.3)}
+\begin{figure}[t]\centering
+\begin{subfigure}{0.99\linewidth}\centering\includegraphics[width=0.86\linewidth]{\fig{fig_layers_alexnet.png}}\caption{AlexNet, original Caffe models: Places205 (paper's model), ImageNet (BVLC), and a random AlexNet (paper Fig.~5).}\end{subfigure}
+\begin{subfigure}{0.99\linewidth}\centering\includegraphics[width=0.99\linewidth]{\fig{fig_layers_vgg.png}}\caption{VGG16, last conv layer of each block.}\end{subfigure}
+\caption{Result 2: unique detectors per layer.}\label{fig:layers}
+\end{figure}
+AlexNet-Places205 rises 7, 20, 34, 37, 63 from conv1 to conv5; colour dominates conv1, textures conv2--conv3, objects conv5
+(33 object detectors): \ok. ImageNet and Hybrid AlexNets dip at conv4 (Caffe ImageNet: 35 $\to$ 29, although conv3 and conv4
+both have 384 units), so the rise is not monotone for every model. VGG16 stays low up to conv3\_3 (6--13) and jumps at
+conv4\_3/conv5\_3, the same pattern for all trained VGGs. Random networks stay low at every layer.
+
+\subsection*{Result 3 --- Architecture and training data (paper Sec.~3.4)}
+\begin{figure}[t]\centering
+\includegraphics[width=0.97\linewidth]{\fig{fig_last_layer.png}}
+\caption{Result 3: last conv layer of all 12 models (paper Fig.~7/8). tv = torchvision, PT = PyTorch release, Caffe = original model.}\label{fig:last}
+\end{figure}
+VGG16 has 89--148 unique detectors, AlexNet 43--68: \ok. With the original Caffe models Places beats ImageNet clearly
+(AlexNet: Places205 63, Places365 68, Hybrid 65 vs ImageNet 43; VGG16: Places365 148 vs ImageNet 89) and the AlexNet order
+Places365 $>$ Hybrid $>$ Places205 $>$ ImageNet is the paper's (Fig.~8): \ok. Two caveats: the torchvision ImageNet AlexNet
+(53) and the PyTorch Places365 release (55) are almost equal, and the PyTorch release has hundreds of units that are zero on
+$>$99.5\% of positions (the Caffe Places365 model has almost none) --- so ``Places $>$ ImageNet'' holds for the original
+models, not for every re-implementation. Random networks have 4--6: \ok. Our counts are higher than the paper's (its
+Fig.~4/5 axes end at 40, we find 63 for the same AlexNet-Places205); we use 224\,px instead of 227\,px input and cannot
+otherwise explain the difference.
+
+\subsection*{Result 4 --- Training conditions and width (paper Sec.~3.5, 3.7)}
+\begin{figure}[t]\centering
+\begin{subfigure}{0.52\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_variants.png}}\caption{Variants, 3 seeds each.}\label{fig:train}\end{subfigure}\hfill
+\begin{subfigure}{0.46\linewidth}\includegraphics[width=\linewidth]{\fig{fig_training_dynamics.png}}\caption{During training (3 seeds).}\end{subfigure}
+\caption{Result 4: small-scale training on Imagenette (paper Fig.~10, 11, 13).}
+\end{figure}
+The paper trained AlexNet on Places205; we can only train on Imagenette (9.5k images, 60 epochs, 3 seeds per variant), so
+these are weak, small-scale tests. \emph{Seeds}: $19.0\pm1.7$ unique detectors at equal accuracy (82.5\%): \ok.
+\emph{Iterations}: 4 at initialisation, 4--6 up to iteration 400, 12 at 800, 19 at the end (mean of 3 seeds); object
+detectors appear after $\sim$800 iterations: \ok\ (in shape). \emph{No dropout}: $17.3\pm1.5$ (objects 5.0 vs 5.3,
+textures 9.7 vs 11.3; Welch $p=0.28$) --- the paper's ``more textures, fewer objects'' is \no. \emph{Batch norm}:
+$23.7\pm3.8$, higher than baseline (not significant, $p=0.15$) and accuracy 86.3\%; pretrained VGG16-BN has fewer detectors
+than VGG16 in conv3\_3/conv4\_3 but more in conv5\_3 (96 vs 89) --- the paper's ``BN decreases interpretability'' is \no.
+\emph{Width}: replacing the FC layers by global average pooling (GAP) alone already changes the result (256 units: $10.3$
+unique, 106 detector units, vs 19 / 60 for the baseline), so width must be compared inside the GAP family: 256 $\to$ 768
+$\to$ 1024 $\to$ 2048 units give $10.3, 12.3, 13.3, 15.0$ unique detectors and 106, 327, 426, 884 detector units (3 seeds
+each). More units give many more detector units but only a few more concepts, and unlike the paper there is no plateau
+after 768: \partly.
+
+\subsection*{Result 5 --- Can the labels be trusted? (Molnar's criteria)}
+\begin{figure}[t]\centering
+\begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{\fig{fig_cascade.png}}\caption{Cascading randomisation.}\label{fig:casc}\end{subfigure}\hfill
+\begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{\fig{fig_fidelity_alexnet-imagenet.png}}\caption{IoU vs permutation importance, AlexNet-ImageNet conv5.}\label{fig:fid}\end{subfigure}
+\caption{Result 5: sanity check and fidelity.}
+\end{figure}
+\textbf{Sanity check} (cascading randomisation, Fig.~\ref{fig:casc}). Re-initialising only the classifier changes nothing
+(labels identical in all three models tested); re-initialising the top conv layer drops the last layer to 5--14 unique
+detectors. The method passes, but it describes what a layer represents, not how the network uses it.
+\textbf{Fidelity} (Fig.~\ref{fig:fid}). Using permutation feature importance with units as features (Imagenette,
+AlexNet-ImageNet conv5), labelled units are \emph{not} more important than unlabelled ones (Mann--Whitney $p=0.80$; VGG16
+$p=0.63$) and IoU does not correlate with importance (Spearman $-0.01$); no single unit changes accuracy by more than 0.2\%.
+Shuffling all units labelled ``dog'' together (the one test fixed in advance) costs 24.3 points of 1000-way accuracy on the
+dog class (13 units; 10{,}000 random groups: mean 3.4, $p=10^{-4}$; VGG16: 29.3 points, $p=0.002$) but under 1 point in
+10-way accuracy: the units carry \emph{which breed}, not \emph{dog or not}. For the original Caffe AlexNet-ImageNet the same
+test is \emph{not} significant (11.8 points vs random mean 4.6, $p=0.12$): group fidelity of labels depends on the model.
+
+\begin{table}[t]\centering\small
+\begin{tabularx}{\linewidth}{@{}lXlp{5.6cm}@{}}\toprule
+& Claim & Verdict & Our evidence \\\midrule
+1 & Interpretability is axis-aligned; rotation keeps outputs (3.2) & \ok & $-84\%$ for the paper model (paper $-80\%$); 58--84\% across models \\
+2 & Colour/texture early, objects late (3.3) & \ok & all trained models; ImageNet AlexNets dip at conv4 \\
+3 & VGG $>$ AlexNet; trained $\gg$ random (3.4) & \ok & 89--148 vs 43--68; random 4--6 \\
+3 & Places $>$ ImageNet (3.4) & \ok & original models 63--68 vs 43, VGG 148 vs 89; not for torchvision/PyTorch releases \\
+3 & Hybrid between Places and ImageNet (3.4) & \ok & AlexNet 65, VGG 147 \\
+4 & Seeds converge (3.5) & \ok & $19.0\pm1.7$ \\
+4 & Detectors emerge during training (3.5) & \ok & 4 $\to$ 19, objects after $\sim$800 it. \\
+4 & No dropout: more texture, fewer objects (3.5) & \no & no difference ($p=0.28$), small scale \\
+4 & Batch norm lowers interpretability (3.5) & \no & higher in small models, mixed in VGG16 \\
+4 & Wider layer, more detectors (3.7) & \partly & more detector units, few more concepts \\\midrule
+5 & Method passes randomisation sanity check & yes & classifier reset: no change; top-conv reset: 5--14 left \\
+5 & Labels identify units the network relies on & no / mixed & single units: $p=0.80$; ``dog'' group: $p=10^{-4}$ (tv), $p=0.12$ (Caffe) \\\bottomrule
+\end{tabularx}
+\caption{Summary of the five results. Of the 10 paper claims tested (Results 1--4), 7 are reproduced, 1 partly and 2 not.}\label{tab:sum}
+\end{table}
+
+\begin{table}[t]\centering\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.6cm}X@{}}\toprule
+Challenge & Solution \\\midrule
+Broden server offline & Internet Archive copy, parallel ranged download; first file was truncated (index reported the compressed size) --- caught by the SHA-1 check, fixed \\
+The paper's models exist only as Caffe files & own protobuf/prototxt reader; every model verified by classification before use; a 5-point accuracy gap traced to the resize protocol, not the converter \\
+RG-encoded label PNGs, up to 5 overlapping maps, image-level scene/texture labels & decoder that merges maps without double counting; scene/texture as full-image masks; label counts checked against Broden's \texttt{label.csv} \\
+Exact top quantile over up to $3.2\cdot10^9$ values per unit; first version used $>$200\,GB RAM on a model with many all-zero units (tie at 0) & level counting + candidate filtering with explicit tie handling, bounded memory; unit test for ties \\
+In-place ReLU overwrote tensors captured by hooks & non-in-place ReLU, cloned activations, unit test \\
+Upsampling anchored at receptive-field centres & receptive-field start/stride from the layer geometry, \texttt{grid\_sample} \\
+GAP head confounds the width experiment & added a 256-unit GAP control \\
+Single training runs cannot support conclusions & 3 seeds per variant, Welch tests \\
+Our own bugs (e.g.\ wrong weights path in the fidelity run) & found from logs, fixed, re-run; every claim checked against the raw files \\\bottomrule
+\end{tabularx}
+\caption{Challenges and solutions.}\label{tab:chal}
+\end{table}
+
+\FloatBarrier
+\section{Challenges and how we solved them}
+Table~\ref{tab:chal} lists the main technical problems.
+
+\section{What did not work, bluntly}
+Batch norm, dropout and width could only be tested on a 9.5k-image dataset; the paper's effects may need the scale of
+Places205, so our ``not reproduced'' means ``not seen at our scale''. Absolute detector counts are at least 1.5$\times$ the
+paper's for the same model (its axes end at 40, we find 63), and we cannot fully explain why. ``Places $>$ ImageNet'' and the
+rotation effect size depend on which release of a model is used. Self-supervised models (paper Fig.~8--9) and
+VGG16-Places205 could not be obtained, so those comparisons are missing.
+
+\section{Conclusion}
+The central result holds: interpretable units are a property of the learned basis, and the paper's own model loses 84\% of
+its detectors under a random rotation with identical outputs. The comparative results (layer, architecture, training data)
+also hold for the original models. The training-regime results do not reproduce at our scale. As an explanation method,
+Network Dissection gives reproducible labels for what units respond to, but single labels say little about what the network
+relies on --- they should be combined with tests of importance, as Molnar recommends.
+
+\noindent\textbf{Declaration.} \fillin{State the use of AI tools as required by the course policy.}
+
+\begin{thebibliography}{9}\small
+\bibitem{bau2017} D. Bau, B. Zhou, A. Khosla, A. Oliva, A. Torralba. Network Dissection: Quantifying Interpretability of Deep Visual Representations. CVPR 2017.
+\bibitem{molnar} C. Molnar. \emph{Interpretable Machine Learning}. \url{https://christophm.github.io/interpretable-ml-book}, accessed \fillin{date}.
+\end{thebibliography}
+\end{document}

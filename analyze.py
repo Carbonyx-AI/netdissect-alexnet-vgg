@@ -1,4 +1,5 @@
-"""All tables (results/table_*.csv, results/results_summary.json) and figures (results/figures/).
+"""Tables and figures of the 5 final results (layers, last layer, rotation, training, cascade + fidelity):
+all tables (results/table_*.csv, results/results_summary.json) and figures (results/figures/).
 Everything is computed from the saved IoU sums. Bootstrap = resampling the 50 image shards (last layers only).
 Works without the preprocessed Broden (uses results/broden_label.csv) and with the shard-summed copies
 sumsT_*.npz when the per-shard sums are missing (bootstrap columns are then NaN).
@@ -8,7 +9,6 @@ import argparse
 import glob
 import json
 import os
-from itertools import combinations
 
 import matplotlib
 matplotlib.use("Agg")
@@ -206,68 +206,6 @@ if len(rot_df):
         ax.set_xlabel("rotation α")
         save(fig, "fig_rotation_places205.png", ax, -0.3)
 
-# ---------------- negative activations ----------------
-neg = []
-for run in ["alexnet-imagenet", "alexnet-places365", "caffe-alexnet-places205", "vgg16-imagenet", "caffe-vgg16-places365"]:
-    l = LAST[run]
-    sp, _ = summ(run, l)
-    sn, _ = summ(f"neg-{run}", l)
-    if sp is None or sn is None:
-        continue
-    up, un = count(sp), count(sn)
-    both = sp["is_detector"] & sn["is_detector"]
-    neg.append({"model": run, "layer": l, "pos_unique": up["unique_total"], "neg_unique": un["unique_total"],
-                "pos_detector_units": up["detector_units"], "neg_detector_units": un["detector_units"],
-                "both_same_concept": int(np.sum(sp["best"][both] == sn["best"][both])),
-                **{f"pos_{c}": up["unique_per_cat"][c] for c in CATS}, **{f"neg_{c}": un["unique_per_cat"][c] for c in CATS},
-                "top_negative_labels": pd.Series([names[c] for c in sn["best"][sn["is_detector"]]]).value_counts().head(5).to_dict()})
-out["negative"] = neg
-
-# ---------------- stability: IoU threshold, activation quantile, input noise, bootstrap ----------------
-stab = []
-for run in ["alexnet-imagenet", "alexnet-places365", "caffe-alexnet-places205", "vgg16-imagenet", "caffe-vgg16-places365"]:
-    l = LAST[run]
-    s0, sums0 = summ(run, l)
-    if s0 is None:
-        continue
-    det0 = s0["is_detector"]
-    for t in [0.02, 0.03, 0.04, 0.05, 0.06, 0.08]:
-        st = D.summarize(sums0, meta, t)
-        stab.append({"model": run, "perturbation": "iou_threshold", "value": t, "unique": count(st)["unique_total"],
-                     "detector_units": int(st["is_detector"].sum()), "label_agreement": float(np.mean(st["best"] == s0["best"]))})
-    for kind, prefix, v in [("quantile", "q", 0.01), ("quantile", "q", 0.001), ("noise", "noise", 0.05), ("noise", "noise", 0.1)]:
-        s1, _ = summ(f"{prefix}{v}-{run}", l)
-        if s1 is not None:
-            stab.append({"model": run, "perturbation": kind, "value": v, "unique": count(s1)["unique_total"],
-                         "detector_units": count(s1)["detector_units"],
-                         "label_agreement": float(np.mean(s1["best"][det0] == s0["best"][det0]))})
-S = pd.DataFrame(stab)
-S.to_csv(os.path.join(R, "table_stability.csv"), index=False)
-out["stability"] = stab
-
-# ---- does the ranking of models depend on the IoU threshold? (paper: "relative orderings remain stable")
-thr = [0.02, 0.03, 0.04, 0.05, 0.06, 0.08]
-U = {}
-for r, lab, _ in MODELS:
-    _, sums = summ(r, LAST[r])
-    if sums is not None:
-        U[lab] = [count(D.summarize(sums, meta, t))["unique_total"] for t in thr]
-if len(U) > 2:
-    U = pd.DataFrame(U, index=thr).T
-    U.to_csv(os.path.join(R, "table_threshold_sweep.csv"))
-    pairs = [(x, y) for x, y in combinations(U.index, 2) if U.loc[x, 0.04] != U.loc[y, 0.04]]
-    flips = [(x, y) for x, y in pairs if any(np.sign(U.loc[x, t] - U.loc[y, t]) == -np.sign(U.loc[x, 0.04] - U.loc[y, 0.04]) for t in thr)]
-    out["threshold_ordering"] = {"n_pairs": len(pairs), "n_pairs_flipping": len(flips), "flipping_pairs": flips,
-                                 "kendall_tau_0.02_vs_0.08": float(stats.kendalltau(U[0.02], U[0.08]).statistic)}
-    fig, ax = plt.subplots(figsize=(4.6, 3.0))
-    for lab in U.index:
-        ax.plot(thr, U.loc[lab], "-o", ms=3, lw=1.3, label=lab, color="#2a78d6" if "AlexNet" in lab else "#eb6834",
-                alpha=0.35 if "random" in lab else 0.9)
-    ax.axvline(0.04, color=GREY, ls="--", lw=0.8)
-    ax.set_xlabel("IoU threshold for a detector"); ax.set_ylabel("Unique detectors (last conv)")
-    ax.set_title(f"Threshold sweep (blue AlexNet, orange VGG16): {len(flips)} of {len(pairs)} pairs change order", fontsize=8, loc="left")
-    save(fig, "fig_threshold_sweep.png")
-
 # ---------------- cascading randomisation ----------------
 casc = {}
 for run, order in [("alexnet-imagenet", ["fc", "conv5", "conv4", "conv3", "conv2", "conv1"]),
@@ -293,16 +231,9 @@ if casc:
     ax.legend(fontsize=7)
     save(fig, "fig_cascade.png")
 
-# ---------------- consistency of concept sets (Jaccard, last layers) ----------------
-sets = {lab: set(s["best"][s["is_detector"]].tolist()) for r, lab, _ in MODELS if (s := summ(r, LAST[r])[0]) is not None}
-J = pd.DataFrame([[len(sets[x] & sets[y]) / max(1, len(sets[x] | sets[y])) for y in sets] for x in sets], index=list(sets), columns=list(sets))
-J.to_csv(os.path.join(R, "table_jaccard.csv"))
-out["jaccard"] = J.round(3).to_dict()
-
-# ---------------- fidelity, Net2Vec, verification, human check ----------------
+# ---------------- fidelity, model verification ----------------
 out["fidelity"] = {os.path.relpath(p, R): json.load(open(p)) for p in glob.glob(os.path.join(R, "*", "fidelity_*.json"))}
-out["net2vec"] = {os.path.relpath(p, R): json.load(open(p)) for p in glob.glob(os.path.join(R, "*", "net2vec_*.json"))}
-for f in ["verify_imagenette.json", "verify_scenes.json", "human_check.json"]:
+for f in ["verify_imagenette.json", "verify_scenes.json"]:
     if os.path.exists(os.path.join(R, f)):
         out[f[:-5]] = json.load(open(os.path.join(R, f)))
 for p in glob.glob(os.path.join(R, "*", "fidelity_units_*.csv")):
@@ -367,30 +298,6 @@ if len(DY):
     ax.set_xscale("log"); ax.set_xlabel("training iteration (iteration 0 plotted at 1)"); ax.set_ylabel("Unique detectors")
     ax.set_title("Emergence during training (3 seeds, paper Fig. 10)", fontsize=9, loc="left")
     save(fig, "fig_training_dynamics.png", ax)
-
-# ---------------- discrimination vs interpretability (paper Sec. 3.6, Fig. 12) ----------------
-for task, f, key in [("action40", "discrimination_action40.json", "action40_acc"), ("scenes", "discrimination.json", "scene_probe_acc")]:
-    p = os.path.join(R, f)
-    if not os.path.exists(p):
-        continue
-    rows = json.load(open(p))["rows"]
-    sp = lambda rs: {"rho": float(stats.spearmanr([r[key] for r in rs], [r["unique_object_detectors"] for r in rs]).statistic),
-                     "p": float(stats.spearmanr([r[key] for r in rs], [r["unique_object_detectors"] for r in rs]).pvalue), "n": len(rs)}
-    pre = [r for r in rows if not r["run"].startswith("small-")]
-    out[f"discrimination_{task}"] = {"rows": rows, "all": sp(rows), "pretrained_and_random": sp(pre),
-                                     "imagenette_trained": sp([r for r in rows if r["run"].startswith("small-")])}
-    fig, ax = plt.subplots(figsize=(4.8, 3.2))
-    for r in rows:
-        sm = r["run"].startswith("small-")
-        ax.scatter(r[key], r["unique_object_detectors"], s=14 if sm else 26, color="#9a9a9a" if sm else ("#2a78d6" if "alexnet" in r["run"] else "#eb6834"))
-        if not sm:
-            ax.annotate(r["run"].replace("caffe-", ""), (r[key], r["unique_object_detectors"]), fontsize=5.5, color=GREY,
-                        xytext=(2, 2), textcoords="offset points")
-    ax.set_xlabel(f"{task}: mean per-class accuracy of a linear classifier on last-conv features")
-    ax.set_ylabel("Unique object detectors")
-    ax.set_title(f"{task}: Spearman ρ = {out[f'discrimination_{task}']['pretrained_and_random']['rho']:.2f} "
-                 f"(pretrained/random models, n={len(pre)}); grey = Imagenette-trained", fontsize=7.5, loc="left")
-    save(fig, f"fig_discrimination_{task}.png")
 
 json.dump(out, open(os.path.join(R, "results_summary.json"), "w"), indent=1,
           default=lambda o: o.tolist() if hasattr(o, "tolist") else (None if isinstance(o, float) and np.isnan(o) else str(o)))
